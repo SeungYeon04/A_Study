@@ -85,8 +85,137 @@
     <br>
     <hr> 
     <br>
-
-
+    <li>연결하는 어댑터 종류(랜카드 종류의)</li><br> 
+    10 Base 2<br> 
+    10 Base 5<br> 
+    10 Base T<br>
+    <br>
+    10: 속도 (10=10M, 100=100M, 1000=1000M(1G))<br>
+    Base<br>
+    2, 5, T: 거리 (2=200M, 5=500M, ⭐T=100M(트위스트페어))<br>
+    <br>
+    <img src="Image/net3.png" width="600" height="450">
+    <br>
+    <li>신호증폭장치(리피터)</li><br>
+    100 Base 5 거리 부족하면 사용<br> 
+    <br>
+    아날로그증폭: 잡음 +<br>
+    디지털증폭: 잡음 -<br>
+    <br>
+    <hr>
+    <br>
+    UTP(언쉴드 트위스트페어)(노방패꼬인쌍선)(비차페)케이블<br>
+    두 가닥씩 꼬아서 자기장 폐쇄하는 성질<br>
+    그 외 STP FTP 같은 것도 있음.<br>
+    <br>
+    램케이블 색상 순서는?<br>
+    ⭐ 백등 등 - 백녹 - 청 백청 - 녹 - 백갈 갈 ⭐<br>
+    <br>
+    <hr>
+    <br>
+    <li>네트워크 (토폴로지) 트리형</li><br>
+    <img src="Image/net9.png" width="550" height="400"><br>
+    <li>MAC 매체(통신로)(검색: 매체접속제어)</li><br>
+    Media 매체(통신로)<br>
+    Access 접근<br>
+    Control 제어<br>
+    <br>
+    <li>전송방식 간단소개</li>
+    <ol type = "1">
+    <li>순서대로</li><br>
+    <li>경쟁(달려!!)</li>
+    </ol>
+    <br>
+    (이 아래에선 전송방식 소개 시작)<br>
+    시험 예상 문제는 ⭐ 그림으로 경쟁방식 적으시오<br>
+    그 정도로 낼 수 있다고 한다<br>
+    <br>
+    <li>ALIHA(알로하) & Slot ALOHA(슬롯 알로하)</li>
+    <img src="Image/net4.png" width="500" height="420"><br>
+    <br>
+    1. ALOHA는 마구잡이로 보내도록 열어둠.<br>
+    시간이 겹치는 부분이 부분충돌로 나던 완전충돌로 나던<br> 
+    데이터는 소멸 되어서 18%만 보내짐.<br>
+    <br>
+    2. Slot ALOHA는 1초 단위이자<br>
+    Slot의 시작점에서부터 보내도록 함.<br>
+    그러므로 부분충돌X 되고 완전충돌은 그대로<br>
+    38% 정도 전송이 되었음.<br>
+    <br>
+    <li>CSMA, CSMA/CD, CSMA/CA</li>
+    <img src="Image/net5.png" width="600" height="420">
+    <br>
+    3. CSMA(carrier, Sense, Meltiple, Access)<br>
+    - c옮기다 s센스 m멀티플 a접속(접근) = 다중접속<br>
+    <br> 
+    ⭐ (1) 통신로를 살핀다(carrier이 있나 없나)<br>
+    (2) 캐리어 있으면 기다리는 식<br> 
+    캐리어(데이터전송) 아무도 없으면 전송<br>
+    (3) 다른 데이터 멀리서 와서 못 보고 전송 되면<br>
+    중간에 충돌 일어날 수 있음(간호 - 교수님 - 간호)<br>
+    그 충돌을 *Collision(콜리젼)*이라고 함 ⭐<br>
+    <br>
+    4. CSMA/CD<br>
+    (C: collision D:detection = 충돌검출)<br>
+    <br>
+    <li>CMSA & CMSA/CD 차이</li>
+    <br>
+    원래 CSMA = 데이터 전송 후<br>
+    데이터 전달 잘 됐다고 보고하러 올 때까지 기다려 봐야 함<br>
+    오면 그렇구나 하지만 올 시간까지 안 오면<br>
+    알아서 충돌이라도 났구나 해야 함.<br>
+    <br>
+    CSMA/CD = 충돌이 나면 5초 만에 충돌이라 뜸<br>
+    원래 가는데 10초 오는데 10초 20초였다면<br>
+    5초부터 충돌 나도 합쳐서 10초임<br> 
+    그 충돌 문자 개념을 jamming이라고 함.<br>
+    별로 안 기다려도 됨! 장점: 지연시간 단축!<br>
+    <br>
+    5. CSMA/CA(잘안씀)<br>
+    (C: collision A:avoidance = 충돌 회피&기피)<br>
+    <br>
+    통신로에 올 만한 애들에게<br>
+    하나하나 데이터 전송 안 쓸 건지 물어보고 전달<br>
+    <br>
+    장점: 충돌X<br>
+    단점: 다 물어보느라 오래 걸림<br>
+    <br>
+    <li>token-ring, doble ring, slot ring</li><br>
+    <br>
+    <img src="Image/net6.png" width="600" height="500"><br>
+    <br>
+    6. token-ring(R.R)<br>
+    <br>
+    A|D|data|O|0 이런 토큰이 돔<br>
+    AD - 헤더파일(주소, 목적지) / OX 토큰상태살아있음 / 0상호작용X 1파일전송완료<br>
+    토큰을 가진 자만 데이터 전송<br>
+    원을 돌면서 D가 주소 보니 내꺼네 싶으면<br>
+    bata O 1 으로 토큰을 변경 후 보냄<br>
+    A가 토큰 1로 된 걸 받으면<br>
+    아 잘 받았구나 하며 다른 애한테 또 전송<br>
+    <br>
+    7. doble ring(토큰조기해제버전)<br>
+    <br>
+    토큰 조기해제로 링 두 개 됨<br>
+    쓰고나면 바로 넘기고 바로 넘김<br>
+    원리 자체는 토큰링과 비슷한데<br>
+    평소엔 바깥 링에서 돌다가<br>
+    문제 생기면 안쪽 보조링 사용.<br>
+    <br>
+    8. slot ring<br>
+    <br>
+    이것도 토큰이 돌아가는 방식<br>
+    원 안에 데이터를 저장하는 슬롯링<br>
+    데이터가 차 있으면 단 곳으로 토큰 보내버림<br>
+    남는 공간이라면 데이터 저장<br>
+    <br>
+    대역폭 예시 = 네트워크 흐름이 밀리면 빨간불 나오는 듯<br>
+    대학교에서 애들이 불법파일 다운 할 때 그랬다 함.<br>
+    <br>
+    - 마지막 남기신 말씀<br>
+    포렌식은 16진수 알아야 이해 가능<br>
+    우리 네트워크는 경쟁방식이다.<br>
+    <br>
 </body>
 <style>
     @font-face {
