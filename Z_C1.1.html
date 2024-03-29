@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>C-1</title>
+</head>
+<body>
+    <h1><a href="index.html">부러의 다락방</a></h1>
+    <br>
+    C언어 공부하기 1탄<br>
+    코드 한번에 적고 하나하나 풀어둘게요<br>
+    과제 밀릴까봐 옮겨만 둘게요!<br>
+    <br>
+    <li>이번에 배운 중요 C언어</li><br>
+    <br>
+    int<br>
+    float<br>
+    for<br>
+    while<br>
+    do{} while();<br>
+    scanf<br>
+    if <br>
+    if else<br> 
+    else <br>
+    switch <br>
+    (case, default)<br>
+    break <br>
+    return <br>
+    <br>
+    <hr>
+    <br> 
+    <li>C언어 기본 틀 살펴보기</li><br>
+    <pre>
+    #include &lt;stdio.h&gt;  
+        //stdio.h = standard input output 표준입출력  
+        
+        int main()
+        {
+            return 0; 
+        }
+    </pre> 
+    <br>
+    정수형 int = %d<br>
+    실수형 float = %f<br>
+    문자형 char = %c<br>
+    <br>
+    <pre>
+        int main(){
+	
+            int a = 10; 
+            double b = 1.5; 
+            char c = 'w'; 
+            
+            printf("%d %.2f %c", a, b, c); 
+        
+            return 0; 
+        }
+    </pre>
+    <li>미니계산기 만들기(연산자+-*%사용)</li>
+    <pre>
+    #include &lt;stdio.h&gt; 
+        //라이브러리는 이미 짜진 도서관  
+        //인클루드 포함하다(끌어쓰다)
+        //stdio 스탠다드 인풋아웃풋 소스파일 헤드퍼일에 적용해서 끝어쓰다 꼭 입출력  
+        
+        int main(){
+            
+            //scanf() 
+            
+            //미니계산기 
+            //1. 변수 ( 변하는 수 저장) 만들기 
+        //	int a, b; //변수 선언문 (메모리에 a b 공간 만들어짐) 
+        //	a = 5; //값 배정문 =은 배정연산자  
+        //	b = 3;  
+            
+            int a=5, b=3, c=1; //변수선언 + 값 배정 
+                
+            printf("\n*** 미니 계산기 ***\n 3개 수 입력: "); 
+            scanf("%d %d %d", &a, &b, &c); //3 정수 받을게 &a 주소 위치에 할당 
+            
+            printf("%d + %d + %d = %d\n", a, b,c, a+b+c);
+            printf("%d - %d - %d = %d\n", a, b,c, a-b-c);
+            printf("%d * %d * %d = %d\n", a, b,c, a*b*c);
+            printf("%d / %d / %d = %d\n", a, b,c, a/b/c);
+            printf("%d %% %d %% %d = %d\n", a, b,c, a%b%c); 
+            return 0; 
+        }
+        </pre>
+    <li>for(구구단 세로 출력)</li>
+    <pre>
+        #include <stdio.h>
+
+            int main()
+            {
+                int i = 0; 
+                int j = 0; 
+                
+                //2중 반복문  
+                for(i = 1; i &lt;= 9; i++)
+                {
+                    for(j = 2; j &lt;= 9; j++)
+                    {
+                        printf("%d * %d = %d\t", j, i, i*j); 		
+                    }
+                    printf("\n");
+                }
+                return 0; 
+            } 
+    </pre>
+    i = 1; i &lt;= 9; i++<br>
+    j = 2; j &lt;= 9; j++<br>
+    printf("%d * %d = %d\t", j, i, i*j); <br>
+    i 한 번 돌면 j 9번 돌고<br>
+    <br>
+    i 하나 오를 때마다 j++ 9까지<br>
+    i * j 해서 (j, i, i*j) 출력<br>
+    j와 i 순서로 가로 세로 바꾸어짐<br>
+    <br>
+    <pre>
+    2*1=2 3*1=3 4*1=4 ~~ 
+    2*2=4 3*2=6 4*2=8 ~~ 
+    2*3=6 3*3=9 4*3=12 ~~~ 
+    ~~~ 
+    </pre>
+    <li>for(입력한 수 만큼 숫자계단)(test6)</li><br>
+    <pre>
+        #include &lt;stdio.h&gt; 
+
+            int main()
+            {
+                //옆으로 갈 때 4즐이고 그 다음 3줄여야 해서 -1 시키기  
+                
+                int i, j, k=1, f, input, input2; 
+                
+                printf("숫자 입력: ");
+                scanf("%d", &input); 
+                int diff = 0; 
+               
+               for(i=1; i&lt;= input; i++) //행 줄  
+                {	  
+                   k=i; //k에 행 수를 넣어요  
+                   diff = input - 1; //-1 여기서 시킴 
+                   
+                    for(j=1; j&lt;=i; j++)//열 칸
+                    {	 			
+                        printf("%3d", k); 
+                        k = k + diff; //k 값에 diff 
+                        diff = diff - 1; //다음 더 낮아져야 해서 -1 더 추가함  
+                      }		
+                      printf("\n");  		
+                          
+               }	
+               return 0; 
+            }
+    </pre>
+    <li>(test7)</li>
+    <pre>
+        #include &lt;stdio.h&gt;
+
+            int main()
+            {
+                int i, j, k, p=1, dis; 
+            
+                printf("숫자 입력"); 
+                scanf("%d", &k);
+            
+                for(i=1; i&lt;=k; i++)
+                {			
+                    p = i; 	
+                    dis = k - 1; 
+                    
+                    for(j=1; j&lt;=i; j++)
+                    {
+                        printf("%3d", p);
+                        p = p + dis; 
+                        dis--; 		
+                    }
+                    printf("\n");
+                }
+            
+            
+                return 0; 
+            }
+    </pre>
+    <li>입력값의 약수 찾기(나누어지는 수)(test8)</li>
+    <pre>
+        #include &lt;stdio.h&gt;
+
+            int main()
+            {
+                int input, i; 
+            
+            
+                for(;;)
+                {	 		
+                    printf("숫자 입력 "); 			
+                    scanf("%d", &input);
+                    
+                    if(input == 0)
+                    {
+                        printf("0이면 퇴출");
+                        break; 
+                    }
+            
+                    for(i=1; i&lt;=input; i++)
+                    {
+                        if(input % i == 0)
+                        {
+                            printf("%d의 약수는 %d\n", input, i); //나누어지는 숫자  
+                        }
+                    }
+                            
+                }
+                return 0; 
+            }
+    </pre>
+    <br>
+    scanf로 0입력하면 break로 for문 나감<br>
+    입력한 수 만큼까지 i++해서 <br>
+    나누어 떨어질 수 있는 수를(약수) 다 체크함<br>
+    <br>
+    i가 늘어날 때마다 input % i == 0<br>
+    (%는 나눈 후 나머지 찾는 연산자)<br>
+    나눈 나머지 수가 0이면 출력 (8이라면 1,2,4,8정도)<br>
+    <br>
+    <hr>
+    <br>
+    <li>(test9)</li>
+    <pre>
+        #include &lt;stdio.h&gt;
+
+            int main(){
+                /*
+                
+                int input1, input2; 
+                
+                printf("2개 숫자입력 "); 
+                scanf("%d %d", &input1, &input2); 
+                
+                for(;;)
+                {
+                    if(input1 && input2 == -1)
+                    {
+                        printf("프로그램 종료\n");
+                        break;  
+                    }
+                    
+                    if(input1 >= 80 || input2 >= 80)
+                    {
+                        printf("Pass\n");
+                    }
+                    else
+                    {
+                        printf("Fail\n");
+                    }	
+                    printf("두 숫자입력 "); 
+                    scanf("%d %d", &input1, &input2); 
+                }
+                printf("for 벗어남");*/
+                
+                // 1 --&gt; true / 0 --&gt; false  
+                int a = 0; //a에 수가 있으면 !a는 0이 됨. 그럼 !a false됨  
+                
+                if(!a) //0이 아니기에 그럼 a를 0으로 해두면 1로 바뀌며 실행됨  
+                {
+                    printf("낫a 값 %d ", !a);
+                }
+                else
+                {
+                    printf("a 값 %d ", a);
+                }
+                return 0;
+            }
+    </pre>
+    <li>(test10)</li>
+    <pre>
+    #include &lt;stdio.h&gt;
+
+        int main()
+        {
+            //for while do.. while 
+            //문제 1~100까지의 수를 모두 더해서 출력하라 
+            //for 
+            
+            int i, sum = 0; 
+            
+            for(i = 101; i &lt;= 100; i++)
+            {
+                sum = sum + i; //1 3 6 10 15 21 	
+            }
+            printf("sum1 = %d", sum);
+            
+            //while 
+            i = 0;
+            sum = 0; 
+            while(i &lt;= 100)
+            {
+                sum = sum + i;
+                i++; 	
+            } 
+            printf("sum2 = %d", sum); 
+            
+            //do...while 
+            i = 1;
+            sum = 0; 
+            
+            do{ //한 번 실행 후 함. 조건체크를 마지막에 함 조건 부합 안해도 무조건 한 번은 실행  
+                sum = sum + i; 
+                 i++; 
+            }
+            while(i &lt;= 100); 
+                printf("sum3 = %d", sum);
+            return 0; 
+         } 
+    </pre>
+    <li>(test11)</li>
+    <pre>
+        #include &lt;stdio.h&gt;
+
+            int main()
+            {
+                int input, All = 0; 
+            
+                //for 적응하기  
+                for(;;)
+                {
+                    printf("더할 숫자 입력: "); 
+                    scanf("%d", &input); 
+                    All = All + input; 
+                    
+                    if(All == 0)
+                    {
+                        printf("0발견!!");
+                        break;  
+                    }
+                    if(All != 0)
+                    {
+                        printf("%d + %d = %d\n", All, input, All); 
+                    }
+                }	
+                printf("합계 %d\n", All); 
+            } 
+    </pre>
+    <li>(test12)</li>
+    <pre>
+        #include &lt;stdio.h&gt;
+
+            int main()
+            {
+                int input, All = 0; 
+                
+                //while 적응하기  
+                while(true)
+                {
+                    printf("더할 숫자 입력: "); 
+                    scanf("%d", &input); 
+                    All = All + input; 
+                    
+                    if(All == 0)
+                    {
+                        printf("0발견!!");
+                        break;  
+                    }
+                    if(All != 0)
+                    {
+                        printf("%d + %d = %d\n", All, input, All); 
+                    }
+                }	
+                printf("합계 %d\n", All);	        
+            }
+    </pre>
+    <li>(test13)</li>
+    <pre>
+        #include &lt;stdio.h&gt;
+
+            int main()
+            {
+                int input, All = 0; 
+            
+                //do.. while 적응하기 
+                do
+                {
+                    printf("더할 숫자 입력: "); 
+                    scanf("%d", &input);
+                    
+                    All = All + input; 
+                    
+                    if(All == 0)
+                    {
+                        printf("0발견!!");
+                        break;  
+                    }
+                    if(All != 0)
+                    {
+                        printf("%d + %d = %d\n", All, input, All); 
+                    } 
+                } 
+                while(true); 
+                
+                printf("합계 %d\n", All); 
+            } 
+    </pre>
+    <li></li>
+    <pre>
+        #include &lt;stdio.h&gt;
+
+            int main()
+            {
+                //반복문 (for, while, do .. while) 
+                //사용자가 0 입력하면 반복 종료 
+                // 그렇지 않으면 모든 수를 합계를 구하여라 
+                
+                //for 
+                /*int input, sum = 0; 
+                
+                for(;;)
+                {
+                    scanf("%d", &input);
+                    sum = sum + input; 
+                    
+                    if(input == 0)
+                    {
+                        break; 
+                    } 
+                } 
+                printf("합계 : %d \n", sum); */
+                
+                int input, sum = 0; 
+                
+                //while 
+                /*scanf("%d", &input);
+                while(input != 0)
+                {
+                    sum = sum + input; 
+                    scanf("%d", &input);		
+                } 
+                printf("합계 : %d \n", sum); 
+                
+                    int input, sum = 0; */
+                
+                //do while 
+                do
+                {
+                scanf("%d", &input);
+                sum = sum + input; 		
+                }
+                while(input != 0); 		
+            
+                printf("합계 : %d \n", sum); 
+                return 0;
+            }
+    </pre>
+    <li>(test15)</li>
+    <pre>
+        #include &lt;stdio.h&gt;
+
+            int main()
+            {
+                /*
+                int input, sum, i = 0; 
+                
+                for(i=0; i&lt;=100; i++)
+                {
+                    scanf("%d", &input);
+                    sum = sum + input; 
+                    
+                    if(input == 0)
+                    {
+                        break; 
+                    } 
+                } 
+                printf("합계 : %d \n", sum / i);*/
+                
+                int input, sum, i, cnt = 0; 
+                
+                for(i=0; i&lt;=100; i++)
+                {
+                    scanf("%d", &input);
+                    if(input == 0)
+                    {
+                        break; 
+                    } 
+                    sum = sum + input; 
+                    cnt++; 
+                } 
+                printf("합계 : %d \n", sum); 
+                printf("평균 : %.2f \n", (float)sum / cnt); //형변환 (타입캐스팅)  
+            }
+    </pre>
+    <li>(test16)</li>
+    <pre>
+        #include &lt;stdio.h&gt;
+
+            int main()
+            { 
+            /*
+                int input; 
+                
+                printf("숫자입력: ");
+                scanf("%d", &input);
+                
+                if(input == 0)
+                {
+                    printf("0입니다"); 
+                }
+                else if(input == 1) 
+                {
+                    printf("1입니다");
+                }
+                else 
+                {
+                    printf("0 또는 1이 아닙니다");
+                }
+                
+                 */
+                 
+                 float input = 0.0; 
+                 scanf("%f", &input); 
+                 
+                 if(input >= 5.2)
+                 {
+                     printf("pass");
+                 }
+                 else
+                 {
+                     printf("fail");
+                 }
+                
+                return 0; 
+            }
+    </pre>
+    <li>(test17)</li>
+    <pre>
+        #include &lt;stdio.h&gt;
+
+            int main()
+            {
+                
+                int input; 
+                
+                printf("숫자입력: ");
+                scanf("%d", &input);
+                
+                switch(input)
+                {
+                    case 0: 
+                    printf("0입니다"); break; 
+                    case 1: 
+                    printf("1입니다"); break; 
+                    default: 
+                    printf("0 또는 1입니다"); 
+                }
+                 
+                 /*
+                 //스위치는 float를 못함!!! 오류!!  
+                 float input; 
+                
+                printf("숫자입력: ");
+                scanf("%f", &input);
+                
+                switch(input)
+                {
+                    case 0: 
+                    printf("0입니다"); break; 
+                    case 1: 
+                    printf("1입니다"); break; 
+                    default: 
+                    printf("0 또는 1입니다"); 
+                }*/
+                
+                return 0; 
+            }
+    </pre>
+    <li>(test18)</li>
+    <pre>
+        #include &lt;stdio.h&gt;
+
+            int main()
+            {
+                int input;
+                scanf("%d", &input);
+                /*
+                switch(input)
+                {
+                    case 0: 
+                    printf("가위"); break; 	
+                    case 1: 
+                    printf("바위"); break; 
+                    case 2: 
+                    printf("보"); break; 
+                    default :
+                    printf("0~2로 적으시오");
+                } */
+                
+                switch(input)
+                {
+                    case 1: 
+                    printf("자장면"); break; 
+                    case 2: 
+                    printf("군만두\n");
+                    printf("탕수육");
+                    break; 
+                    default :
+                    printf("그런 음식은 없습니다.");
+                }
+                
+                return 0; 
+            }
+    </pre>
+    <li>switch문 시작(test20)</li>
+    <pre>
+        #include &lt;stdio.h&gt;
+
+            int main()
+            {
+                int input;
+                scanf("%d", &input);
+                
+                switch(input%2) //홀짝  
+                {
+                    case 0: 
+                    printf("짝수입니다"); break; 	
+                    case 1: 
+                    printf("홀수입니다"); 
+                } 
+                
+                return 0; 
+            }
+    </pre>
+    <li>(test21)</li>
+    <pre>
+        #include &lt;stdio.h&gt;
+
+            int main()
+            {
+                int input =0; 
+                scanf("%d", &input); 
+                
+                switch(input)
+                {
+                    case 1: 
+                    printf("자장면"); break;  
+                    case 2: 
+                    printf("군만두\n");
+                    printf("탕수육"); break; 
+                    default : 
+                    printf("그런 음식 없습니다");
+                }
+                
+                return 0;
+            }
+    </pre>
+</body>
+<style>
+    @font-face {
+        font-family: 'SBAggroB';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+    body {
+            font-family: 'SBAggroB';
+        }
+</style>
+</html>
