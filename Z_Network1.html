@@ -2,6 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <title>네트워크1</title>
+<link type="text/css" rel="stylesheet" href="fonts.css"> 
 </head>
 <body>
     <h1><a href="index.html">부러의 다락방</a></h1> 
@@ -259,17 +260,37 @@
     02-05-1B 제조회사에서 임의로 제조한 번호<br> 
     <br>
     진짜 주소 = 하드웨어 주소 (IP아님)<br> 
-
-</body>
-<style>
-    @font-face {
-        font-family: 'SBAggroB';
-        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
-    }
-        body {
-            font-family: 'SBAggroB';
-        }
-    </style>   
+    램카드 바꾸지 않는 한, 고유주소는 안 바뀜.<br> 
+    ⭐ IP 주소는 바꿀 수 있고 하드웨어 주소만 못 바꿈<br> 
+    <br>
+    MAC, IP, DNS 등 주소 바꾸는 과정을 &gt; 스포핑이라 부름<br> 
+    MAC스포핑 IP스포핑 DNS스포핑<br> 
+    <br>
+    <pre>
+    <h3>인터넷 (문자) http://www.naver.com </h3>
+↑(⭐DNS)                ↓(⭐DNS 도메인네임시스템)
+⭐역으로 요청해도 DNS / 알기쉬운 문자로 변환
+    <h3>숫자주소 (IP) 65.XXX.XXX.XXX</h3>   
+↑(⭐리버스)            ↓ (⭐ARP 요청)
+MAC에서 숫자를 역으로 요청RARP / IP에서 MAC으로
+    <h3>MAC 주소 00_06_XX_XX_XX_XX</h3>
+    </pre>
+    숫자주소 L3(네트워크층)<br>
+    MAC주소는 L2(데이터링크층)<br>
+    Port 번호는 L4(전송층)<br>
+    ARP(어드래스 레전드셜 프로젝트)<br>
+    <br>
+    <hr>
+    <br>
+    DHCP - Dynamic, Host, Cinfiguration, Protocol<br>
+    <br>
+    신호증폭장치 리피터 L1(물리계층)<br>
+    LAN 안에서 네트워크 증폭<br>
+    (10M속도) 10 Base 5 (500m거리)<br>
+    <br>
+    <img src="Image/net10.png" width="400" height="200"><br>
+    <br>
+    <hr>
+    <br>
+</body> 
 </html>
