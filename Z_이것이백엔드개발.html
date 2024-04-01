@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>백엔드책</title>
+<link type="text/css" rel="stylesheet" href="fonts.css"> 
+</head>
+<body>
+    <h1><a href="index.html">부러의 다락방</a></h1> 
+    <br>
+    <img src="Image/백엔드개발이다.png" width="200" height="230"><br>
+    <br>
+    <hr>
+    <br>
+    JAVA 백엔드 지식<br>
+    <br>
+    백엔드 개발자에게 필요한 역량<br>
+    커뮤니케이션 능력<br>
+    구현 능력<br>
+    주도성<br>
+    풍부한 CS지식<br>
+    당연한 것에 의문 품기<br>
+    <br>
+    비주얼스튜디오 보단 인텔리제이가 자바랑 잘 맞음<br>
+    intellij 설치해서 사용<br>
+    <br>
+    <pre>
+    if(특정조건)
+    {
+
+    }
+    else 
+    {
+        //특정 조건 만족 안되면 실행 
+    }
+    </pre>
+    <br>
+    <li>JAVA if elseif else</li>
+    <pre>
+    public class Main()
+    {
+        public static void main(String[] args){
+            int number = 1; 
+
+            if(number == 1) {
+                System.out.println("if블록입니다"); 
+            }
+            else if (nember == 2)
+            {
+                System.out.println("else if 블록입니다."); 
+            }
+            else 
+            {
+                System.out.println("else 블록입니다");
+            }
+        }
+
+    }
+    //결과 if블록입니다
+    </pre>
+    <br>
+    <li>JAVA for while</li>
+    <pre>
+    for((1)최초 1회만 실행될 코드; (2)반복조건; (4)1회 반복 후 실행할 코드)
+    {
+        (3)반복 실행할 코드
+    }
+</pre>
+<br>
+    (1)최초 1회만 실행할 코드<br>
+    for문 처음 진입하고 1회만 실행<br>
+    <br>
+    (2)반복조건 식이 참이면 반복<br>
+    반복문은 배열을 순회하면서 반복되기 때문에<br>
+    배열 크기만큼 반복하는 경우가 많음<br>
+    조건 잘못 지정하면 무한반복하니 주의<br>
+    <br>
+    (3)반복 실행할 코드를 실행한다<br>
+    <br>
+    (4)1회 반복 끝나면 실행할 코드로<br>
+    연이어 실행한다(배열의 다음 요소로 가기 위해 값 1증가 형태 자주 씀)<br>
+    <br>
+    대략 순서 1>2>3>4>2>3>4>2>3>4>...>2>3>4>2<br>
+    2의 반복조건이 참이 아니면 코드가 종료 됨<br>
+    <br>
+    <pre>
+    public class Main {
+        public static void main(String[] ards)
+        {
+            int[] array = {1, 2, 3, 4, 5}; 
+
+            for(int i = 0; i &lt; array.length; i++)
+            {
+                System.out.printf("i = " + array[i]);
+            }
+        }
+    }
+</pre>
+<br>
+<li>JAVA while</li>
+<pre>
+    while (반복조건) {
+        //반복 실행할 코드 
+    }
+
+    ---------- 
+
+    public class Main {
+        public static void main(String[] args)
+        {
+            int[] array = {1, 2, 3, 4, 5}; 
+            int i = 0; 
+
+            while (i &lt; array.length)
+            {
+                System.out.println("i = "+ array[i]); 
+                i++;
+            }
+        }
+    }
+    //실행결과 
+    i = 1
+    i = 2
+    i = 3 
+    i = 4 
+    i = 5
+</pre> 
+<li>JAVA while 무한반복</li><br>
+<pre>
+    while (true)
+    {
+        //반복실행할코드 
+
+        if(특정조건)
+        {
+            break; 
+        }
+    }
+</pre>
+<li>JAVA 다형성: 상속과 인터페이스</li><br>
+다형성은 객체지향 개념 관통해가는 개념이라 중요하다<br>
+하나의 객체가 내부적으로 여러 타입을 가질 수 있고<br>
+어떤 타입이냐에 따라 각기 다른 동작을 하는 성질<br>
+<br>
+자동차Car 인터페이스 정의한다 하고<br>
+인터페이스를 구현하는 Sonata 클래스 <br>
+K5 클래스를 정의한다면 코드로 만든 모습<br>
+<br>
+<pre>
+    public interface Car {}
+
+    public class Sonata implements Car {} 
+
+    public class K5 implements Car {} 
+
+    public class Main {
+        public static void main(String[] args)
+        {
+            Car car1 = new Sonata(); 
+            Car car2 = new K5();
+        }
+    }
+    (이 코드 왜 반갑지..? C# 생각나..)
+</pre>
+<br>
+인터페이스인 Car타입의 참조변수에 자동차 인터페이스의 구현체인<br>
+sonata와 k5의 인스턴스를 모두 대입할 수 있음.<br>
+이게 가능한 특성이 다향성이다.<br>
+Car를 부모클래스로 바꾸고, <br>
+구현한다를 상속한다로 바꿔도 다향성은 동일하다<br>
+<br>
+sonata와 k5는 Car라는 인터페이스를 구현하는 구현체라 함.<br>
+구현체는 클래스가 되고 <br>
+인터페이스는 new 키워드 써서 인스턴스를 생성할 수 없다<br>
+구현체인 클래스는 new 키워드로 인스턴스를 생성할 수 있음<br> 
+<br>
+<li>컬렉션: List</li><br>
+자바에서 컬렉션이란 데이터의 집합을 의미한다.<br>
+주요 컬렉션으로 List, Set, Map이 있는데<br>
+이것은 구현체X 인터페이스다.<br>
+인터페이스 구현하는 여러 클래스 중에서 가장 많이 쓰는<br> 
+List인터페이스의 구현체인 ArrayList 를 알아볼 거다.<br>
+<br>
+ArrayList도 배열처럼 여러 개의 데이터를 다룰 때 쓰는데<br>
+코드 내부에서 배열로 처리 되며<br>
+그의 인터페이스가 List다.<br>
+<br>
+<li>JAVA ArrayList</li>
+<pre>
+    import java.util.ArrayList; 
+    import java.util.List; 
+
+    public class main {
+        public static void main(String[] args)
+        {
+            List list = new ArrayList&lt;Integer&gt;(); 
+            //&lt;Integer&gt;는 ArrayList에 Integer타입이 저장될 수 있다는 의미
+
+            list.add(1); 
+            list.add(2); 
+            list.add(3); 
+
+            System.out.println(list.get(1)); 
+        }
+    }
+    //결과: 2
+</pre>
+<br>
+List ArrayList에 빨간 줄 뜨면<br>
+import java.util.ArrayList;<br>
+import java.util.List;<br>
+아니면 Alt + Enter 한다.<br>
+<br>
+<li>JAVA ArrayList 출력</li>
+<pre>
+    import java.util.ArrayList;
+    import java.util.List; 
+
+    public class Main()
+    {
+        public static void main(String[] args)
+        {
+            List list = new ArrayList&lt;String&gt;(); 
+            
+            list.add("public"); 
+            list.add("static");
+            list.add("void"); //["public", "static", "void"]
+
+            //for문으로 리스트 순회 
+            for(int i=0; i &lt; list.size(); i++) //list.size 리스트크기반환
+            {
+                System.out.println(list.get(i)); //i번째 요소가 출력됨
+            }
+
+            list.remove(1); //1번째 요소인 "static"이 제거 > ["public", "void"] 
+            int voidIndex = list.index0f("void"); //void의 인덱스인 1 반환 
+            System.out.println("void의 index =" + voidIndex); 
+
+        }
+    }
+    //결과 
+    public 
+    static 
+    void 
+    void의 index = 1
+</pre>
+<br>
+<li>JAVA의 동일성 비교</li><br>
+<pre>
+    public class Main {
+        public static void main(String[] args)
+        {
+            String str1 = new String("is same?"); 
+            String str2 = new String("is same?"); 
+
+            System.out.println(str1 == str2); //true or false? 
+        }
+    }
+    //결과 false 
+</pre>
+<br>
+실행결과가 true가 아니라 false인 이유는<br>
+변수 str1 str2 가 동일하지 않기 때문이다.<br>
+자바는 동일하다 말하는 경우는 같은 인스턴스를 참조하고 있을 때다.<br>
+<br>
+<li>JAVA의 동등성 비교</li><br>
+<pre>
+    public class Main {
+        public static void main(String[] args) {
+            String str1 = new String("is same?"); 
+            String str2 = new String("is same?");
+
+            System.out.println(str1.equals(str2)); //true or false? 
+        }
+    }
+    //true
+</pre>
+equals()는 전과 다르게 동일성이 아니라 동등성을 비교함<br>
+그래서 str1.equals(str2)의 결과가 true다.<br>
+String클래스는 자바에서 제공해주는 String클래스에 구현된 equals()를 쓰면 되지만<br>
+직접 만든 클래스에 있는 equals() 메서드는 <br>
+Object클래스로부터 상속 받는 것인데 Object클래스 상속인 equals는 <br>
+동등성을 비교하기엔 모자라기에, 반드시 여러분의 클래스를 위한<br>
+equals() 메서드를 오버라이딩 해줘야 하며, hashCode() 메서드도 오버라이딩하면 좋다.<br>
+<br>
+0 ~ p.80<br>
+<br>
+<hr>
+<br>
+</body>
+</html>
