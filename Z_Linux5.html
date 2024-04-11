@@ -7,6 +7,7 @@
 <body>
     <h1><a href="index.html">부러의 다락방</a></h1> 
     <br>
+    #20240410<br> 
     http://210.125.198.35/~master/profile.html<br>
     http://jvision.ac.kr/profile.html <br>
     <br>
@@ -188,5 +189,31 @@
     <br>
     !!!!!!!!!!!!서버구축해서 도메인 만들어서 보내면 100점<br>
     <br>
+    <hr>
+    <br>
+    해보고는 있는데 힘들다! <br>
+    master한테 권한 넘겨주고 ls -l로 계속 확인하고 <br> 
+    <br>
+    권한 확인용<br> 
+    ls -l /var/www/html/public_html/index.html<br> 
+    <br> 
+    이 경로 친구들 권한 넘겨받기<br>
+    (에디터플러스로 읽기쓰기 권한까지만)<br>  
+    sudo chown master:master /var/www/html/index.html<br> 
+    sudo chmod 664 /var/www/html/index.html<br> 
+    sudo chown master:master /var/www/html/public_html/index.html<br> 
+    sudo chmod 664 /var/www/html/public_html/index.html<br> 
+    <br>
+    해석: public_html권한 마스터꺼임<br>
+    sudo chown master:master /var/www/html/public_html<br>
+    해석: public_html 755로 에디터플러스 삭제쓰기읽기 권한 줘<br>
+    sudo chmod 775 /var/www/html/public_html<br> 
+    <br>
+    권한 넘기기 성공 모습<br> 
+    master@master:/etc/bind/public_html$ ls -l  /var/www/html/<br>
+    -rwxrwxr-x 1 master master   82 Apr 10 23:14 index.html<br>
+    drwxrwxr-x 2 master master 4096 Apr 10 22:01 public_html<br>
+    master@master:/etc/bind/public_html$ sudo chown master:master /var/www/html/public_html<br>
+<br>
 </body>
 </html>
