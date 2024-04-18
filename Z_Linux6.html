@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Linux5</title>
+    <link type="text/css" rel="stylesheet" href="fonts.css"> 
+</head>
+<body>
+    <h1><a href="index.html">부러의 다락방</a></h1> 
+    <br>
+    리눅스5 정리에서 해깔릴 부분 경험상 정리<br> 
+    bind9 팩 설치 중요! 그래야 파일 잘 나옴<br> 
+    <hr>
+    1. nano /etc/bind/named.conf.default-zones<br> 
+    <pre>
+    zone "localhost" {
+            type master;
+            file "/etc/bind/db.local";
+    };
+    
+    zone "birdlovestudy.ac.kr" IN {
+            type master;
+            file "/etc/bind/birdlovestudy.ac.kr.zone";
+    };    
+    </pre>
+    <br>
+    2. /etc/bind/named.conf.options<br>
+    <pre>
+        listen-on { localhost; 192.168.56.1; 10.0.2.15; };
+
+         forwarders {
+                8.8.8.8;
+                8.8.4.4;
+         };
+
+        //========================================================================
+        // If BIND logs error messages about the root key being expired,
+        // you will need to update your keys.  See https://www.isc.org/bind-keys
+        //========================================================================
+        dnssec-validation no;
+        recursion yes;
+        allow-query { any; };
+        //listen-on-v6 { any; };
+    </pre>
+    3. nano /etc/bind/birdlovestudy.ac.kr.zone<br>
+    <pre> 
+        GNU nano 6.2                    /etc/bind/birdlovestudy.ac.kr.zone                             
+        ;
+        ; BIND data file for local loopback interface
+        ;
+        $TTL    604800
+        @       IN      SOA     localhost. root.localhost. (
+                                      2         ; Serial
+                                 604800         ; Refresh
+                                  86400         ; Retry
+                                2419200         ; Expire
+                                 604800 )       ; Negative Cache TTL
+        ;
+        @       IN      NS      ns.birdlovestudy.ac.kr.
+        @       IN      A       192.168.56.1
+        @       IN      AAAA    ::1
+        ns      IN      A       192.168.56.1
+        www     IN      A       192.168.56.1
+        ftp     IN      A       192.168.56.1
+        main    IN      A       192.168.56.1        
+    </pre>
+    5. nano /etc/resolv.conf<br> 
+    <pre>
+        nameserver 10.0.2.15
+        options edns0 trust-ad
+        search .
+        
+    </pre>
+    sudo apt -y install elinks
+
+
+    <hr>
+    <br> 
+
+    <li>DNS 서버의 설정을 확인하고 테스트하기 위해 다음과 같은 명령어를 사용할 수 있습니다:
+
+    named-checkconf: BIND 구성 파일의 구문을 확인합니다. 이 명령어를 사용하여 /etc/bind/named.conf와 같은 BIND 구성 파일이 올바른지 확인할 수 있습니다.
+
+    bash
+    Copy code
+    named-checkconf /etc/bind/named.conf
+    named-checkzone: 지정된 존 파일의 구문을 확인합니다. 이를 통해 존 파일이 올바른지 확인할 수 있습니다. 예를 들어, birdlovestudy.ac.kr 존 파일을 확인하려면:
+
+    bash
+    Copy code
+    named-checkzone birdlovestudy.ac.kr /etc/bind/birdlovestudy.ac.kr.zone
+    nslookup: DNS 조회를 수행하여 주어진 도메인 이름에 대한 IP 주소를 확인할 수 있습니다. 예를 들어, birdlovestudy.ac.kr에 대한 DNS 조회를 수행하려면:
+
+    bash
+    Copy code
+    nslookup birdlovestudy.ac.kr
+    dig: 더 많은 제어와 정보를 제공하는 고급 DNS 조회 도구입니다. dig를 사용하여 도메인 이름에 대한 다양한 유형의 DNS 레코드를 쿼리할 수 있습니다. 예를 들어:
+
+    bash
+    Copy code
+    dig birdlovestudy.ac.kr
+    <br>
+    chatGPT가 알려준 오류 찾기 
+    DNS 서버 동작 확인: DNS 서버가 정상적으로 작동하는지 확인해야 합니다. 이를 위해 DNS 서버 프로세스가 실행 중이며 에러가 발생하지 않는지 확인해야 합니다. 이를 확인하기 위해 다음 명령을 사용할 수 있습니다:
+
+    lua
+    Copy code
+    sudo systemctl status bind9
+    이 명령은 DNS 서버 프로세스의 상태를 보여줍니다. 프로세스가 실행 중이고 에러가 발생하지 않는지 확인하세요.
+</body>
+</html>

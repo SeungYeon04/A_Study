@@ -103,7 +103,7 @@
     <br>
     ⭐cd /, ls 적으면 이렇게 나와야 함.<br>(교수님 화면 기준)(괄호 안 빼고 다 외우기)<br>
     <pre>
-    bin   dev   lib   libx32   mnt   root   shap   sys   rar
+    bin   dev   lib   libx32   mnt   root   shap   sys   var
     boot   etc   lib32   losttfound   opt   run   srv   (tem)   
     cdroom   home   lib64   media   proc   sbin   (swap.img)   usr
     </pre>
@@ -131,6 +131,10 @@
     (chmod master.master -R /home/master)<br>
     IP/~master 화면이 백지로 뜨면 성공<br>
     <br>
+    안되면 chatGPT가 알려준 거 더 체크<br>
+    chmod 755 /home/master/public_html<br>
+    chmod 644 /home/master/public_html/index.html<br> 
+    <br>
     (위치 cd public_html 잘 체크하기!!)<br>
     <br>
     nano index.html<br>
@@ -142,19 +146,20 @@
     <ol type="1">
         <li>이사 짐 정리</li><br>
         cd /home<br>
-        tar cvxf home.tar.gz ./<br>
-        mv master.tar.gz /root<br>
+        tar cvzf home.tar.gz ./<br>
+        mv home.tar.gz /root<br> (원본은 homeX master.tar.gz)<br>
         <br>
         <li>연결</li><br>
         mount /dev/sdb1 /home<br>
-        mont | grep /dev/sdb1<br>
+        mount | grep /dev/sdb1<br>
         <br>
         <li>이사 짐 풀기 / 딴 곳 갔다 집 오기</li>
         (master가 아닌 lost+found 보이게 하기)<br>
         cd /<br>
         cd /home<br>
-        mv / root/master.tar.gz ./<br>
-        tar zxvf master.tar.gz<br> 
+        mv /root/home.tar.gz ./<br>
+        tar zxvf home.tar.gz<br>
+        
     </ol>
     <br>
     <hr>
