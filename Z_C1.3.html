@@ -7,7 +7,99 @@
 <body>
     <h1><a href="index.html">부러의 다락방</a></h1> 
     <br>
-    <li>(문제 5) 숫자 세로 계단 출력</li>
+    <li>(문제 1) 변수 저장 출력</li>
+    <pre>
+        #include &lt;stdio.h&gt;
+
+            int main()
+            {
+                int a = 10; 
+                float b = 1.5; 
+                char c = 'w'; 
+                
+                printf("%d %.6f %c", a,b,c);
+            }
+    </pre>
+    <br>
+    <li>(문제 2) 계산기</li>
+    <pre>
+        #include &lt;stdio.h&gt;
+
+            int main()
+            {
+                int a, b; 
+                scanf("%d %d", &a, &b);
+                
+                printf("%d + %d = %d\n", a, b, a+b);
+                printf("%d - %d = %d\n", a, b, a-b);
+                printf("%d * %d = %d\n", a, b, a*b);
+                printf("%d / %d = %d\n", a, b, a/b);
+                printf("%d %% %d = %d\n", a, b, a%b);
+            }
+    </pre>
+    <br>
+    <li>(문제 3) 짝수 출력</li>
+    <pre>
+        #include &lt;stdio.h&gt;
+
+            int main()
+            {
+                int a; 
+                printf("숫자를 입력하시면 짝수를 찾아드립니다: ");  
+                scanf("%d", &a); 
+                
+                 for(int i = 1; i &lt; a; i++)
+                 {
+                     if(i % 2 == 0)
+                     {
+                         printf("%d ", i);
+                    }
+                 }
+            }
+    </pre>
+    <br>
+    <li>(문제 4) 특정 구구단 실행</li>
+    <pre>
+        #include &lt;stdio.h&gt;
+
+            int main()
+            {
+                int a; 
+                printf("구구단 번호 입력: ");
+                scanf("%d", &a);
+                
+                for(int i = 1; i &lt; 9; i++)
+                {
+                    printf("%d * %d = %d\n", a, i, a*i); 
+                }
+                
+            }
+    </pre>
+    <br>
+    <li>(문제 5) 별 계단 찍기</li>
+    <pre>
+        #include &lt;stdio.h&gt;
+
+            int main()
+            {
+                int number; 
+                char star = '*'; 
+                
+                printf("층 수를 입력하세요: \n");
+                scanf("%d", &number); 
+                
+                for(int i = 0; i &lt;= number; i++)
+                {
+                    for(int j = 0; j &lt; i; j++)
+                    {
+                        printf("%c", star);
+                    }
+                    printf("\n");
+                }
+            }
+    </pre>
+    <br>
+    <li>(문제 6) 숫자 세로 계단 출력</li>
     <pre>
         #include &lt;stdio.h&gt;
 
@@ -20,12 +112,12 @@
                 printf("\n");
                 
                 
-                for(int i = 1; i <= a; i++)
+                for(int i = 1; i &lt;= a; i++)
                 {	
                     int m = i;
                     k = a - 1;    //다시 돌아옴 9 입력하면 8 계속 유지함. 
                      
-                    for(int j = 1; j <= i; j++)
+                    for(int j = 1; j &lt;= i; j++)
                     {
                         printf("%d ", m);     //먼저 한 번 출력 그 후 아래 값만 적용  
                         m = m + k;     //먼저 처음 ("%d ", m) 출력하고 행 수에 + 8  
@@ -36,7 +128,7 @@
                 
                 //int m = i 행번호 넣기 	
                 
-                //i < a 또는 j < i로 설정되면 행과 열의 개수가 하나씩 적게 반복
+                //i &lt; a 또는 j &lt; i로 설정되면 행과 열의 개수가 하나씩 적게 반복
                 // =으로 i j a 잘 포함해서 원하는 행과 열의 개수만큼 출력되도록 합니다. 
             }
     </pre>
@@ -52,7 +144,7 @@
                 printf("1: 삼각형 넓이 & 2: 사각형 넓이\n");
                 scanf("%d", &input); 
                 
-                for(int i = 0; i <= 3; i++)
+                for(int i = 0; i &lt;= 3; i++)
                 {
                     if(input == 1)
                     {
@@ -92,7 +184,7 @@
     <br>
     <li>(문제 8) 학점 계산 90 80 70 ~ </li>
     <pre>
-        #include <stdio.h>
+        #include &lt;stdio.h&gt;
 
             int main()
             {
@@ -114,7 +206,7 @@
                 {
                     printf("C학점 ");
                 }
-                else if(A < 70)
+                else if(A &lt; 70)
                 {
                     printf("F학점");
                 }
@@ -123,11 +215,11 @@
     <br>
     <li>(문제 9) 3 6 9 3 6 9</li>
     <pre>
-        #include <stdio.h>
+        #include &lt;stdio.h&gt;
 
             int main()
             {
-                for(int i = 0; i <= 30; i++)
+                for(int i = 0; i &lt;= 30; i++)
                 {
                     if(i % 10 == 3 || i % 10 == 6 || i % 10 == 9 || i == 30) //i / 3 == 10 가능  
                     {
@@ -142,21 +234,21 @@
     </pre>
     <li>(문제 10) a는 A로 A는 a로 변환 - 32</li>
     <pre>
-        #include <stdio.h>
-            #include <string.h>
+        #include &lt;stdio.h&gt;
+            #include &lt;string.h&gt;
             
             int main()
             {
                 char a[10] ; 
                 scanf("%s", a); // 문자열 입력 받기, & 사용 제거
                 
-                for(int i = 0; i <= strlen(a); i++)
+                for(int i = 0; i &lt;= strlen(a); i++)
                 {
-                    if(a[i] >= 'a' && a[i] <= 'z')
+                    if(a[i] >= 'a' && a[i] &lt;= 'z')
                     {
                         printf("%c",a[i]-32);
                     }
-                    else if(a[i] >= 'A' && a[i] <= 'Z')
+                    else if(a[i] >= 'A' && a[i] &lt;= 'Z')
                     {
                         printf("%c",a[i]+32);
                     }
@@ -168,14 +260,14 @@
     </pre>
     <li>(문제 11)  a[i] + {5 10 20 30 40 50}</li>
     <pre>
-        #include <stdio.h>
-        #include <string.h>
+        #include &lt;stdio.h&gt;
+        #include &lt;string.h&gt;
             
             int main()
             {
                 int a[5] = {10, 20, 30, 40, 50}; 
                 
-                for(int i = 0; i < 5; i++)
+                for(int i = 0; i &lt; 5; i++)
                 {
                     printf("%d ", a[i] + 5);
                 }
@@ -183,7 +275,7 @@
     </pre>
     <li>(문제 12) 값 5개로 문제</li>
     <pre>
-        #include <stdio.h>
+        #include &lt;stdio.h&gt;
 
             int main() 
             { 
@@ -191,7 +283,7 @@
                 int input, hab = 0, max, min; 
                 float mid = 0.0f; 
                 
-                for(int i = 0; i < 4; i++) 
+                for(int i = 0; i &lt; 4; i++) 
                 { 
                     printf("숫자 %d 입력: ", i+1); 
                     scanf("%d", &input); 
@@ -205,7 +297,7 @@
                         min = a[0]; 
                         max = a[0]; 
                     }
-                    if(a[i] < min)
+                    if(a[i] &lt; min)
                     {
                         min = a[i]; 
                     }

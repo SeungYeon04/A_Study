@@ -50,10 +50,15 @@
     mkfs.ext4 /dev/sdb1<br>
     <br>
     <hr>
+    sudo apt -y install apache2<br>
+    netstat -ant | grep 80<br>
+    sudo apt -y install net-tools<br>
     <br>
     (하다가 후반꺼 조금 놓침 특히 mount이후)<br>
     <br>
     개인 웹 안 뜨면 치기(전에 배움)<br>
+    cd /home<br>
+    mkdir public_html<br>
     sudo a2enmod userdir<br>
     sudo systemctl start apache2<br>
     <br>
@@ -63,10 +68,13 @@
     <br>
     (html 만들고 755로 푼다.)
     mkdir public_html<br>
+    chmod 711 master/<br>
     chmod 755 public_html<br>
+    아니면 chmod 755 master/public_html<br>
     cd public_html<br>
     touch index.html<br>
     chmod 644 index.html<br>
+    sudo systemctl restart apache2<br>
     <br>
     <li>한 번 짚어보는 순서</li><br>
     fdisk(하디붙이기) &gt; mkfs(포맷하기) &gt; mount(붙이기)<br>
@@ -128,7 +136,7 @@
     touch index.html<br>
     chmod 644 index.html<br>
     chmod 711 /home/master<br>
-    (chmod master.master -R /home/master)<br>
+    (chowd master.master -R /home/master)<br>
     IP/~master 화면이 백지로 뜨면 성공<br>
     <br>
     안되면 chatGPT가 알려준 거 더 체크<br>
