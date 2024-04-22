@@ -9,6 +9,7 @@
     <br>
     스냅샷 진짜 잘 찍어라ㅜㅜ<br>
     특히 하드 붙이기 작업 전 후, 파일설치, 큰 거 설치 후, 파일만들기 전마다<br>
+    ping IP ping 주소<br>
     <br>
     <li>su 해도 root@로 안 바뀌면</li><br>
     sudo passwd (비번 생성) <br>
@@ -38,7 +39,7 @@
     fdisk -l<br>
     <br>
     <li>파티션 장착<br>
-    fdisk /dev/sdb<br>
+    sudo fdisk /dev/sdb (버츄얼박스꺼 인식 잘 하면 알아서 m뜸)<br>
     <br>
     (또한 m for help 뜨면 m 누르기)<br>
     (n add a new partition 있으니 n 눌러서 파티션 설치)<br>
@@ -50,17 +51,19 @@
     w<br> 
     <br>
     <li>fdisk -l했을 때 달라졌으면<br> 
-    mkfs.ext4 /dev/sdb1 <br>
+    mkfs.ext4 /dev/sdb1 (숫자 sdb1임)<br>
     <br>
     <h4>4. sdb를 /home으로 연결 시킬 수 있다.</h4>
     <li>포맷 후 이사준비</li>
-    mount /dev/sdb1 /home (/dev/sdb1를 home에 붙이다)<br>
+    mount /dev/sdb1 /home (/dev/sdb1를 home에 붙이다 + 숫자 sdb1임)<br>
     <br>
     <li>묶어두기</li>
-    tar cvzf master.tar.gz master<br>
+    일단 home/ 에서 테스트<br>
+    tar cvzf master.tar.gz master (이거 ㄱㄱ) <br>
     tar cvzf master.tar.gz ./<br>
     <br>
-    <li>묶음 특정 경로로 복사 시키기</li>
+    <li>묶음 특정 경로로 복사 시키기(이거 실패중)</li>
+    sudo mkdir /backup/<br>
     cp master.tar.gz /backup/<br>
     cd /backup/<br>
     ls (master.tar.gz나옴)<br>
@@ -114,7 +117,7 @@
     sudo apt -y install vsftpd<br>
     <br>
     sudo nano /etc/vsftpd <br>
-    write_enable=YES (#write_enable=YES 주석 제거하기)<br>
+    #write_enable=YES (write_enable=YES 주석 제거하기)<br>
     <br>
     sudo systemctl restart vsftp<br>
     <br>
@@ -135,20 +138,22 @@
     cd etc/bind9<br>
     (1) sudo nano named.conf.options<br>
     <pre>
-        dnssec-validation auto; 
+        dnssec-validation no; 
         recursion yes; 
         allow-query { any }; 
         //listen-on-v6 { any }; 
     </pre>
-    (2) sudo nano named.conf.default-zones<br>
+    (2) nano /etc/bind/named.conf.default-zones<br>
     (로컬호스트 아래에다가)
     <pre>
-    zone "mid.kr" {
+    zone "mid.kr" IN {
         type master; 
         file "/etc/bind/mid.kr.zone"; 
     }; 
     </pre>
     <br>
+    named-checkconf //설정파일 잘 됐는지 확인 <br>
+    cd /etc/bind <br>
     sudo cp db.local mid.kr.zone (mid.kr.zone으로 카피)<br>
     <br>
     (3) mid.kr.zone<br>
@@ -160,7 +165,7 @@
         @       IN     A   IP
         ns      IN     A   IP
         www     IN     A   IP
-        mail    IN     A   IP
+        main    IN     A   IP
         ftp     IN     A   IP
         *       IN     A   IP
     </pre>
@@ -177,7 +182,7 @@
     </pre>
     sudo apt -y install nslookup (명령어 안되면 nslookup설치)<br>
     <br>
-    nano /etc/resolv.conf<br>
+    (4)nano /etc/resolv.conf<br>
     <pre>
         nameserver 10.0.2.15 
         options edns0 trust-ad 
@@ -195,7 +200,19 @@
         address:    192.268.219.20
     </pre>
     <br>
+    named-checkzone mid.kr mid.kr.zone (zone파일 체크)<br>
+    (OK 뜨면 성공)<br>
+    <br> 
+    <li>OK에 오류도 없는데 아직도 안 되면? 명령어<br> 
+    sudo apt -y install elinks (뭐 없이 안 돌아가게..?)<br>
+    mkdir public_html<br>
+    sudo a2enmod userdir<br> 
+    포트 열기 명령어<br> 
+    netstat -ant | grep 80<br>
+    ufw allow 80<br> 
+    <br>
     <h4>10. 나는 http://mid.kr로 접속할 수 있다.</h4>
+    It works!<br> 
     <br>
 </body>
 </html>
