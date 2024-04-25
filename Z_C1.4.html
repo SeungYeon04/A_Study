@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+<link type="text/css" rel="stylesheet" href="fonts.css"> 
+    <title>C-4</title>
+</head>
+<body>
+    <h1><a href="index.html">부러의 다락방</a></h1> 
+    <br>
+    <li>시험 문제1 (task1.c.cpp)</li>
+<pre>
+#include <stdio.h>
+
+    int main()
+    {
+        int a, b; 
+        
+        printf("두 수를 입력하세요: \n");
+        scanf("%d %d", &a, &b); 
+        printf("\n");
+        
+        for(int j = a; j <= b; j++)
+        {
+            for(int i = 1; i <= 9; i++)
+            {
+                printf("%d * %d = %d\n", a, i ,a*i); 
+            }
+            if(a <= b)
+            {
+                a++; 
+            }
+        }
+        
+    }
+</pre>
+<br>
+두 수를 입력하세요:<br>
+2<br>
+5<br>
+<br>
+2 * 1 = 2<br>
+2 * 2 = 4<br>
+2 * 3 = 6<br>
+2 * 4 = 8<br>
+2 * 5 = 10<br>
+2 * 6 = 12<br>
+2 * 7 = 14<br>
+2 * 8 = 16<br>
+2 * 9 = 18<br>
+3 * 1 = 3<br>
+3 * 2 = 6<br>
+3 * 3 = 9<br>
+3 * 4 = 12<br>
+3 * 5 = 15<br>
+3 * 6 = 18<br>
+3 * 7 = 21<br>
+3 * 8 = 24<br>
+3 * 9 = 27<br>
+4 * 1 = 4<br>
+4 * 2 = 8<br>
+4 * 3 = 12<br>
+4 * 4 = 16<br>
+4 * 5 = 20<br>
+4 * 6 = 24<br>
+4 * 7 = 28<br>
+4 * 8 = 32<br>
+4 * 9 = 36<br>
+5 * 1 = 5<br>
+5 * 2 = 10<br>
+5 * 3 = 15<br>
+5 * 4 = 20<br>
+5 * 5 = 25<br>
+5 * 6 = 30<br>
+5 * 7 = 35<br>
+5 * 8 = 40<br>
+5 * 9 = 45<br>
+<br>
+</pre>
+<li>(시험문제2) 알파벳 소문자 대문자 변환 후 순서 반대로 출력</li>
+<pre>
+    #include <stdio.h>
+
+        int main()
+        {
+            char c[10]; 
+            int p = 0; 
+            scanf("%s", c); 
+            
+            
+            for(int i = 10; i >= 0; i--)
+            {
+                if(c[i] >= 'a' && c[i] <= 'z')
+                {
+                    printf("%c", c[i] - 32);
+                    //c[i] - 32;
+                }
+                else if(c[i] >= 'A' && c[i] <= 'Z')
+                {
+                    printf("%c", c[i] + 32);	
+                    //c[i] + 32;
+                }
+            }
+        }
+</pre>
+결과: AaBbCcDdEeFf<br>
+fEeDdCcBbAa<br>
+<br>
+<li>(시험문제3) 세모네모 선택 출력</li>
+<pre>
+#include <stdio.h>
+
+    int main()
+    {
+        //이거 반복문 별찍기로 해야해요? 
+        //따로 적힌 게 없어서 모르겠어요 
+            
+        int a; 
+            
+        for(;;)
+        {
+            printf("입력 1. 삼각형 2. 사각형 3. 종료\n"); 
+            scanf("%d", &a);
+            
+            if(a == 1)
+            {
+                for(int s = 1; s <= 16; s++)
+                {
+                    if(s <= 1)
+                    {
+                        printf("*\n");
+                    }
+                    else if(s <= 2)
+                    {
+                        printf("**\n");
+                    }
+                    else if(s <= 3)
+                    {
+                        printf("* *\n");
+                    }
+                    else if(s <= 4)
+                    {
+                        printf("*  *\n");
+                    }
+                    else if(s <= 5)
+                    {
+                        printf("*****\n");
+                    }
+                }
+        
+            }
+            else if(a == 2)
+            {
+                for(int n = 1; n <= 16; n++)
+                {	
+                    if(n <= 5)
+                    {
+                        printf("*");
+                    }
+                    else if(n == 6)
+                    {
+                        printf("\n*");
+                    }
+                    else if(n <= 9)
+                    {
+                        printf(" "); 
+                    }
+                    else if(n == 10)
+                    {
+                        printf("*\n*");
+                    }
+                    else if(n <= 13)
+                    {
+                        printf(" "); 
+                    }
+                    else if(n == 14)
+                    {
+                        printf("*\n"); 
+                    }
+                    else if(n == 15)
+                    {
+                        printf("*   *\n"); 
+                    }
+                    else if(n == 16)
+                    {
+                        printf("*****\n"); 
+                    }
+                }
+    
+            }
+            else if(a == 3)
+            {
+                printf("프로그램 종료!\n"); 
+                break; 
+            }
+        }
+    }
+</pre>
+<li>(시험문제4) 실패</li>
+<pre>
+    #include <stdio.h>
+
+        int main()
+        {
+            int data[5] = {25, 17, 36, 99, 88}; 
+            int a; 
+            
+            printf("검색 데이터 입력: ");
+            scanf("%d", &a); 
+            
+            for(int i = 0; i <= 5; i++)
+            {
+                if(data[i] == a)
+                {
+                    printf("유레카! \n데이터 %d는 %d번째에 저장되어 있습니다.\n", a, i);  
+                    break; 
+                }
+                else if(data[i] != a)
+                {
+                    printf("없습니다 \n"); 
+                    break; 
+                }
+            }
+        } 
+</pre>
+<br>
+검색 데이터 입력: 88<br>
+없습니다<br>
+<br>
+</body>
+</html>
