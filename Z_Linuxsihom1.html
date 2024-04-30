@@ -26,7 +26,7 @@
     <h4>2. 나는 포트를 설치할 수 있다.</h4>
     <br>
     우리가 수업 때 포트포워딩 설정한 것들<br>
-    TCP = fpd 21, ssh 22, http 80, https 443<br>
+    TCP = ftd 21, ssh 22, http 80, https 443<br>
     UDP = dns 53<br> 
     <br> 
     sudo apt -y install net-tools (netstat 사용 안 되면 설치)<br>
@@ -68,11 +68,12 @@
     cd /backup/<br>
     ls (master.tar.gz나옴)<br>
     cd /home/<br>
+    mount (/dev/sdb1 on /home type ext4 같은 거 뜨면 됨)<br>
     ls (lost + found나옴)<br>
     cp /backup/master.tar.gz ./<br>
     tar zxvf master.tar.gz (파일을 풀어주다)<br>
     ls (lost+found, master, master.tar.gz)<br>
-    mount (/dev/sdb1 on /home type ext4 같은 거 뜨면 됨)<br>
+    //////이 위치 아니라 함 mount (/dev/sdb1 on /home type ext4 같은 거 뜨면 됨)<br>
     <br>
     <h4>5. 나는 웹서버를 설치 할 수 있다.</h4>
     <br>
