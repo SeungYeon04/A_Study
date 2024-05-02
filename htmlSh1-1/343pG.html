@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>난수 10개 생성</title>
+</head>
+<body>
+    <h3>난수 10개 생성</h3>
+    <hr>
+    <script>
+        let n = []; 
+        let big = 0; 
+        for(let i = 0; i< 10; i++) //난수 10개 저장
+        {
+            let m = Math.random()*100; 
+            n[i] = Math.floor(m); 
+            document.write(n[i] + " ");
+            
+        }
+        document.write("<hr>"); 
+
+        big = n[0];  
+
+        for(let i = 0; i < 10; i++)
+        {
+            if(big < n[i])
+            {
+                big = n[i];   
+            } 
+        }
+
+        document.write("제일 큰 수는 " + big); 
+
+        document.write("<hr>"); 
+
+        for(let i = 0; i < 10; i++)
+        {
+            n.sort(function(a,b)
+            {
+                if(a > b)
+                {
+                    return 1; // a가 b보다 크다면, b가 먼저 오도록 1
+                }
+                else if(a < b)
+                {
+                    return -1; // a가 b보다 작다면, b가 뒤로 가도록 -1 
+                }
+                else 
+                {
+                    return 0; 
+                }
+            }); 
+
+            if(n[i])
+            {
+                document.write(n[i] + " "); 
+            }
+        }
+        document.write("<br><br><br>음.. 일단 sort가 문자열 받는 함수 그리고 함수가 0을 반환하면 그대로, <br>");
+        document.write("a가 더 작은 값이기에, a가 b보다 크다면, b가 먼저 오도록 1, a가 b보다 작다면, b가 뒤로 가도록 -1, 같으면 그대로 0 리턴");  
+    </script>
+</body>
+</html>
