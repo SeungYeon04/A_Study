@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+<link type="text/css" rel="stylesheet" href="fonts.css"> 
+<script src="indexh.js"> </script>
+    <title>C-5</title>
+</head>
+<body>
+    <h1><a href="index.html">부러의 다락방</a></h1> 
+    <br>
+    #20240508 - 2차원 배열<br>
+    for로 저장 받고 다른 for로 출력하자<br>
+    이중배열 처음이라 허점 많음<br>
+    그냥 6번만 봐도 될 정도임<br>
+    <br>
+    <li>1. 3대3으로 순서대로 숫자 출력</li>
+    <pre>
+#include &lt;stdio.h&gt;
+
+    int main() //2차원배열구조  
+    {
+        int data[3][3] = {0}; //[3][4] 면 3행 4열 [][4]해도 되고 
+        int k = 1;  
+        
+        //2차원 배열 선언 및 초기화 2차원 값 출력하자 함  
+        for(int i=0; i&lt;3; i++)
+        {
+            for(int j=0; j&lt;3; j++)
+            {
+                data[i][j] = k; 
+                k++; 
+            }
+        }
+        
+        for(int i=0; i&lt;3; i++)
+        {
+            for(int j=0; j&lt;3; j++)
+            {
+                printf("%3d", data[j][i]); //열을 돌려서 0.0 1.0 2.0부터 기입?  
+            }
+            printf("\n"); 
+        }
+        
+        return 0; 
+    } 
+    
+    /*
+        for(int i=0; i&lt;3; i++)
+        {
+            for(int j=0; j&lt;3; j++)
+            {
+                printf("%3d", data[i][j]);
+            }
+            printf("\n"); 
+        }
+        
+        1(0.0)  2  3
+        4(1.0)  5  6
+        7(2.0)  8  9
+        이거 세로출력 코드임  
+    */
+    </pre>
+    결과: <br>
+    1 2 3<br>
+    4 5 6<br>
+    7 8 9<br>
+    <br>
+    <li></li>
+    <pre>
+#include &lt;stdio.h&gt;
+#define SIZE 5
+
+int main() //중요!!!  
+{
+    //1. 배열 선언 및 초기화 (기말에 필요)  
+    int data[SIZE][SIZE] = {0}; //[5]행 [5]열 선언하여 세기  
+    int k = 1;  
+        
+    //2. 배열값 저장 
+    for(int i=0; i&lt;5; i++)
+    {
+        for(int j=0; j&lt;SIZE; j++)
+        {
+            data[i][j] = k; 
+            k++; 
+        }
+    }
+    
+    //3. 배열 값 출력  
+    for(int i=0; i&lt;5; i++)
+    {
+        for(int j=0; j&lt;SIZE; j++)
+        {
+            printf("%3d", data[i][j]); //열을 돌려서 0.0 1.0 2.0부터 기입?  
+        }
+        printf("\n"); 
+    }
+    return 0; 
+} 
+
+//data[i][j] 는 0.0 0.1 0.2 0.3 0.4 1.0 1.1 1.2 1.3 1.4  
+
+
+#include &lt;stdio.h&gt;
+#define SIZE 5 쓰면 수정 편함 
+</pre>
+결과: <br>
+1  2  3  4  5<br>
+6  7  8  9 10<br>
+11 12 13 14 15<br>
+16 17 18 19 20<br>
+21 22 23 24 25<br>
+    <br>
+    <li></li>
+    <pre>
+#include &lt;stdio.h&gt; 
+#define SIZE 5
+
+int main() //중요!!!  
+{
+    //1. 배열 선언 및 초기화 (기말에 필요)  
+    int data[SIZE][SIZE] = {0}; //[5]행 [5]열 선언하여 세기  
+    int k = 1;  
+        
+    //2. 배열값 저장 
+    for(int i=0; i&lt;5; i++)
+    {
+        for(int j=4-i; j&lt;SIZE; j++) //SIZE가 5니까 1.1 1.2 1.3 1.4
+        {
+            data[i][j] = k; 
+            k++; 
+        }
+    } 
+    
+    //3. 배열 값 출력  
+    for(int i=0; i&lt;5; i++)
+    {
+        for(int j=0; j&lt;SIZE; j++)
+        {
+            if(data[i][j] != 0){
+                printf("%3d", data[i][j]); //열을 돌려서 0.0 1.0 2.0부터 기입?  
+            }
+            else 
+            {
+                printf("   ");
+            }
+        }
+        printf("\n"); 
+    }
+
+    return 0; 
+} 
+
+//data[i][j] 는 0.0 0.1 0.2 0.3 0.4 1.0 1.1 1.2 1.3 1.4  
+
+/*
+    1  0  0  0  0
+    2  3  0  0  0
+    4  5  6  0  0
+    7  8  9 10  0
+    11 12 13 14 15
+    
+    if문 걸치면  (data[i][j] != 0)
+    1
+    2  3
+    4  5  6
+    7  8  9 10
+    11 12 13 14 15
+    
+    
+        //3. 배열 값 출력  
+    for(int i=0; i&lt;5; i++)
+    {
+        for(int j=0; j&lt;SIZE; j++)
+        {
+            if(data[i][j] != 0){
+                printf("%3d", data[i][j]); //열을 돌려서 0.0 1.0 2.0부터 기입?  
+            }
+            이 부분은 짤림 위와 동일할 것 같음. 
+        }
+    }
+                 1
+              2  3
+           4  5  6
+        7  8  9 10
+    11 12 13 14 15
+*/
+    </pre>
+    <br>
+    <li>7. 모양만들기 (파일 정리 대충해서 넘어감)</li>
+    <pre>
+#include &lt;stdio.h&gt;
+#define SIZE 5
+
+int main() //정보처리기사X 정보기사? 4년재 애들이 푸는? 문제라 함  
+{
+    int data[SIZE][SIZE] = {0}; 
+    int k=1;  
+    int start = 0, end = SIZE-1;  //SIZE/2 몫만 가지니 2  
+
+    for(int i = 0; i &lt; SIZE; i++) //2에서 2까지니까 하나  
+    {
+
+        for(int j = start; j &lt;= end; j++)
+        {	
+            data[i][j] = k; 
+            k++; 	
+        }
+        
+        //삼각형 만들기 
+        if(i &lt; SIZE/2)
+        {
+            start++;
+            end--; 
+        } 
+        else{
+            start--;
+            end++; 
+        }
+
+    }
+    
+    for(int i=0; i&lt;SIZE; i++)
+    {
+        for(int j=0; j&lt;SIZE; j++)
+        {
+            if(data[i][j] != 0){
+                printf("%3d", data[i][j]); //열을 돌려서 0.0 1.0 2.0부터 기입?  
+            }
+            else 
+            {
+                printf("   ");
+            }
+        }
+        printf("\n"); 
+    }
+
+    return 0; 
+} 
+
+결과: 
+1  2  3  4  5
+  6  7  8
+     9
+  10 11 12
+13 14 15 16 17
+
+    </pre>
+    
+</body>
+</html>

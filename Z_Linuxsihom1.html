@@ -11,15 +11,19 @@
     스냅샷 진짜 잘 찍어라ㅜㅜ<br>
     특히 하드 붙이기 작업 전 후, 파일설치, 큰 거 설치 후, 파일만들기 전마다<br>
     아 물론 시험은 필기로 했어요ㅎㅎ<br>
+    시험이라 정리한 메모입니다<br>
+
+    이더넷 어댑터 이더넷 2:<br>
+    IPv4: 192.~.~.1 (내부)<br>
+    무선 LAN 어댑터 Wi-Fi:<br>
+    IPv4: 192.~.~.249<br>
     <br>
     <li>su 해도 root@로 안 바뀌면</li><br>
     sudo passwd (비번 생성) <br>
     New password: 123456<br>
     <br>
     도메인: mid.kr <br>
-    외부: <br>
-    노트북: 192.168.56.1<br>
-    내부: 10.0.2.15 <br>
+    노트북: 192.~.~.249(외부송출 할 거면 이걸로)<br>
     <h4>1. 나는 리눅스를 설치할 수 있다.</h4>
     <br>
     openssh만 체크하기<br>
@@ -79,7 +83,7 @@
     <h4>5. 나는 웹서버를 설치 할 수 있다.</h4>
     <br>
     sudo apt -y install apache2 <br>
-    포트도 잘 열려있으면 http://IP 접속해보자<br>
+    포트도 잘 열려있으면 http://192.~.~.249 접속해보자<br>
     <br>
     <h4>6. 나는 http://외부IP/~master에 접속할 수 있다. </h4>
     <br>
@@ -96,7 +100,7 @@
     chmod 755 master/public_html/<br>
     <br>
     cd /home/master/public_html/<br>
-    touch index.html (http://IP/~master/index.html 생성)<br>
+    touch index.html (http://192.~.~.249/~master/index.html 생성)<br>
     <br>
     sudo a2enmod userdir<br>
     sudo systemctl restart apache2<br>
@@ -105,7 +109,7 @@
     <br>
     sudo apt -y install nano<br>
     <br>
-    nano index.html (http://IP/~master/index.html 내용 수정)<br>
+    nano index.html (http://192.~.~.249/~master/index.html 내용 수정)<br>
     <br>
     <h4>(1) http://외부IP/~master/study/20240416.html 에 접속할 수 있다.</h4>
     <br>
@@ -164,20 +168,20 @@
     <pre>
         ;
         @       IN     NS  ns.mid.kr.
-        @       IN     A   IP
-        ns      IN     A   IP
-        www     IN     A   IP
-        main    IN     A   IP
-        ftp     IN     A   IP
-        *       IN     A   IP
+        @       IN     A   192.~.~.249
+        ns      IN     A   192.~.~.249
+        www     IN     A   192.~.~.249
+        main    IN     A   192.~.~.249
+        ftp     IN     A   192.~.~.249
+        *       IN     A   192.~.~.249
     </pre>
     <br>
     systemctl restart named<br>
     sudo apt -y install net-tools<br>
     nslookup mid.kr<br>
     <pre>
-        server:     IP 
-        address:    IP
+        server:     127.0.0.53
+        address:    127.0.0.53#53
 
         Name: mid.kr 
         address 이건 곧 바꿀 예정 
@@ -190,16 +194,16 @@
         options edns0 trust-ad 
         search . 
     </pre>
-    이렇게 바꾸니 address 192.168.219.20로 뜬다고 가정하면<br>
-    이더넷 192.268.219.20 으로 변경해주자<br>
+    이렇게 바꾸니 address (이상한 IP)로 뜬다고 가정하면<br>
+    이더넷 192.~.~.249 으로 변경해주자<br>
     <br>
     nslookup mid.kr<br>
     <pre>
-        server:     192.268.219.20
-        address:    192.268.219.20
+        server:     127.0.0.53 (아니면 10.0.2.15)
+        address:    127.0.0.53#53 
 
         Name: mid.kr 
-        address:    192.268.219.20
+        address:    192.~.~.249
     </pre>
     <br>
     named-checkzone mid.kr mid.kr.zone (zone파일 체크)<br>
