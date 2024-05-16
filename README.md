@@ -12,7 +12,8 @@ HTML5 + CSS3 + JavaScript 웹 프로그래밍
 어디까지 구현하고 다른 프로젝트 넘어갈지는 의문입니다  
 
 ## ⚙️ 개발환경  
-  
+
+• 깃허브와 리눅스(우분투)  
 • 언어: HTML CSS JavaScript  
 • IDE: Visual Studio Code  
 • VCS: Github desktop   
