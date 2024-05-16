@@ -1,5 +1,6 @@
 ## 🔗 페이지 URL 
-github url: https://seungyeon04.github.io/SimpleStudy.github.io/  
+Github url: https://seungyeon04.github.io/SimpleStudy.github.io/  
+Ubuntu url:
 
 ## 🖥 프로젝트 소개 
 
