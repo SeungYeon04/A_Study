@@ -1,3 +1,6 @@
+## 🔗 페이지 URL 
+github url: https://seungyeon04.github.io/SimpleStudy.github.io/  
+
 ## 🖥 프로젝트 소개 
 
 비주얼 스튜디오 코드로  
@@ -6,7 +9,6 @@ HTML5 + CSS3 + JavaScript 웹 프로그래밍
 대학교 공부 정리 수업 기록 사이트입니다  
 초반에는 HTML 위주로 이루어질 것 같아요  
 어디까지 구현하고 다른 프로젝트 넘어갈지는 의문입니다  
-url: https://seungyeon04.github.io/SimpleStudy.github.io/  
 
 ## ⚙️ 개발환경  
   
