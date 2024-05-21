@@ -1,9 +1,10 @@
 ## 🔗 페이지 URL 
 Github url: https://seungyeon04.github.io/SimpleStudy.github.io/  
-Ubuntu url:
+Ubuntu url: X
 
 ## 🖥 프로젝트 소개 
 
+대학 공부 정리 사이트입니다:)  
 비주얼 스튜디오 코드로  
 HTML5 + CSS3 + JavaScript 웹 프로그래밍  
 책으로 공부하며 만든  
@@ -17,6 +18,7 @@ HTML5 + CSS3 + JavaScript 웹 프로그래밍
 • 언어: HTML CSS JavaScript  
 • IDE: Visual Studio Code  
 • VCS: Github desktop   
+• Xshell, VirtualBox  
 
 ## 🕹 주요기능  
 
