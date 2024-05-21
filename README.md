@@ -1,3 +1,5 @@
+# 대학 공부 정리 사이트(1)  
+
 ## 🔗 페이지 URL 
 Github url: https://seungyeon04.github.io/SimpleStudy.github.io/  
 Ubuntu url: X
