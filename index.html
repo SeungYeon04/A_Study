@@ -6,16 +6,14 @@
 부러의 기록 사이트
 </title> 
 <link type="text/css" rel="stylesheet" href="indexh.css"> 
-<script src="indexh.js"> </script>
+<script src="indexh.js"></script>
 </head> 
 <body> 
     <br>
-<div style="border: 1px solid gray; background-color: lavenderblush; border-radius: 50px; width: 80%; margin: 0 auto"><h1> 부러의 다락방 </h1> </div>
+<div class="WebNameTag"><h1> 부러의 다락방 </h1> </div>
     <br>
-    <image src="Image/프로필/앵무새.jpg" width="170" height="150" style="border-radius: 80px; border: 1px solid gray;"></image>
+    <img src="Image/프로필/앵무새.jpg" width="170" height="150" onclick="change(this)" style="border-radius: 80px; border: 1px solid gray;">
     <h3>가니메데스와 드루이드 부러<br>승연의 개인 공부 기록장 사이트</h3>
-    <button id="dark-toggle">블랙</button>
-    <button id="while-toggle">화이트</button><br>
     <br>
     <fieldset>
         <br>
@@ -30,10 +28,28 @@
     </fieldset>
     <br>
     <fieldset>
-        <legend>개인정리</legend>
-        <li><a>메모장</a>
-        <li><a href="Back.html">도서관</a></li>
+        <legend>기타</legend>
+        <li><a href="color.html">환경설정</a>
     </fieldset>
     <br>
 </body> 
+<script>
+    let files = [
+    "Image/프로필/앵무새.jpg",
+    "Image/프로필/앵무새1.jpg",
+    "Image/프로필/앵무새2.jpg",
+    "Image/프로필/앵무새3.jpg" ];
+    let imgs = new Array(); 
+    for(let i = 0; i<files.length; i++)
+    {
+        imgs[i] = new Image(); 
+        imgs[i].src = files[i]; 
+    }
+    let next = 1; 
+    function change(img) {
+        img.src = imgs[next].src; 
+        next++;
+        next %= imgs.length; 
+    }
+</script>
 </html>
