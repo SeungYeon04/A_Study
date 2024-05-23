@@ -6,9 +6,19 @@
         margin: 0 auto; 
     }
     
+    .WebNameTag {
+        border: 1px solid gray; background-color: lavenderblush; border-radius: 50px; width: 80%; margin: 0 auto;  
+    }
+    
     .dark-mode {
         background-color: rgb(75, 75, 75);
-        color: aliceblue;
+        color: rgb(210, 210, 210);
+        .WebNameTag {
+            background-color: rgb(162, 147, 58);
+        }
+        :visited {
+            color: rgba(179, 170, 0, 0.856);
+        }
     }
 
     .while-mode {
