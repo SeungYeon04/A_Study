@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+<link type="text/css" rel="stylesheet" href="fonts.css"> 
+<script src="indexh.js"> </script>
+    <title>C-6</title>
+</head>
+<body>
+    <h1><a href="index.html">부러의 다락방</a></h1> 
+    <br>
+    #20240522 - 포인터 기본<br>
+    <br>
+<li>짚어보기1 - 함수선언문</li>
+<pre>
+    #include  &lt;stdio.h&gt;
+
+        void f() //함수: 선언 門  
+        {
+            printf("Hellow\n");
+        }
+        
+        int f1(int a)
+        {
+            return a+10; //3+10 
+        }
+        
+        int main()
+        {
+            f();
+            printf("%d", f1(3));
+            
+            return 0; 
+        }
+        
+        /*
+        Hellow
+        13
+        */
+</pre>
+<br>
+<li>짚어보기2 - 함수선언문</li>
+<pre>
+#include  &lt;stdio.h&gt;
+
+void f() 
+{
+    printf("Hellow\n");
+}
+
+int f1(int a)
+{
+    return a+10; //3+10 
+}
+
+int main()
+{
+    f();
+    printf("%d", f1(3));
+    
+    return 0; 
+}
+
+/*
+Hellow
+13
+*/
+</pre>
+<br>
+<li>짚어보기3 - 포인터 개념 이해 시작</li>
+<pre>
+#include  &lt;stdio.h&gt;
+
+int f(int x)
+{
+    return x+10;
+}
+
+int main()
+{
+    int data[] = {1, 2, 3, 4, 5}; //data[0] 
+    
+    //포인터 개념 
+    printf("data[0] 값 : %d\n", data[0]); 
+    printf("data[0] 주소 : %p\n", data[0]); 
+    printf("data[1] 값 : %d\n", data[1]); 
+    printf("data[1] 주소 : %p\n", data[1]);
+
+    return 0; 
+}
+
+/*
+data[0] 값 : 1
+data[0] 주소 : 0000000000000001
+data[1] 값 : 2
+data[1] 주소 : 0000000000000002
+*/
+</pre>
+<br>
+<li>주소로 이용해서 값 바꾸기</li>
+<pre>
+#include &lt;stdio.h&gt;
+
+void swap(int *a, int *b) //메인이 가진 a b, swap a b는 다름 카피 당한 거임  
+{
+    int tmp = *a; //tmp는 a주소 받았다 (tmp = 3)  3
+    *a = *b; // a는 b 주소를 받았다. a = 5  
+    *b = tmp; //b주소에 tmp를 받았다. b = 3 
+}
+
+int main()
+{
+    int a = 3, b = 5; 
+    printf("a=%d b=%d\n",a,b);
+    swap(&a, &b); //형 없으니 함수는 void로 &lt; coll by value 라 함 값 복사  
+    printf("a=%d b=%d\n",a,b); 
+        
+    return 0; 
+}
+
+/*
+swap(a, b);
+a=3 b=5
+a=3 b=5 ?
+
+swap(&a, &b); 에 넘기는 수 * 붙이면 (주소보관한 거 꺼내기)  
+a=3 b=5
+a=5 b=3 
+//카피 안해도 주소 넘기면 된다는 식이다. 
+
+포인터변수 > 주소 
+일반변수 > 값  
+*/
+</pre>
+<br>
+<li>이해 필수 포인터 방식</li>
+<pre>
+    #include  &lt;stdio.h&gt;
+
+        int main()
+        {
+            
+            //포인터 이거 이해하면 끝남!! (중요)  
+             
+            int a=5; 
+            int *pa; 
+            pa = &a; 
+            
+            printf("변수 a의 값은 %d입니다.\n", a); 
+            printf("변수 a의 주소는 %p입니다.\n", &a); 
+            printf("포인터 pa의 값은 %p입니다.\n", pa); 
+            printf("포인터 pa의 값은 %d입니다.\n", *pa); //pa 참조값 pa가 가르키고 있는 값  
+            
+            return 0; 
+        }
+        
+        //C++ 는 포인터 이중포인터 
+        //공장지능화 시스템 팩토리 등에 사용  
+</pre>
+<br>
+<li>배열의 주소!</li>
+<pre>
+#include &lt;stdio.h&gt;
+
+void f(int *a) //*a || a[] 됨  
+{
+    for(int i = 0; i &lt; 5; i++)
+    {
+        a[i] = a[i]+10; //방에다 10 더 집어넣어서 내놔라  
+    }
+}
+
+int main()
+{
+    int data[] = {1, 2, 3, 4, 5}; //data[0] 
+    
+    f(data); 
+    
+    for(int i = 0; i &lt; 5; i++)
+    {
+        printf("%d ", data[i]);
+    }
+    
+    return 0; 
+}
+
+//11 12 13 14 15
+//포인터 = 참조하다 
+//값이 아닌 주소를 저장한다. 
+//공간 자원 효율이 높음 가독성 높음 처리속도 빠름 
+//값 넘기기 f(data[0])>call bu value 콜 바이 밸류 
+//주소 넘기기 f(data)> csll by reference 콜 바이 레퍼런스 
+//1바이트는 8비트  
+//2^8 = 256 
+    
+</pre>
+<br>
+<li>a b c 함수+포인터로 5배 곱해서 출력</li>
+<pre>
+#include &lt;stdio.h&gt;
+
+void change2(int *a, int *b, int *c)
+{ 
+    *a = *a * 5; //5곱해서 해당 주소의 값에 넣어주기인 듯 
+    *b = *b * 5; 
+    *c = *c * 5; 
+}
+
+int main()
+{
+    int A, B, C; 
+    
+    printf("두 수를 입력하세요: \n");
+    scanf("%d %d %d", &A, &B, &C);
+    printf("a=%d b=%d c=%d\n", A, B, C);
+        
+    change2(&A, &B, &C); //이게 주소 넘겨주기 //(A, B)는 값 넘기기  
+
+    printf("a=%d b=%d c=%d\n", A, B, C);
+    
+    return 0; 
+}
+
+/*
+두 수를 입력하세요:
+11
+10
+12
+a=11 b=10 c=12
+a=55 b=50 c=60
+*/
+</pre>
+<br>
+</body>
+</html>
