@@ -25,4 +25,6 @@ HTML5 + CSS3 + JavaScript 웹 프로그래밍
 공부정리 사이트 
 
 ## 🖼 플레이 사진
-![스크린샷 2024-04-23 182553](https://github.com/SeungYeon04/SimpleStudy.github.io/assets/100332811/a9544177-f584-4958-89c0-4c57bbba7b08)  
+![스크린샷 2024-05-27 230237](https://github.com/SeungYeon04/A_Study.github.io/assets/100332811/229d73a7-b0db-4757-bebb-d159c021b5cf)
+![스크린샷 2024-05-27 230250](https://github.com/SeungYeon04/A_Study.github.io/assets/100332811/0fd10c47-741d-4586-8ff5-607ecbd98251)
+
