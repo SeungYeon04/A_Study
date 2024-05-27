@@ -1,5 +1,5 @@
-  ## 🔗 페이지 URL 
-Github url: https://seungyeon04.github.io/SimpleStudy.github.io/  
+## 🔗 페이지 URL 
+Github url: https://seungyeon04.github.io/A_Study.github.io/  
 Ubuntu url: X
 
 ## 🖥 프로젝트 소개 
