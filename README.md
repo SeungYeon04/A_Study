@@ -9,16 +9,13 @@ Ubuntu url: X
 HTML5 + CSS3 + JavaScript 웹 프로그래밍  
 책으로 공부하며 만든  
 대학교 공부 정리 수업 기록 사이트입니다  
-초반에는 HTML 위주로 이루어질 것 같아요  
-어디까지 구현하고 다른 프로젝트 넘어갈지는 의문입니다  
+한 번 터치한 링크는 특정 색상으로 바뀌어요  
 
 ## ⚙️ 개발환경  
 
-• 깃허브와 리눅스(우분투)  
 • 언어: HTML CSS JavaScript  
 • IDE: Visual Studio Code  
 • VCS: Github desktop   
-• Xshell, VirtualBox  
 
 ## 🕹 주요기능  
 
