@@ -195,15 +195,15 @@
         search . 
     </pre>
     이렇게 바꾸니 address (이상한 IP)로 뜬다고 가정하면<br>
-    이더넷 192.~.~.249 으로 변경해주자<br>
+    이더넷 기본 = 192.~.~.249 으로 변경해주자(함부로 본래꺼 삭제는X)<br>
     <br>
     nslookup mid.kr<br>
     <pre>
-        server:     127.0.0.53 (아니면 10.0.2.15)
-        address:    127.0.0.53#53 
+        server:     10.0.2.15 
+        address:    10.0.2.15#53 
 
         Name: mid.kr 
-        address:    192.~.~.249
+        address:   192.~.~.249
     </pre>
     <br>
     named-checkzone mid.kr mid.kr.zone (zone파일 체크)<br>
