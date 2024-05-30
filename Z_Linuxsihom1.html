@@ -12,9 +12,10 @@
     특히 하드 붙이기 작업 전 후, 파일설치, 큰 거 설치 후, 파일만들기 전마다<br>
     아 물론 시험은 필기로 했어요ㅎㅎ<br>
     시험이라 정리한 메모입니다<br>
+    #DNS세팅 + ftp + 가상하디 + 이더넷<br>
     <br>
-    이더넷 어댑터 이더넷 2:<br>
-    IPv4: 192.~.~.1 (내부)<br>
+    이더넷 어댑터 이더넷:<br>
+    IPv4: 192.~.~.1 (내부-아예 안씀)<br>
     무선 LAN 어댑터 Wi-Fi:<br>
     IPv4: 192.~.~.249<br>
     <br>
@@ -141,6 +142,7 @@
     <h4>9. 나는 DNS를 설치하고 설정할 수 있다.</h4>
     <br>
     sudo apt -y install bind9 bind9utils<br>
+    apt -y install dnsutils<br>
     cd etc/bind9<br>
     (1) sudo nano named.conf.options<br>
     <pre>
@@ -194,8 +196,10 @@
         options edns0 trust-ad 
         search . 
     </pre>
-    이렇게 바꾸니 address (이상한 IP)로 뜬다고 가정하면<br>
-    이더넷 기본 = 192.~.~.249 으로 변경해주자(함부로 본래꺼 삭제는X)<br>
+    이렇게 바꾸었다! 그런데 address (이상한 IP)로 뜬다고 가정하면<br>
+    <br>
+    이더넷1(현재네트워크) > 기본 DNS = 192.~.~.249 으로 변경해주자<br>
+    (함부로 본래꺼 삭제는X 미리 저장, 자동이면 자동)<br>
     <br>
     nslookup mid.kr<br>
     <pre>
@@ -203,7 +207,7 @@
         address:    10.0.2.15#53 
 
         Name: mid.kr 
-        address:   192.~.~.249
+        address:   192.~.~.249 (호스트, A레코드와 같게)
     </pre>
     <br>
     named-checkzone mid.kr mid.kr.zone (zone파일 체크)<br>
