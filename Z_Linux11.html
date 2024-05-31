@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>리눅스시험1</title>
+    <link type="text/css" rel="stylesheet" href="fonts.css"> 
+    <script src="indexh.js"> </script>
+</head>
+<body>
+    <h1><a href="index.html">부러의 다락방</a></h1> 
+    <br>
+    #썬더버드로 메일 보내기 <br>
+    <br>
+    오류 있는지 확인 <br>
+    cd /var/log의 mail.log mail.err <br>
+    tail -f mail.log<br>
+    <br>
+    설정 > 프로필모양 (계정설정) > 보내는 서버 SMTP > <br>
+    <br>
+    편집 > <br>
+    <br>
+    포트 25<br> 
+    보안연결: 없음 <br>
+    인증방식: 인증없음 <br>
+    <br>
+     설정 > 프로필모양 (계정설정) > 서버설정(그대로두기) <br>
+    보안연결 STARTTLS <br>
+    인증방식 평문비밀번호 <br>
+    포트 143 <br>
+    서버이름 mail.birdstudy.ac.kr<br>
+    아이디 master<br>
+    <br>
+    //교수님 메일: master@mail.izerone.co.kr<br>
+    <br>
+    <hr>
+    <br>
+    #웹메일 접속하기 <br>
+    /etc/apache2/conf-enabled/roundcube.conf<br>
+    <br>
+(http://192.168.51.226/mail이 뜨도록) <br>
+<br>
+<pre>
+ ***(Directory /var/lib/roundcube/public_html 위에 적기)***
+Alias /mail /var/lib/roundcube/public_html
+
+ ***(Directory /var/lib/roundcube/public_html/ 아래에에 적기)***
+AddType application/x-httpd-php .php
+</pre>
+systemctl restart apache2 (중요) <br>
+systemctl enable apache2 <br>
+systemctl enable mysql<br>
+systemctl start mysql<br>
+<br>
+NOT FOUND에서 Forbiden으로 바뀜. <br>
+<br>
+위치: var/lib/roundcube/public_html 여기 꺼임 = 지식 <br>
+<br>
+
+/etc/roundcube/config.inc.php<br>
+<br>
+원래모습(원본)
+<pre>
+$config['smtp_server'] = 'localhost';
+
+$config['smtp_port'] = 587;
+
+$config['smtp_user'] = '%u';
+</pre>
+바꾼모습 
+<pre>
+$config['smtp_server'] = 'localhost';
+
+$config['smtp_port'] = 25;
+
+$config['smtp_user'] = '';
+</pre>
+//이러면 포트 오류 없이 메일이 잘 보내짐 <br>
+<br>
+http://192.168.51.226/mail/ 접속 성공 <br>
+<br>
+로그인 <br>
+네임: master <br>
+비번: 123456 <br>
+서버: localhost <br>
+<br>
+자동으로 http://192.168.51.226/mail/?_task=mail&_mbox=INBOX 됨<br>
+<br>
+교수님 mail: master@mail.izerone.co.kr <br>
+<br>
+이제 이 내부아이피 192~로 설정한 메일서버를 <br>
+공유기로부터 나오는 외부아이피로 해보자. <br>
+<hr>
+<br>
+추가지식 = 그냥 <br>
+cd /var/lib 에서 ls -al 하면 <br>
+drwxr-xr-x  6 root      root      4096 May 29 08:56 roundcube 뜸 <br>
+<br>
+</body>
+</html>
