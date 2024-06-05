@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>네트워크6</title>
+    <link type="text/css" rel="stylesheet" href="fonts.css"> 
+    <script src="indexh.js"> </script>
+</head>
+<body>
+    <h1><a href="index.html">부러의 다락방</a></h1> 
+    <br>
+    PPT만 보고 정리 랩실에서 노트 보고 보완하기 <br>
+    <br>
+    12장 스푸핑<br>
+    <br>
+    스푸핑(Spoofing)이란: 속이다란 의미<br>
+    IP주소, 호스트이름, MAC주소 등 속이는 것<br>
+    <br>
+    OpenSSL(Secure Socket Layer): telnet이나 rlogin이 <br>
+    암호화 되지 않은 채 데이터를 전송해서 보안문제라<br>
+    운영체제가 SSH(Secure Shell) 프로토콜을 지원해주는 것.<br>
+    <br>
+    SSH: SSH1 SSH2 둘 다 RSA에 의해 두 프로토콜이 키 교환을 하고<br>
+    데이터는 3DES와 Blowfish, IDEA로 암호화 함.<br>
+    <br>
+    SSH2 프로토콜: DSA와 DH 알고리즘을 씀.<br>
+    SSH1의 CRC문제를 HMAC알고리즘으로 해결하려 함.<br>
+    하지만 OpenSSH 쓰는 이유는 보안만이 아닌<br>
+    OpenSSL로 통신하는 계정과<br>
+    패스워드 등을 스니핑하기 위함.<br> 
+    <br>
+    ARP스푸핑 공격: 프로그램 있음.<br>
+    로컬에서 통신중인 서버와 클라이언트 IP주소에 대한 <br>
+    2계증 MAC주소를 공격자의 MAC주소로 속임.<br>
+    클라이언트로 가는 패킷을 가로채감.<br>
+    <br>
+    ARP스푸핑 보안대책: arp -a를 입력 > 현재 MAC테이블 볼 수 있음<br>
+    static(고정)으로 하는 IP MAC주소 확인 후 arp -s로 고정 설정<br>
+    예> arp -s 192.168.X.X 00:06:5B:89:D0:CC<br>
+    <br>
+    그리고 arp -a로 MAC테이블 확인하면 뒷부분에 PERM(Permanent)붙음<br>
+    설정되면 IP MAC주소 값 ARP 스푸핑 들어와도 안 변함. <br>
+    근데 상황에 따라 고정 쓰긴 어려움..<br>
+    <br>
+    IP스푸핑: 시스템 간의 트러스트 관계를 이용한 짓<br>
+    아이피로 인증해서 별도의 패스워드 없이 로그인<br>
+    <br>
+    DNS스푸핑: DNS 웹서버 위조하는 것.<br>
+    ARP스푸핑 툴 winarp_sk이용해서<br> 
+    게이트웨이로 향하는 패킷이 공격자로 오도록 함.<br>
+    win_dnsspoof툴로 웹서버 DNS query 패킷에 <br>
+    위조된 웹서버인 IP로 해석되도록 설정.<br>
+    <br>
+    공격당한 클라이언트에서 웹서버 링크에 ping 날리면<br>
+    위조된 IP에 대한 ping 날라옴.<br>
+    링크 들어가면 위조된 웹서버 등장<br> 
+    <br>
+</body>
+</html>
