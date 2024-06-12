@@ -8,20 +8,20 @@
 <body>
     <h1><a href="index.html">부러의 다락방</a></h1> 
     <br>
-//C언어에서 파일을 처리하는 방법  <br>
-//1. 파일 스트림 생선(fopen()) <br>
-//2. 파일에 데이터 출력(fprintf()) , 파일로부터 데이터 로드 (fscanf()) <br>
-//3. 스트림해제 통로해제 (fclose())  <br>
-//FILE 은 파일의 모든 정보를 갖고있음 = 그래서 포인터 씀 <br>
+C언어에서 파일을 처리하는 방법  <br>
+1. 파일 스트림 생선(fopen()) <br>
+2. 파일에 데이터 출력(fprintf()) , 파일로부터 데이터 로드 (fscanf()) <br>
+3. 스트림해제 통로해제 (fclose())  <br>
+FILE 은 파일의 모든 정보를 갖고있음 = 그래서 포인터 씀 <br>
 <br>
-// 이렇게하면 소스파일 위치 a.txt <br>
-//"c:/a.txt", "w" 이렇게 하면  w=새로생성 c:하위에<br> 
-//txt파일이란 확장자가 없으면 wt로 적음 <br>
-//w는 쓸 수 있는 통로 r은 읽는 통로 <br>
+이렇게하면 소스파일 위치 a.txt <br>
+"c:/a.txt", "w" 이렇게 하면  w=새로생성 c:하위에<br> 
+txt파일이란 확장자가 없으면 wt로 적음 <br>
+w는 쓸 수 있는 통로 r은 읽는 통로 <br>
 <br>
 FILE *fileP = fopen("c:/a.txt", "w"); <br>
 <br>
-//모니터출력X 파일출력O  <br>
+모니터출력X 파일출력O  <br>
 fprintf(fileP, "%s %d\n", "Hello", 200); //파일에 출력하기 위해 fprintf로 포인터이름 fileP이 앞에 붙음<br>
 <br>
 fclose(fileP); //C드라이브에 수정한날짜 눌러서 a.txt만들어진 거 들어가면 Hello 200 되어있음<br>
