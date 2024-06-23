@@ -7,13 +7,23 @@
     <link type="text/css" rel="stylesheet" href="textcolor.css"> 
     <script src="indexh.js"> </script>
 </head>
+<script>
+    const audio1 = new Audio('Net1Audio.mp3'); 
+    const playButton = document.getElementById('play-button'); 
+    
+    playButton.addEventListener('click', function(){
+        audio1.play(); 
+    }); 
+</script>
 <body>
     <h1><a href="index.html">부러의 다락방</a></h1> 
+    <br>
+    <button id="click"style="font-family: 'Ownglyph_meetme-Rg';">읽기</button>
     <br>
     <h3 class="redtext">1. RIP, OSPF, 베스천호스트, 방화벽, 허니팟</h3>
     <li>RIP(Routing Information ptotocol): 목적지까지 최단거리 경로 설정(홉카운트적은거리)<br>
     30초 마다 모든 라우팅 정보 전달 + 최대 전달 홉수 15개</li>
-    <br><li>OSPE(Open Short Path First): 코스트 값 계산해서 최적의 경로 설정<br>
+    <br><li>OSPF(Open Short Path First): 코스트 값 계산해서 최적의 경로 설정<br>
     정기적 업데이트X(네트워크 변경사항 있으면 라우팅정보 업데이트)</li>
     <br><li>베스천호스트: 접근을 허용, 차단하는 방화벽의 기능을 함(ex:망루)<br>
     하지만 방화벽과 다른 개념이고 하나 이상 가능.<br>
@@ -30,7 +40,7 @@
     scan공격 <br>
     시스템의 취약점을 찾기 위해 포트나 서비스를 탐색하는 공격.<br>
     예시: (정보수집의 스캔 어떤포트 열려있는지 <br>
-    어떤 서비스 가능한지 21 ftp 23 텐넷 25 메일 80 웹서비스)<br>
+    어떤 서비스 가능한지 21 ftp 23 텔넷 25 메일 80 웹서비스)<br>
     <h4>스푸핑(속이다)의 3가지 기법 쓰기</h4>
     IP스푸핑, DNS스푸핑, ARP스푸핑(맥주소)<br>
     <br>
@@ -91,7 +101,7 @@
     보인크: 특정 번호로 반복 패킷을 보내 순서 체계를 망침.<br>
     예시: 1번 2번 3번 4번 5,5,5,5,5번<br>
     <br>
-    테어드랍: 겹치거나 중간, 중첩된 패킷을 보내 시스템을 혼란스럽게 만듦.<br>
+    테어드랍: 시퀀스넘버 일부 겹치거나 생략된 패킷을 보내 시스템을 혼란스럽게 만듦.<br>
     <img src="Image/NetImage/테어드랍.png" width="300px"><br>
     <br>
     랜드: 출발지와 목적지 IP주소를 동일하게 설정하여 네트워크 자원을 고갈시킴.<br>
