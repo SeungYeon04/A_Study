@@ -4,29 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>예쁜 HTML 캘린더</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         @font-face {
-            font-family: 'Ownglyph_meetme-Rg';
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_1@1.0/Ownglyph_meetme-Rg.woff2') format('woff2');
-        }
-        button {
-            font-family: 'Ownglyph_meetme-Rg';
+        font-family: 'Ownglyph_meetme-Rg';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_1@1.0/Ownglyph_meetme-Rg.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
         }
         body {
             font-family: 'Ownglyph_meetme-Rg';
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            
             margin: 0;
             background-color: #f0f0f0;
         }
+        button {
+            font-family: 'Ownglyph_meetme-Rg';
+        }
         .calendar {
-            width: 600px;
+            width: 800px; height: 100%;
+            margin-top: 10%;
+            margin-bottom: 10%;
             border: 1px solid #ddd;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             background-color: #fff;
             overflow: hidden;
         }
@@ -39,57 +41,16 @@
             justify-content: space-between;
             align-items: center;
         }
-        .calendar header h2 {
-            margin: 0;
-            font-size: 24px;
-        }
-        .calendar header button {
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 18px;
-            cursor: pointer;
-        }
-        .calendar header button:focus {
-            outline: none;
-        }
         .days-of-week, .days {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
             text-align: center;
         }
-        .days-of-week div {
-            background-color: #f1f1f1;
-            padding: 10px 0;
-            font-weight: bold;
-        }
         .days div {
             padding: 15px;
             border: 1px solid #ddd;
             cursor: pointer;
-            position: relative;
             height: 80px;
-            box-sizing: border-box;
-        }
-        .days div:hover {
-            background-color: #f9f9f9;
-        }
-        .inactive {
-            color: #ccc;
-        }
-        .todo {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background-color: red;
-            display: inline-block;
-            margin: 2px;
-            cursor: pointer;
-        }
-        .todo-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
         }
         .modal {
             display: none;
@@ -99,19 +60,30 @@
             transform: translate(-50%, -50%);
             background-color: #fff;
             padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             z-index: 1000;
         }
         .modal.active {
             display: block;
         }
-        .modal button {
-            margin-top: 10px;
-        }
+        .todo {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: red;
+            display: inline-block;
+            margin: 2px;
+            cursor: pointer;
+            }
+            .todo-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 5px;
+            }
+
     </style>
 </head>
 <body>
-    <br>
     <div class="calendar">
         <header>
             <button onclick="prevMonth()">&#9664;</button>
@@ -137,7 +109,22 @@
         <button onclick="closeModal()">닫기</button>
     </div>
 
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
     <script>
+        // Firebase 초기화
+        const firebaseConfig = {
+            apiKey: "AIzaSyAys_pNJxrTtTldGCZlp-Ld42FE_tnbM4o",
+            authDomain: "sfartaatm1.firebaseapp.com",
+            projectId: "sfartaatm1",
+            storageBucket: "sfartaatm1.appspot.com",
+            messagingSenderId: "620021993719",
+            appId: "1:620021993719:web:547ab2ffac994a13de83f2",
+            measurementId: "G-4ZVE47XJS6"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
         const calendarDays = document.getElementById('calendar-days');
         const monthYear = document.getElementById('month-year');
         const modal = document.getElementById('modal');
@@ -145,11 +132,30 @@
         const todoList = document.getElementById('todo-list');
         let date = new Date();
         const months = ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"];
-        const todos = JSON.parse(localStorage.getItem('todos')) || {};
+        const todos = {};
 
-        function saveTodos() {
-            localStorage.setItem('todos', JSON.stringify(todos));
+        function saveTodoToFirebase(date, tasks) {
+            db.collection("calendar").doc(date).set({
+                date: date,
+                todos: tasks
+            }).then(() => {
+                console.log("Document successfully written!");
+            }).catch((error) => {
+                console.error("Error writing document: ", error);
+            });
         }
+
+        function loadTodosFromFirebase() {
+            db.collection("calendar").get().then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    todos[data.date] = data.todos;
+                });
+                renderCalendar();
+            });
+        }
+
+        window.onload = loadTodosFromFirebase;
 
         function renderCalendar() {
             calendarDays.innerHTML = '';
@@ -172,10 +178,9 @@
                 const day = document.createElement('div');
                 day.textContent = i;
                 day.addEventListener('click', () => openModal(year, month, i));
-                const todoKey = `${year}-${month + 1}-${i}`;
+                const todoKey = `${year}-${String(month + 1).padStart(2, '0')}-${String(i).padStart(2, '0')}`;
                 if (todos[todoKey]) {
                     const todoContainer = document.createElement('div');
-                    todoContainer.classList.add('todo-container');
                     todos[todoKey].forEach(() => {
                         const todoDot = document.createElement('span');
                         todoDot.classList.add('todo');
@@ -210,7 +215,7 @@
         }
 
         function openModal(year, month, day) {
-            const todoKey = `${year}-${month + 1}-${day}`;
+            const todoKey = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
             modalDate.textContent = `${months[month]} ${day}, ${year}`;
             modal.dataset.key = todoKey;
             renderTodoList(todoKey);
@@ -229,34 +234,47 @@
                     todos[todoKey] = [];
                 }
                 todos[todoKey].push(todoText);
-                saveTodos();
+                saveTodoToFirebase(todoKey, todos[todoKey]);
                 renderCalendar();
                 renderTodoList(todoKey);
             }
         }
 
-        function renderTodoList(todoKey) {
-            todoList.innerHTML = '';
-            if (todos[todoKey]) {
-                todos[todoKey].forEach((todo, index) => {
-                    const li = document.createElement('li');
-                    li.textContent = todo;
-                    const deleteButton = document.createElement('button');
-                    deleteButton.textContent = '삭제';
-                    deleteButton.addEventListener('click', () => {
-                        todos[todoKey].splice(index, 1);
-                        if (todos[todoKey].length === 0) {
-                            delete todos[todoKey];
-                        }
-                        saveTodos();
-                        renderCalendar();
-                        renderTodoList(todoKey);
-                    });
-                    li.appendChild(deleteButton);
-                    todoList.appendChild(li);
-                });
-            }
+        function deleteTodoFromFirebase(date, index) {
+    const todoKey = date;
+    if (todos[todoKey] && todos[todoKey].length > index) {
+        todos[todoKey].splice(index, 1);
+        if (todos[todoKey].length === 0) {
+            db.collection("calendar").doc(todoKey).delete().then(() => {
+                console.log("Document successfully deleted!");
+            }).catch((error) => {
+                console.error("Error removing document: ", error);
+            });
+            delete todos[todoKey];
+        } else {
+            saveTodoToFirebase(todoKey, todos[todoKey]);
         }
+    }
+}
+
+function renderTodoList(todoKey) {
+    todoList.innerHTML = '';
+    if (todos[todoKey]) {
+        todos[todoKey].forEach((todo, index) => {
+            const li = document.createElement('li');
+            li.textContent = todo;
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = '삭제';
+            deleteButton.addEventListener('click', () => {
+                deleteTodoFromFirebase(todoKey, index);
+                renderCalendar();
+                renderTodoList(todoKey);
+            });
+            li.appendChild(deleteButton);
+            todoList.appendChild(li);
+        });
+    }
+}
 
         function showTodoDetails(todoKey) {
             alert(todos[todoKey].join('\n'));
