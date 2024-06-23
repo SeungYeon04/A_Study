@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예쁜 HTML 캘린더</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Ownglyph_meetme-Rg';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_1@1.0/Ownglyph_meetme-Rg.woff2') format('woff2');
+        }
+        button {
+            font-family: 'Ownglyph_meetme-Rg';
+        }
+        body {
+            font-family: 'Ownglyph_meetme-Rg';
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .calendar {
+            width: 600px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            overflow: hidden;
+        }
+        .calendar header {
+            background-color: pink;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .calendar header h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .calendar header button {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .calendar header button:focus {
+            outline: none;
+        }
+        .days-of-week, .days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            text-align: center;
+        }
+        .days-of-week div {
+            background-color: #f1f1f1;
+            padding: 10px 0;
+            font-weight: bold;
+        }
+        .days div {
+            padding: 15px;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            position: relative;
+            height: 80px;
+            box-sizing: border-box;
+        }
+        .days div:hover {
+            background-color: #f9f9f9;
+        }
+        .inactive {
+            color: #ccc;
+        }
+        .todo {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: red;
+            display: inline-block;
+            margin: 2px;
+            cursor: pointer;
+        }
+        .todo-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        .modal.active {
+            display: block;
+        }
+        .modal button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <br>
+    <div class="calendar">
+        <header>
+            <button onclick="prevMonth()">&#9664;</button>
+            <h2 id="month-year"></h2>
+            <button onclick="nextMonth()">&#9654;</button>
+        </header>
+        <div class="days-of-week">
+            <div>일</div>
+            <div>월</div>
+            <div>화</div>
+            <div>수</div>
+            <div>목</div>
+            <div>금</div>
+            <div>토</div>
+        </div>
+        <div class="days" id="calendar-days"></div>
+    </div>
+
+    <div id="modal" class="modal">
+        <h3 id="modal-date"></h3>
+        <ul id="todo-list"></ul>
+        <button onclick="addTodo()">할 일 추가</button>
+        <button onclick="closeModal()">닫기</button>
+    </div>
+
+    <script>
+        const calendarDays = document.getElementById('calendar-days');
+        const monthYear = document.getElementById('month-year');
+        const modal = document.getElementById('modal');
+        const modalDate = document.getElementById('modal-date');
+        const todoList = document.getElementById('todo-list');
+        let date = new Date();
+        const months = ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"];
+        const todos = JSON.parse(localStorage.getItem('todos')) || {};
+
+        function saveTodos() {
+            localStorage.setItem('todos', JSON.stringify(todos));
+        }
+
+        function renderCalendar() {
+            calendarDays.innerHTML = '';
+            const year = date.getFullYear();
+            const month = date.getMonth();
+            monthYear.textContent = `${months[month]} ${year}`;
+            
+            const firstDayOfMonth = new Date(year, month, 1).getDay();
+            const lastDateOfMonth = new Date(year, month + 1, 0).getDate();
+            const lastDayOfLastMonth = new Date(year, month, 0).getDate();
+            
+            for (let i = firstDayOfMonth; i > 0; i--) {
+                const day = document.createElement('div');
+                day.classList.add('inactive');
+                day.textContent = lastDayOfLastMonth - i + 1;
+                calendarDays.appendChild(day);
+            }
+            
+            for (let i = 1; i <= lastDateOfMonth; i++) {
+                const day = document.createElement('div');
+                day.textContent = i;
+                day.addEventListener('click', () => openModal(year, month, i));
+                const todoKey = `${year}-${month + 1}-${i}`;
+                if (todos[todoKey]) {
+                    const todoContainer = document.createElement('div');
+                    todoContainer.classList.add('todo-container');
+                    todos[todoKey].forEach(() => {
+                        const todoDot = document.createElement('span');
+                        todoDot.classList.add('todo');
+                        todoDot.addEventListener('click', (e) => {
+                            e.stopPropagation();
+                            showTodoDetails(todoKey);
+                        });
+                        todoContainer.appendChild(todoDot);
+                    });
+                    day.appendChild(todoContainer);
+                }
+                calendarDays.appendChild(day);
+            }
+            
+            const remainingDays = 42 - calendarDays.children.length;
+            for (let i = 1; i <= remainingDays; i++) {
+                const day = document.createElement('div');
+                day.classList.add('inactive');
+                day.textContent = i;
+                calendarDays.appendChild(day);
+            }
+        }
+
+        function prevMonth() {
+            date.setMonth(date.getMonth() - 1);
+            renderCalendar();
+        }
+
+        function nextMonth() {
+            date.setMonth(date.getMonth() + 1);
+            renderCalendar();
+        }
+
+        function openModal(year, month, day) {
+            const todoKey = `${year}-${month + 1}-${day}`;
+            modalDate.textContent = `${months[month]} ${day}, ${year}`;
+            modal.dataset.key = todoKey;
+            renderTodoList(todoKey);
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+        }
+
+        function addTodo() {
+            const todoKey = modal.dataset.key;
+            const todoText = prompt('할 일을 입력하세요:');
+            if (todoText) {
+                if (!todos[todoKey]) {
+                    todos[todoKey] = [];
+                }
+                todos[todoKey].push(todoText);
+                saveTodos();
+                renderCalendar();
+                renderTodoList(todoKey);
+            }
+        }
+
+        function renderTodoList(todoKey) {
+            todoList.innerHTML = '';
+            if (todos[todoKey]) {
+                todos[todoKey].forEach((todo, index) => {
+                    const li = document.createElement('li');
+                    li.textContent = todo;
+                    const deleteButton = document.createElement('button');
+                    deleteButton.textContent = '삭제';
+                    deleteButton.addEventListener('click', () => {
+                        todos[todoKey].splice(index, 1);
+                        if (todos[todoKey].length === 0) {
+                            delete todos[todoKey];
+                        }
+                        saveTodos();
+                        renderCalendar();
+                        renderTodoList(todoKey);
+                    });
+                    li.appendChild(deleteButton);
+                    todoList.appendChild(li);
+                });
+            }
+        }
+
+        function showTodoDetails(todoKey) {
+            alert(todos[todoKey].join('\n'));
+        }
+
+        renderCalendar();
+    </script>
+</body>
+</html>
