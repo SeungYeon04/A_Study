@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="../fonts.css"> 
+    <script src="../indexh.js"> </script>
+    <title>Linux4</title>
+</head>
+<body>
+    <h1><a href="../index.html">부러의 다락방</a></h1> 
+    <br>
+    #20240402<br> 
+    #FTP <br> 
+    영상 보고 금남tv (FTP 사용법 배워왔네~ ) <br> 
+    <br> 
+    netstat -ant | grep 22<br> 
+    netstat -ant | grep 80<br> 
+    <br> 
+    쳐보고 21 없네? <br> 
+    netstat -ant | grep 21 <br> 
+    열고 <br> 
+    <br> 
+    21 없으면 설치 <br> 
+    sudo apt -y install vsftpd<br> 
+    <br> 
+    설정 > 서비스(21은 올라옴) > 설정 해야함 <br> 
+    & 설치 > 설정 > 서비스도 ㄱㅊ <br> 
+    <br> 
+    <br> 
+    cd /etc/<br>  
+    su <br> 
+    루트로 바꾸고<br>  
+    (master은 exit) <br> 
+    <br>
+    아직도 root 안 되고 su: Authentication failure 뜨면<br> 
+    sudo passwd root로 비번 설정<br> 
+    <br>   
+    root 되면<br>  
+    nano /etc/vsftpd.conf<br> 
+    <br> 
+    #는 주석<br>  
+    <br> 
+    #write_enable : 주석제거하기 write_enable=YES<br> 
+    그리고 컨트롤x 쉬프트y <br> 
+    systemctl restart vsftpd<br> 
+    서비스 리스타트 <br> 
+    <br> 
+    에디터플러스 설정<br>  
+    설명 210.125.198.35<br> 
+    서버 210.125.198.35<br> 
+    네임 master<br> 
+    비번 <br> 
+    디렉토리 /home/master/public_html<br> 
+    Passive FTP모드 끄기 <br> 
+    이제 들어가짐! <br> 
+    <br> 
+    210.125.198.35/~master 들어가면 적용 <br> 
+    <br> 
+    다음시간에 배울 것: 도메인네임서비스<br> 
+    master 붙이기 귀찮기에 <br> 
+    210.125.198.80 = jvion.ac.kr <br> 
+    웹서버, 메일서버 , 도메인서버!!!!!!!!!!!!!!(문자), 파일서버,,,<br>  
+    <br> 
+</body>
+</html>

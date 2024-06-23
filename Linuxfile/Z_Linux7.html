@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>와 감사합니다</title>
+    <link type="text/css" rel="stylesheet" href="../fonts.css"> 
+    <script src="../indexh.js"> </script>
+</head>
+<body>
+    <h1><a href="../index.html">부러의 다락방</a></h1> 
+    <br>
+    <a href="Z_Linuxsihom1.html">DNS 네임서버 정리</a><br>
+    <br>
+    주말 테스트: 외부송출 시키기<br>
+    개인적으로 IP를 이더넷꺼로 써서 (마지막이 1로 끝나는)<br>
+    외부송출이 안 되길래 밤 새운 나를 위한<br>
+    세팅 다시 체크하는 공간<br>
+    무선 랜 어댑터꺼 쓰자 꼭 무조건<br>
+<pre>
+이더넷 어댑터 이더넷 2:
+
+IPv4 주소 . . . . . . . . . : 여긴 내부임 
+
+무선 LAN 어댑터 Wi-Fi:
+
+연결별 DNS 접미사. . . . :
+IPv4 주소 . . . . . . . . . : ***이거 쓸 거임
+기본 게이트웨이 . . . . . . : 여긴 공유기 접속 링크 
+
+</pre>
+    <br>
+    <li>모바일 외부접속 성공 모습</li>
+    <img src="Image/Ubuntu1.jpg" width="400" height="200">
+    <br>
+    var/www/html 부분을 보여줄 것이다.<br>
+    <br>
+    저번에 노트정리 한 것 중 DNS설정 빼고<br>
+    포트열기, index.html, 워드프레스 설치<br>
+    부가적으로 파티션 백업 이런 것만 참고하면 될 듯<br>
+    공유기 바꾸면 세팅 다시 해야 함 모두 다..<br>
+    버츄얼박스 : 192.X.X.249 로 변경<br> 
+    도메인 설정과 외부 IP: 222.X.X.225<br>
+    <br>
+    <hr>
+    <br>
+    <li>테스트로 걸어둔 웹사이트</li>
+    <a href="http://222.105.82.225">외부 아이피 경로 웹</a><br>
+    <a href="http://master.birdstudy.pe.kr/">호스팅 사이트에서 연결한 아이피 웹</a><br>
+    <a href="http://222.105.82.225/wordpress/"></a>
+    <br>
+    <hr>
+    <br>
+    공유기 게이트웨이 DDMZ: 222.X.X.225 (DDMZ는 모든포트 받는 거라 위험도 높아서 안해도 된다캄)<br>
+    공유기 포트포워딩 내부IP: 192.X.X.249 (21, 80, 53 함 53은 굳이 안 해도 되지만..)<br>
+    버츄얼박스 포트포워딩: 192.X.X.249<br>
+    A 레코드는 직접 호스팅 할 일 잘 없으니 안 하고 53포트도 NO<br>
+    <br>
+</body>
+</html>

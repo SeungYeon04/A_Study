@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>리눅스시험1</title>
+    <link type="text/css" rel="stylesheet" href="../fonts.css"> 
+    <script src="../indexh.js"> </script>
+</head>
+<body>
+    <h1><a href="../index.html">부러의 다락방</a></h1> 
+    <br>
+    #20240529 <br>
+    <br>
+    메일서버구축시작<br>
+    썬더버드 로그인 성공<br>
+    <br>
+메일구축 <br>
+썬더버드(설치) 앱 > G메일 N메일 POP3 IMAP 설정해서 로그인 가능.. <br>
+우리가 할 것은 직접 DNS서버 구축해서 우리의 DNS 메일을 만들 것임. <br>
+그리고 교수님께 메일 보내면 성공 <br>
+이더넷 192.168.51.226로 하면 와파 연결 안됨..ㅜ = DNS 돌아가나 CMD확인용<br>
+<br>
+(1) /etc/hostname<br>
+<pre>          
+mail.birdstudy.ac.kr
+</pre>  
+<br>
+(2) /etc/hosts<br>
+<pre>
+127.0.0.1 localhost
+10.0.2.15 mail.birdstudy.ac.kr
+</pre>
+<br>
+(3) /etc/mail/local-host-names <br>
+<pre>
+localhost
+mail.birdstudy.ac.kr
+</pre>
+<br>
+reboot<br>
+<br>
+sudo systemctl restart named<br>
+<br>
+(4) /etc/mail/sendmail.cf<br>
+<pre>
+Cwlocalhost부분은 > Cwbirdstudy.ac.kr로 수정<br> 
+<br>
+# SMTP daemon options (Ctrl + w로 이 부분 검색해서 오기) 
+O DaemonPortOptions=Family=inet,  Name=MTA-v4, Port=smtp       
+O DaemonPortOptions=Family=inet,  Name=MSP-v4, Port=submission, M=Ea
+</pre>
+> 이 두 개 지운 것이다. <br>
+<pre>
+Addr=127.0.0.1
+Addr=127.0.0.1
+</pre>
+<br>
+(5) /etc/mail/access (주석없는구간에추가) <br>
+<pre>
+birdstudy.ac.kr                 RELAY
+10.0.2                          RELAY
+210.125.198                     RELAY
+192.168.51.226                  RELAY
+</pre>
+<br>
+명령어<br>
+(6) makemap hash /etc/mail/access &lt; /etc/mail/access<br>
+systemctl restart sendmail<br>
+sudo apt -y install mailutils<br>
+netstat -ant | grep 25 //25번 떠야 정상 <br>
+<br>
+(7) sudo nano /etc/dovecot/dovecot.conf<br>
+<pre>
+listen = *, ::  >주석제거 <br>
+# Base directory where to store runtime data.
+base_dir = /var/run/dovecot/  >주석제거
+disable_plaintext_auth = no  >추가 </pre>
+<br>
+(8) sudo nano /etc/dovecot/conf.d/10-mail.conf <br>
+<pre>
+mail_access_groups = mail (주석제거 + mail글자추가) 
+lock_method = fcntl (주석제거)
+</pre>
+<br>
+sudo systemctl restart sendmail<br>
+sudo systemctl start dovecot<br>
+<br>
+명령어 = 웹메일 <br>
+sudo apt -y install dovecot-imapd lamp-server^<br>
+sudo apt -y install roundcube<br>
+sudo nano /etc/apache2/conf-enabled/roundcube.conf (이건머노) <br>
+<br>
+에러보기: journalctl -u sendmail.service<br>
+apt update<br>
+<br>
+etc/bind/birdstudy.ac.kr.zone<br>
+<pre>
+;
+@       IN      NS      ns.birdstudy.ac.kr.
+@       IN      A       192.168.51.226
+ns      IN      A       192.168.51.226
+www     IN      A       192.168.51.226
+ftp     IN      A       192.168.51.226
+main    IN      A       192.168.51.226
+*       IN      A       192.168.51.226
+smtp    IN      A       192.168.51.226
+imap    IN      A       192.168.51.226
+pop3    IN      A       192.168.51.226
+</pre>
+<br>
+성공사례<br> 
+resolv.conf 10.0.2.15 계속 바꿔주고<br> 
+이더넷1 > 192.168.51.226 계속 해주면서 확인하면 될 때 있음<br>
+(캐시저장 때문에 이걸로 갑자기 될 때가 있음) <br>
+<br>
+로그인<br>
+이름: 관리자<br>
+메일: master@mail.birdstudy.ac.kr <br>
+비번: (master비번)<br>
+<br>
+</body>
+</html>

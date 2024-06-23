@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>리눅스 중간고사 끝</title>
+    <link type="text/css" rel="stylesheet" href="../fonts.css"> 
+    <script src="../indexh.js"> </script>
+</head>
+<body>
+    <h1><a href="../index.html">부러의 다락방</a></h1> 
+    <br>
+나중에 리눅스 노트 사이트로도 옮길 예정<br>
+설치를 위한 명령어: wget (다운로드 링크주소) <br>& sudo apt -y install lrzsz 해서 드래그로 설치<br>
+<br>
+(210.125.198.35는 학교꺼)<br>
+#20240430<br>
+워드프레스 설치와 열기까지 정보들<br>
+<br>
+웹프로그램 > CMS 설치 (APM) <br>
+<br>
+웹서버의 /var/www/html 기본경로자나 <br>
+/home/master/public_html 여기로 옮길거야만 함 <br>
+<br>
+이번엔 /var/www/html로 옮김 <br>
+<br>
+<br>
+Apache2<br> 
+php <br>
+Mysql <br>
+<br>
+( https://ko.wordpress.org/<br>
+워드프레스 얻기 누르기 <br>
+https://ko.wordpress.org/download/ 에서 아래 버튼 링크주소복사 )<br>
+<br>
+( 그 링크를 넣자https://ko.wordpress.org/latest-ko_KR.tar.gz 이걸 Xhell에서 )<br>
+<br>
+<hr> 
+<br>
+wget https://ko.wordpress.org/latest-ko_KR.tar.gz (이게 명령어임 설치 워드프레스 소스코드) <br>
+<br>
+//ls하면<br> 
+//latest-ko_KR.zip뜸 cd /home/master위치 <br>
+<br>
+sudo cp latest-ko_KR.tar.gz /var/www/html<br>
+cd /var/www/html<br>
+ls //(> index.html  latest-ko_KR.tar.gz)<br>
+<br>
+//압축 풀고 tar 걷어내기<br> 
+<br>
+sudo tar zxvf latest-ko_KR.tar.gz<br>
+<br>
+//ls  latest-ko_KR.tar.gz 풀어서 > wordpress 생기면 됨 <br>
+<br>
+http://http://210.125.198.35/wordpress/<br>
+<br>
+<hr> 
+<br>
+우리 사이트에 노트 올리기 <br>
+<br>
+노트에 워드프레스 추가 <br>
+연결안된 XSHEEL 에 <br>
+ssh virtual.izerone.co.kr 22101 <br>
+<br>
+//일단 노트 하기 위해선 연결 X상태로 ssh virtual.izerone.co.kr 22101입력하면 됨 <br>
+<br>
+위치 여기였네 <br>
+cd /home/v202318021/public_html/ <br>
+wget https://ko.wordpress.org/latest-ko_KR.tar.gz <br> 
+tar zxvf latest-ko_KR.tar.gz <br>
+<br>
+노트에 워드프레스 설치까지다 <br>
+<br>
+주소 http://virtual.izerone.co.kr/~v202318021/wordpress 가 바뀌어야 함 <br>
+(알아서 http://virtual.izerone.co.kr/~v202318021/wordpress/wp-admin/setup-config.php 위치 됨) <br>
+<br>
+<pre>
+워드프레스에 오신 것을 환영합니다. 시작하기 전에 다음 항목을 아셔야 합니다. 
+
+/*
+이렇게 떠야 함 
+W 
+데이터베이스 이름
+데이터베이스 사용자명
+데이터베이스 비밀번호
+데이터베이스 호스트
+테이블 접두어(하나의 데이터베이스에서 하나 이상의 워드프레스를 운영하고자 할 경우)
+*/ 
+</pre>
+<hr>
+<br>
+다시 우분투서버에서 (http://210.125.198.35/wordpress/ 작업)<br>
+<br>
+sudo apt -y install lamp-server^ 잘 해줘야 함 물론 포함 파일이 많음 <br>
+<br>
+sudo apt -y install net-tools 네트워크 환경 확인 <br>
+netstat -ant | grep 80 (apache2) <br>
+netstat -ant | grep 3306 떠야 함 (데이터베이스 mysql) 포트번호 외우기 <br>
+(php아직) <br>
+<br>
+systemctl restart apache2 <br>
+<br>
+링크 http://210.125.198.35/wordpress/ 접속 <br>
+(자동으로 http://210.125.198.35/wordpress/wp-admin/setup-config.php 되긴 함) <br>
+<br>
+이제 뜰 거임 <br>
+<pre>
+워드프레스에 오신 것을 환영합니다. 시작하기 전에 다음 항목을 아셔야 합니다.
+
+데이터베이스 이름
+데이터베이스 사용자명
+데이터베이스 비밀번호
+데이터베이스 호스트
+테이블 접두어(하나의 데이터베이스에서 하나 이상의 워드프레스를 운영하고자 할 경우)
+*/
+</pre>
+<br>
+var/www/html 에성 (root로) <br>
+mysql (하면) <br>
+<br>
+<pre>
+/*
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 10
+Server version: 8.0.36-0ubuntu0.22.04.1 (Ubuntu)
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+</pre>
+라고 뜰 거임<br> 
+<br>
+mysql -u root -p <br>
+show databases;<br>
+<br>
+<pre>
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+</pre>
+<br>
+create database master; 이름 <br>
+create user master@localhost identified by '123456'; <br>
+grant all on master.* to master@localhost; <br>
+exit <br>
+<br>
+이렇게 되면 성공<br>
+<pre>
+mysql> create database master;
+Query OK, 1 row affected (0.04 sec)
+
+mysql> create user master@localhost identified by '123456';
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> grant all on master.* to master@localhost;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> exit
+Bye
+</pre>
+</body>
+</html>
