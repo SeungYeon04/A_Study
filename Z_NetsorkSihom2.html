@@ -4,17 +4,19 @@
     <meta charset="UTF-8">
     <title>네트워크6</title>
     <link type="text/css" rel="stylesheet" href="fonts.css"> 
+    <link type="text/css" rel="stylesheet" href="textcolor.css"> 
     <script src="indexh.js"> </script>
 </head>
 <body>
     <h1><a href="index.html">부러의 다락방</a></h1> 
     <br>
-    <h3>스푸핑 스니핑</h3>
-    <h4>1. 스푸핑(속이다)</h4>
+    <h3 class="redtext">1. RIPF OSPF 베스천호스트, 방화벽, 허니팟</h3>
+
+
+    <h3 class="coraltext">2. 스캔공격 스푸핑 스니핑 방화벽</h3>
+    <h4>스푸핑(속이다)</h4>
     간단 예시: <br>
-    IP스푸핑 IP속이기 <br>
-    DNS스푸핑 도메인 응답 보내서 속이기 <br>
-    ARP스푸핑 맥주소 <br>
+    IP스푸핑, DNS스푸핑, ARP스푸핑(맥주소)<br>
     <br>
     <li>ARP스푸핑 막을 방법</li>
     맥주소 아이피주소 고정 시키기 <br>
@@ -33,7 +35,7 @@
     트러스트 관계는 시스템 간의 신뢰를 기반으로 인증을 생략하는 방식.<br>
     SSO는 사용자가 한 번 로그인하면 여러 서비스에 접근할 수 있도록 하는 방식. <br>   
     <br>
-    <h3>스니핑: 도청처럼 빼감 (모든 정보를 빼감 tcp dump처럼)</h3>
+    <h4>스니핑: 도청처럼 빼감 (모든 정보를 빼감 tcp dump처럼)</h4>
     스위치 방식: 정보를 모르니까 플러딩으로 모든 포트 정보 다 보냄. <br>
     러닝 과정 거치고 포워딩 필터링 하는 과정 거쳤다고.<br>
     <br>
@@ -41,8 +43,10 @@
     예시: 모든 포트에서 정보 다 보내버림 <br>
     그래서 스위치가 스니핑 막는 도구 되어버림. <br>
     <br>
-    막고프 (?) <br>
-    스니핑 방지: 플러딩 공격으로 <br>스위치의 메모리를 오버플로우 시켜서 <br>
+    Macof공격: 스위치를 공격해 더미 허브처럼 동작하게 만듦.<br>
+    <br>
+    스니핑 방지: 플러딩 공격으로 <br>
+    스위치의 메모리를 오버플로우 시켜서 <br>
     네트워크 성능 저하 시키기.<br>
     <br>
     OSPF ? <br>
@@ -50,7 +54,7 @@
     라우팅 알고리즘에 대해 <br>
     라우팅 인포메이션 프로토콜 ? <br>
     <br>
-    <h3>2. 스캔공격(정보수집)(Scan Attack)</h3>
+    <h4>스캔공격(정보수집)(Scan Attack)</h4>
     scan공격 <br>
     시스템의 취약점을 찾기 위해 포트나 서비스를 탐색하는 공격.<br>
     예시: (정보수집의 스캔 어떤포트 열려있는지 <br>
@@ -65,8 +69,9 @@
     패킷 필터링: 특정 패킷을 차단하거나 허용.
     프록시 방식: 프록시 서버를 통해 트래픽을 제어.
     <br> 
-    <h3>3. DOS (Denial of Service) <br>DDOS (Distributed Denial of Service)</h3>
-    DOS, DDOS: 시스템 자원을 고갈시켜 정상적인 서비스를 방해하는 공격.<br>
+    <h3 class="yellowtext">3. DOS (Denial of Service) 서비스 거부 공격 
+    <br>DDOS (Distributed Denial of Service)</h3>
+    개념과 공격종류: 신플러딩, 본크, 보인크, 테어드랍, 랜드 <br>
     <br>
     DDOS(디도스): 여러 대의 컴퓨터를 이용해 공격. <br>
     예시: 좀비피쉬처럼 분산됨 <br>
@@ -83,16 +88,13 @@
     <br>
     테어드랍: 겹치거나 중간, 중첩된 패킷을 보내 시스템을 혼란스럽게 만듦.<br>
     <br>
-    랜드: 출발지와 목적지 주소를 동일하게 설정하여 네트워크 자원을 고갈시킴.<br>
-    예시: 출발지 주소 목적지 주소 같게, 강아지 꼬리 보고 빙글빙글<br>
+    랜드: 출발지와 목적지 IP주소를 동일하게 설정하여 네트워크 자원을 고갈시킴.<br>
+    예시: 동시 사용자 수 점유 CPU고갈, 강아지 꼬리 보고 빙글빙글<br>
     <br>
-    스머프: 브로드캐스트 주소를 이용해 ICMP 패킷을 보내서 트래픽을 유발. <br>
-    예시: 가가밀 나타났다 들려서 도망갔는데 <br>
-    알고보니 아니어서 죄 없는 놈 맞음<br>
     <br>
-    핑오브데스 안냄 <br>
+    스머프 핑오브데스 안냄 <br>
     <br>
-    <h3>4. IDS (Intrusion Detection System) 침입 탐지 기법</h3>
+    <h3 class="greentext">4. IDS (Intrusion Detection System) 침입 탐지 기법</h3>
     <h4>오용 탐지 (Misuse Detection):</h4>
     시그니처 기반, 지식 기반: 이미 알려진 공격 패턴을 탐지.<br>
     장점: 오탐지율이 낮음.<br>
@@ -102,5 +104,12 @@
     장점: 새로운 공격을 탐지 가능.<br>
     단점: 오탐지율이 높음.<br>
     <br>
+    
+    <br>
+    <br>
+    그냥 정리 <br>
+    스머프: 브로드캐스트 주소를 이용해 ICMP 패킷을 보내서 트래픽을 유발. <br>
+    예시: 가가밀 나타났다 들려서 도망갔는데 <br>
+    알고보니 아니어서 죄 없는 놈 맞음<br>
 </body>
 </html>
