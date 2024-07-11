@@ -58,8 +58,6 @@ a {
     text-align: center; 
     width: 42vh;
     height: 100%;
-    padding-right: 1.5%;
-    padding-left: 1.5%;
     position: fixed; /* 고정 위치 */
     
 }
