@@ -8,46 +8,61 @@
 <link type="text/css" rel="stylesheet" href="indexh.css"> 
 <script src="indexh.js"></script>
 </head> 
-<body> 
-    <br>
-<div class="WebNameTag"><h1> 부러의 다락방 </h1> </div>
-    <br>
-    <img src="Image/프로필/앵무새.jpg" width="170" height="150" onclick="change(this)" style="border-radius: 80px; border: 1px solid gray;">
-    <h3>가니메데스와 드루이드 부러<br>승연의 개인 공부 기록장 사이트</h3>
-    <br>
-    <fieldset>
+<body>
+    <div class="AllBox">
+        <div class="Box1" style="overflow-y:scroll; ">
         <br>
-        <legend>대학교 공부정리(B/1-1)</legend>
-        <li><a href="DigitalSestem.html">디지털시스템</a></li>
-        <li><a href="Network.html">컴퓨터네트워크</a></li>
-        <li><a href="LinuxMaster.html">리눅스마스터</a></li>
-        <li><a href="Cstudy.html">C언어</a></li>
-        <li><a href="htmljs.html">html + 포토샵</a></li>
+        <img src="대학시절/Image/프로필/앵무새.jpg" width="170" height="150" onclick="change(this)" style="border-radius: 80px; border: 1px solid gray;">
+        <h1 style="margin: 0%;">부러의 다락방🦜</h1>
         <br>
-    </fieldset>
-    <br>
-    <fieldset>
-        <legend>대학교 방학일지(B/1-1)</legend>
+        <a>웹 풀스텍 개발자에 <br>출시작 많은 게임개발자를 꿈꾸는<br>대학생입니다.</a>
         <br>
-        <li><a href="SchoolisOut/LearningDiary1.html">리눅스, C#, 웹</a></li>
         <br>
-    </fieldset>
-    <br>
-    <fieldset>
-        <legend>기타</legend>
-        <br>
-        <li><a href="color.html">환경설정</a></li>
-        <li><a href="h.html">중요 캘린더</a></li>
-        <br>
-    </fieldset>
-    <br>
+        <div class="Box2" >
+            <br>
+            <h4>대학교 공부정리(B/1-1)</h4>
+            <li><a href="대학시절/DigitalSestem.html">디지털시스템</a></li>
+            <li><a href="대학시절/Network.html">컴퓨터네트워크</a></li>
+            <li><a href="대학시절/LinuxMaster.html">리눅스마스터</a></li>
+            <li><a href="대학시절/Cstudy.html">C언어</a></li>
+            <li><a href="대학시절/htmljs.html">html + 포토샵</a></li>
+            <h4>기타</h4>
+            <li><a href="대학시절/color.html">환경설정</a></li>
+            <br>
+        </div>
+        <div class="Box2" >
+            <br>
+            <h4>대학교 공부정리(B/1-1)</h4>
+            <li><a href="대학시절/DigitalSestem.html">디지털시스템</a></li>
+            <li><a href="대학시절/Network.html">컴퓨터네트워크</a></li>
+            <li><a href="대학시절/LinuxMaster.html">리눅스마스터</a></li>
+            <li><a href="대학시절/Cstudy.html">C언어</a></li>
+            <li><a href="대학시절/htmljs.html">html + 포토샵</a></li>
+            <h4>기타</h4>
+            <li><a href="대학시절/color.html">환경설정</a></li>
+            <br>
+        </div>
+    </div>
+    <div class="header" style="display: block;">
+        <button id="dark-toggle">블랙</button>
+        <button id="while-toggle">화이트</button>
+        행복하기 위해 발버둥을 쳐보자
+    </div>
+    <div class="Box3">
+        z<br>  
+        z<br>  
+        z<br>  
+        z<br>  
+    </div>
+    </div>
+    <div class="BottomBox">깃허브</div>
 </body> 
 <script>
     let files = [
-    "Image/프로필/앵무새.jpg",
-    "Image/프로필/앵무새1.jpg",
-    "Image/프로필/앵무새2.jpg",
-    "Image/프로필/앵무새3.jpg" ];
+    "대학시절/Image/프로필/앵무새.jpg",
+    "대학시절/Image/프로필/앵무새1.jpg",
+    "대학시절/Image/프로필/앵무새2.jpg",
+    "대학시절/Image/프로필/앵무새3.jpg" ];
     let imgs = new Array(); 
     for(let i = 0; i<files.length; i++)
     {
