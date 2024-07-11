@@ -56,7 +56,7 @@ a {
 .Box1 {
     background-color: pink;
     text-align: center; 
-    width: 42vh;
+    width: 20%;
     height: 100%;
     position: fixed; /* 고정 위치 */
     
