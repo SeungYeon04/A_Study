@@ -1,10 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
+import { Route, Routes } from 'react-router-dom';
+
+import Read from './post/PageLoad'; 
+import Post from './post/PagePost';
 
 function App() {
   return (
     <div className="App">
-      App 화면 띄우는 중 
+      아
+      <Routes>
+        <Route path="/blog/:fileName" element={<Post />} />
+      </Routes>
     </div>
   );
 }
