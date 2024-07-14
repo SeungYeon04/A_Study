@@ -22,7 +22,7 @@ export default function Read() {
     //더 꾸밀 거면 플러그인 추가하기 {[remarkGfm]}> 같은 거 
     return (
         <div className="py-4 px-4 text-center">
-        <ReactMarkdown remarkPlugins={[remarkGfm]}>{markdown}</ReactMarkdown> 
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>{markdown}</ReactMarkdown> 
         </div>
     );
 }
