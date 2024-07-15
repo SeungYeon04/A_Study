@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import React from 'react';
@@ -25,6 +24,7 @@ function Home() {
       <h1>블로그의 홈 - 나를 소개합니다.</h1>
       <p>블로그 카테고리 글 선택 전의 홈</p>
       <a>게임개발의 끝을 마치긴 해야 함.</a>
+      <Post/>
     </div>
   );
 }
