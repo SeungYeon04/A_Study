@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // darkMode 상태에 따라 다크 모드 설정
     if (isDarkMode) {
         document.body.classList.add('dark-mode');
-    }
+    } 
 
     // 다크 모드 토글 이벤트
     darkToggle.addEventListener('click', function() {

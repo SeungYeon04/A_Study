@@ -3,25 +3,38 @@ import { Link } from "react-router-dom";
 
 export default function Post() {
   const markdownFiles = [
-    { name: "글1", content: "내용1" }, 
-    { name: "글2", content: "내용2" }
-  ]; //여기 자동으로 카테고리, 이름 찾게 할 거임 
+    {
+      name: "카테고리1",
+      posts: [
+        { name: "대학공부", content: "대학 공부에 관한 내용입니다." }, 
+        { name: "유니티", content: "유니티 게임 개발에 관한 내용입니다." }
+      ]
+    },
+    {
+      name: "카테고리2",
+      posts: [
+        { name: "자바스크립트", content: "자바스크립트 프로그래밍에 관한 내용입니다." }, 
+        { name: "리액트", content: "리액트 프레임워크에 관한 내용입니다." }
+      ]
+    }
+  ];
 
-  //페이지 데이터 받아서 글자 출력  
   return (
     <div>
-        <h2>글</h2>
-    <div>
-      {markdownFiles.map((file, index) => (
-        <Link
-          key={index}
-          to={`/blog/${file.name}`}
-        >
-          <h3>{file.name}</h3>
-          <p>{file.content}</p> 
-        </Link> 
+      <h2>글 목록</h2>
+      {markdownFiles.map((category, index) => (
+        <div key={index}>
+          <h3>{category.name}</h3>
+          <div>
+            {category.posts.map((post, idx) => (
+              <Link key={idx} to={`/blog/${category.name}/${post.name}`}>
+                <a>{post.name}</a>
+              </Link>
+            ))}
+          </div>
+        </div>
       ))}
     </div>
-    </div> 
   );
 }
+
