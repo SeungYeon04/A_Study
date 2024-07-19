@@ -1,40 +1,49 @@
-import React from "react";
-import { Link } from "react-router-dom"; 
+// src/post/PagePost.js
+import React from 'react';
+import { useParams, Link } from 'react-router-dom';
 
-export default function Post() {
-  const markdownFiles = [
-    {
-      name: "카테고리1",
-      posts: [
-        { name: "대학공부", content: "대학 공부에 관한 내용입니다." }, 
-        { name: "유니티", content: "유니티 게임 개발에 관한 내용입니다." }
-      ]
-    },
-    {
-      name: "카테고리2",
-      posts: [
-        { name: "자바스크립트", content: "자바스크립트 프로그래밍에 관한 내용입니다." }, 
-        { name: "리액트", content: "리액트 프레임워크에 관한 내용입니다." }
-      ]
-    }
-  ];
+const markdownFiles = [
+  {
+    name: "카테고리1", type: "folder",
+    posts: [
+      { id: 1, name: "대학공부", type: "file" },
+      { id: 2, name: "유니티", type: "file" }
+    ]
+  },
+  {
+    name: "카테고리2", type: "folder",
+    posts: [
+      { id: 3, name: "자바스크립트", type: "file" },
+      { id: 4, name: "리액트", type: "file" }
+    ]
+  }
+];
+
+const Post = ({ selectedCategory }) => {
+  const { categoryName } = useParams();
+  const effectiveCategoryName = selectedCategory || categoryName;
+  const selectedCategoryObj = markdownFiles.find(category => category.name === effectiveCategoryName);
 
   return (
     <div>
-      <h2>글 목록</h2>
-      {markdownFiles.map((category, index) => (
-        <div key={index}>
-          <h3>{category.name}</h3>
-          <div>
-            {category.posts.map((post, idx) => (
-              <Link key={idx} to={`/blog/${category.name}/${post.name}`}>
-                <a>{post.name}</a>
+      {selectedCategoryObj ? (
+        <div>
+          <h2>{selectedCategoryObj.name} 포스트 목록</h2>
+          {selectedCategoryObj.posts.map(post => (
+            <div key={post.id}>
+              <Link to={`/blog/${selectedCategoryObj.name}/${post.name}`}>
+                <h4>{post.name}</h4>
               </Link>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
-      ))}
+      ) : (
+        <div>카테고리를 선택하세요.</div>
+        
+      )}
     </div>
   );
-}
+  
+};
 
+export default Post;

@@ -1,40 +1,36 @@
 import React from 'react';
-import createRoot from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-
-import './index.css';
 import App from './App';
-import Category from './profile/Category'; // CategorySection 파일 경로에 맞게 수정
 import reportWebVitals from './reportWebVitals';
+import Category from './post/PageCategory';
 
-//index.html root 아이디에 App 컴포넌트를 렌더링합니다.
 const rootContainer = document.getElementById('root');
 if (rootContainer) {
-  createRoot.render(
+  const root = createRoot(rootContainer);
+  root.render(
     <React.StrictMode>
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </React.StrictMode>,
-    rootContainer
+    </React.StrictMode>
   );
 } else {
   console.error('Container element with id "root" not found.');
 }
 
-// index.html category 아아디에 Category 추가 (컴포넌트를 렌더링)
 const categoryContainer = document.getElementById('Box2');
 if (categoryContainer) {
-  createRoot.render(
+  const categoryRoot = createRoot(categoryContainer);
+  categoryRoot.render(
     <React.StrictMode>
       <BrowserRouter>
-      <Category />
+        <Category setSelectedCategory={() => {}} />
       </BrowserRouter>
-    </React.StrictMode>,
-    categoryContainer
+    </React.StrictMode>
   );
 } else {
-  console.error('Container element with id "category" not found.');
+  console.error('Container element with id "Box2" not found.');
 }
 
 reportWebVitals();

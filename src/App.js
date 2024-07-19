@@ -1,36 +1,32 @@
-import './App.css';
+import React, { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import React from 'react';
-
-import Post from './post/PagePost';
+import Post from './post/PagePost';  // 기존 Post.js를 PagePost.js로 변경
 import Read from './post/PageLoad';
+import Category from './post/PageCategory';
+import './App.css';
+import './indexh.css';
+import './indexh.js';
 
+function App() {
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
-function App() { 
   return (
     <div className="App">
-      <Routes> 
-        <Route path="/" element={<Home/>}/>
-        <Route path="/blog" element={<Post/>}/> 
-        <Route path="/blog/:folderName/:fileName" element={<Read/>}/>
-      </Routes> 
-    </div> 
-  ); 
+      <Routes>
+        <Route path="/" element={<Home setSelectedCategory={setSelectedCategory} />} />
+        <Route path="/blog" element={<Category setSelectedCategory={setSelectedCategory} />} />
+        <Route path="/blog/:categoryName" element={<Post selectedCategory={selectedCategory} />} />
+        <Route path="/blog/:categoryName/:fileName" element={<Read />} />
+      </Routes>
+    </div>
+  );
 }
 
-
-function Home() {
+function Home({ setSelectedCategory }) {
   return (
     <div>
-      
-      <br></br>
-      <br></br>
       <h1>블로그의 홈 - 나를 소개합니다.</h1>
-      <p>블로그 카테고리 글 선택 전의 홈</p>
-      <a>게임개발의 끝을 마치긴 해야 함.</a>
-      
-      <Post/>
-      
+      <Category setSelectedCategory={setSelectedCategory} />
     </div>
   );
 }
