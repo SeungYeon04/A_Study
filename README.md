@@ -1,6 +1,6 @@
 ## 🔗 페이지 URL 
-Github url: https://seungyeon04.github.io/A_Study.github.io/  
-Ubuntu url: X
+Github url: https://seungyeon04.github.io/A_Study.github.io/ (현재 다운 나중에 이거 주로 구글에 서치 할 거임)
+Vercel url: https://a-study-github-arjqx7d4x-seungyeon04s-projects.vercel.app/
 
 ## 🖥 프로젝트 소개 
 
