@@ -8,11 +8,81 @@
 하지만 프로그래머스를 잘 할 정도면  
 코스프로는 나름 쉬워질 것 같음.  
 
-💡 참고: https://velog.io/@yujeongkwon/posts 
+💡 참고는 벨로그와 GPT 사용.  
+따라는 쳐도 복붙은 안 하기로 했어요  
+https://velog.io/@yujeongkwon/posts  
 
 Lv1. 가장 많이 받은 선물  
 ``` 
+using System;
 
+public class Solution {
+    public int solution(string[] friends, string[] gifts) {
+        
+        int answer = 0;
+        int giftIndex; 
+        int getIndex; 
+        
+        int[,] giftNumber = new int[friends.Length,friends.Length]; 
+        int[] giftAllNumber = new int[friends.Length] ; 
+
+        int[] giftNextNumber = new int[friends.Length]; 
+        
+        
+        for(int i =0; i < gifts.Length; i++) //각 선물기록 순회 
+        {
+            //선물을 준 사람과 받은 사람 분리 
+            string[] fname = gifts[i].Split(' '); 
+            //선물 준 사람의 인덱스를 찾음 
+            giftIndex = Array.IndexOf(friends, fname[0]);
+            //선물 받은 사람의 인덱스를 찾음 
+            getIndex = Array.IndexOf(friends, fname[1]); 
+            
+            //해당 관계에 선물 수를 증가 시킴. 
+            giftNumber[giftIndex, getIndex]++; 
+            
+            //선물 준 사람은 카운트 증가 
+            giftAllNumber[giftIndex]++;
+            //선물 받은 사람은 카운트 감소 
+            giftAllNumber[getIndex]--;
+        }
+        
+        
+        for(int i = 0; i < friends.Length; i++) //각 친구 쌍들을 비교해서 다음에 선물 받을 가능성 계산 
+        {
+            for(int j = i+1; j < friends.Length; j++)
+            {
+                //j가 i에게 준 선물이 더 크면 
+                if(giftNumber[i,j] > giftNumber[j,i])
+                {
+                    giftNextNumber[i]++; //i가 다음 선물 확률 증가 
+                }
+                else if(giftNumber[i,j] < giftNumber[j,i]) 
+                {
+                    giftNextNumber[j]++; 
+                } 
+                else 
+                {
+                    if(giftAllNumber[i] > giftAllNumber[j]) //i의 총 선물 수가 많다면 
+                    {
+                        giftNextNumber[i]++; //i가 다음에 선물 받을 확률 증가 
+                    }
+                    else if(giftAllNumber[i] < giftAllNumber[j])
+                    {
+                        giftNextNumber[j]++; 
+                    }
+                }
+            }
+        } 
+        
+        //선물받을 가능성을 배열로 정렬 
+        Array.Sort(giftNextNumber); 
+        //가장 높은 값을 answer에 저장 
+        answer = giftNextNumber[friends.Length - 1]; 
+        
+        return answer;
+    }
+}
 ``` 
 
 ⏰️ 2024.07.20  
