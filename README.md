@@ -4,12 +4,9 @@ Vercel url: https://a-study-github-io.vercel.app/
 
 ## 🖥 프로젝트 소개 
 
-대학 공부 정리 사이트입니다:)  
-비주얼 스튜디오 코드로  
-HTML5 + CSS3 + JavaScript 웹 프로그래밍  
-책으로 공부하며 만든  
-대학교 공부 정리 수업 기록 사이트입니다  
-한 번 터치한 링크는 특정 색상으로 바뀌어요  
+언어 HTML CSS JAVASCRIPT REACT 사용  
+public > markdown > 안에 카테고리와 파일 존재  
+이건 리액트 연습 겸 GPT 사용하면서 만든 스터디 블로그입니다.  
 
 ## ⚙️ 개발환경  
 
