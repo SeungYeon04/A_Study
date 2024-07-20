@@ -7,6 +7,8 @@ Vercel url: https://a-study-github-io.vercel.app/
 언어 HTML CSS JAVASCRIPT REACT 사용  
 public > markdown > 안에 카테고리와 파일 존재  
 이건 리액트 연습 겸 GPT 사용하면서 만든 스터디 블로그입니다.  
+나중에 github.io로 검색 올리고  
+광고배너도 달 예정입니다. 비싼 위주로.. 
 
 ## ⚙️ 개발환경  
 
