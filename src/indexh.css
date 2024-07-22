@@ -53,36 +53,30 @@ a {
     margin-left: 10%;
 }
 
-
 .Box1 {
     background-color: pink;
     text-align: center; 
     width: 250px;
     height: 100%;
     position: fixed;  /*고정 위치 */
-    
 }
 
 .Box2 {
     background-color: rgb(255, 205, 214);
-    text-align: center;
-    
+    text-align: center; 
 }
 
 .Box3 {
-    background-color: rgb(224, 206, 209);
-    height: 100vh; /* 전체 화면 높이 */
+    background-color: rgb(244, 234, 236);
+    height: 100%; /* 전체 화면 높이 */
     text-align: center;
     margin-left: 20%;
-}
-
-.AllBox {
-    overflow: hidden;    
 }
 
 .BottomBox {
     background-color: blueviolet;
     text-align: center;
-    margin-left: 20%;
+    margin-left: 20%; 
+    padding-bottom: 10%;
 }
 
