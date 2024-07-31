@@ -13,12 +13,8 @@ const markdownFiles = [
   {
     name: "리눅스", type: "folder",
     posts: [
-      { id: 3, name: "2-2-20220903-1", type: "file" },
-      { id: 4, name: "2-2-20220903-2", type: "file" },
-      { id: 5, name: "2-2-20230610-1", type: "file" },
-      { id: 5, name: "2-2-20230610-2", type: "file" },
-      { id: 5, name: "2-2-20210313-1", type: "file" },
-      { id: 5, name: "2-2-20210313-2", type: "file" },
+      { id: 3, name: "2020년12월12일", type: "file" },
+      { id: 4, name: "2022년09월03일", type: "file" }
     ]
   }
 ];
@@ -32,6 +28,7 @@ const Category = ({ setSelectedCategory }) => {
   };
 
   return (
+    <div> 
     <div>
       {markdownFiles.map((category, index) => (
         category.type === 'folder' && (
@@ -44,6 +41,7 @@ const Category = ({ setSelectedCategory }) => {
           </div>
         )
       ))}
+    </div>
     </div>
   );
 };

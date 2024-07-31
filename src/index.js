@@ -4,33 +4,38 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Category from './post/PageCategory';
+import Profile from './profile/profileImage'; 
+
 
 const rootContainer = document.getElementById('root');
 if (rootContainer) {
   const root = createRoot(rootContainer);
   root.render(
-    <React.StrictMode>
       <BrowserRouter>
-        <App />
+        <App/>
       </BrowserRouter>
-    </React.StrictMode>
   );
-} else {
-  console.error('Container element with id "root" not found.');
-}
+} 
 
 const categoryContainer = document.getElementById('Box2');
 if (categoryContainer) {
   const categoryRoot = createRoot(categoryContainer);
   categoryRoot.render(
-    <React.StrictMode>
       <BrowserRouter>
-        <Category setSelectedCategory={() => {}} />
+        <Category setSelectedCategory={() => {}}/>
       </BrowserRouter>
-    </React.StrictMode>
   );
-} else {
-  console.error('Container element with id "Box2" not found.');
-}
+} 
+
+
+const profileContainer = document.getElementById('profile');
+if (profileContainer) {
+  const profileRoot = createRoot(profileContainer);
+  profileRoot.render(
+    <Profile />
+  );
+} 
+
 
 reportWebVitals();
+

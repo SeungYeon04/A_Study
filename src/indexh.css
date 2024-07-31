@@ -1,11 +1,10 @@
 .body {
     font-family: 'Ownglyph_meetme-Rg'; 
     background-color: rgb(255, 255, 255);    
-    margin: 0;
     height: 100vh;
     display: flex;
     flex-direction: column;
-   overflow-x: hidden;
+    overflow-x: hidden;
 } 
 
 
@@ -50,7 +49,15 @@ a {
     width: 100%;
     height: 10px;
     text-align: center;
-    margin-left: 10%;
+    padding-left: 10%;
+}
+
+.header2 {
+    background-color: rgb(230, 248, 255);
+    padding: 3%;
+    width: 100%;
+    text-align: center;
+    padding-left: 10%;
 }
 
 .Box1 {
@@ -67,16 +74,19 @@ a {
 }
 
 .Box3 {
-    background-color: rgb(244, 234, 236);
+    background-color: rgb(255, 244, 246);
     height: 100%; /* 전체 화면 높이 */
     text-align: center;
-    margin-left: 20%;
+    padding-left: 20%;
+    padding-top: 2%;
 }
 
 .BottomBox {
     background-color: blueviolet;
     text-align: center;
-    margin-left: 20%; 
-    padding-bottom: 10%;
+    padding-left: 20%; 
+    padding-bottom: 5%;
+    bottom: 0; /* 페이지의 아래쪽에 배치 */
+    margin-top: 10%;
 }
 

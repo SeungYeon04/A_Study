@@ -11,7 +11,7 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   return (
-    <div className="App">
+    <div className="App"> 
       <Routes>
         <Route path="/" element={<Home setSelectedCategory={setSelectedCategory} />} />
         <Route path="/blog" element={<Category setSelectedCategory={setSelectedCategory} />} />
