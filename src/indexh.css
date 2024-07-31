@@ -106,8 +106,9 @@ a {
     background-color: white;
     color: black;
 
+    
     :visited {
-        color: rgba(0, 0, 0, 0.856); 
+        color: rgba(49, 49, 49, 0.856); 
     }
     .Box1, .Box2 {
         background-color: rgb(225, 225, 225); 
