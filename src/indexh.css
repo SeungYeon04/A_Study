@@ -6,23 +6,6 @@
     flex-direction: column;
     overflow-x: hidden;
 } 
-
-
-.dark-mode {
-    background-color: rgb(75, 75, 75);
-    color: rgb(210, 210, 210);
-    .WebNameTag {
-        background-color: rgb(162, 147, 58);
-    }
-    :visited {
-        color: rgba(179, 170, 0, 0.856);
-    }
-}
-
-.while-mode {
-    background-color: white;
-    color: black;
-}
     
 :link {
     color: yellowgreen;
@@ -90,3 +73,55 @@ a {
     margin-top: 10%;
 }
 
+
+/* 다크모드 화이트모드 스킨 */
+.dark-mode {
+    color: rgb(255, 255, 255);
+    :visited {
+        color: rgba(255, 255, 255, 0.856); 
+    }
+
+    background-color: rgb(75, 75, 75); 
+    .body {
+        background-color: rgb(75, 75, 75); 
+    }
+    .Box1, .Box2 {
+        background-color: rgb(122, 122, 122); 
+    }
+    .Box3 {
+        background-color: rgb(101, 101, 101); 
+    }
+    .header {
+        background-color: rgb(101, 101, 101); 
+    }
+    .header2 {
+        background-color: rgb(143, 143, 143); 
+    }
+    .BottomBox {
+        background-color: rgb(149, 149, 149); 
+    }
+}
+
+.while-mode {
+    background-color: white;
+    color: black;
+
+    :visited {
+        color: rgba(0, 0, 0, 0.856); 
+    }
+    .Box1, .Box2 {
+        background-color: rgb(225, 225, 225); 
+    }
+    .Box3 {
+        background-color: rgb(224, 224, 224); 
+    }
+    .header {
+        background-color: rgb(215, 215, 215); 
+    }
+    .header2 {
+        background-color: rgb(226, 226, 226); 
+    }
+    .BottomBox {
+        background-color: rgb(212, 212, 212); 
+    }
+}
