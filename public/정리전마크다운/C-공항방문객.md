@@ -11,7 +11,7 @@ func_c(visitor,n) 이런 부분
 그리고 코테로 안 하고 C언어 수업에서  
 int main으로 하다가 solution 보니까  
 좀 많이 당황한 부분도 있어요  
-그래서 시험에서 solution 쓴다면 풀코드는 힘들지도.. 
+그래서 시험에서 solution 쓴다면 풀코드는 아직 힘들지도.. 
   
 ``` 
     int max_first = func_
