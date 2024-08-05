@@ -14,9 +14,9 @@ function App() {
     <div className="App"> 
       <Routes>
         <Route path="/" element={<Home setSelectedCategory={setSelectedCategory} />} />
-        <Route path="/blog" element={<Category setSelectedCategory={setSelectedCategory} />} />
-        <Route path="/blog/:categoryName" element={<Post selectedCategory={selectedCategory} />} />
-        <Route path="/blog/:categoryName/:fileName" element={<Read />} />
+        <Route path="/A_Study" element={<Category setSelectedCategory={setSelectedCategory} />} />
+        <Route path="/A_Study/:categoryName" element={<Post selectedCategory={selectedCategory} />} />
+        <Route path="/A_Study/:categoryName/:fileName" element={<Read />} />
       </Routes>
     </div>
   );
