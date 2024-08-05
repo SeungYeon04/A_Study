@@ -34,7 +34,7 @@ const Category = ({ setSelectedCategory }) => {
         category.type === 'folder' && (
           <div key={index}>
             <h3>
-              <Link to={`/A_Study/${category.name}`} onClick={() => handleCategoryClick(category.name)}>
+              <Link to={`/blog/${category.name}`} onClick={() => handleCategoryClick(category.name)}>
                 {category.name}
               </Link>
             </h3>
