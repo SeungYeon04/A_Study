@@ -14,7 +14,8 @@ function App() {
     <div className="App"> 
       <Routes>
         <Route path="/" element={<Home setSelectedCategory={setSelectedCategory} />} />
-        <Route path="/A_Study/" element={<Category setSelectedCategory={setSelectedCategory} />} />
+        <Route path="/A_Study/" element={<Home setSelectedCategory={setSelectedCategory} />} />
+        <Route path="/A_Study/blog" element={<Category setSelectedCategory={setSelectedCategory} />} />
         <Route path="/A_Study/:categoryName" element={<Post selectedCategory={selectedCategory} />} />
         <Route path="/A_Study/:categoryName/:fileName" element={<Read />} />
       </Routes>
