@@ -4,8 +4,13 @@
 <h3>어려웠던 것</h3>
 
 이건 빈칸 채우기 문제에요  
+func_c(visitor,n) 이런 부분  
 글이 많아서 그거 읽고 빠르게 코드 이해하고  
 뭔가 전달하는 게 아직 약하대요  
+  
+그리고 코테로 안 하고 C언어 수업에서  
+int main으로 하다가 solution 보니까  
+좀 많이 당황한 부분도 있어요  
 ``` 
     int max_first = func_
 c(visitor,n)
