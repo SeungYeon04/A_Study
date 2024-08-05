@@ -26,7 +26,6 @@ b(max_first,max_second)
 <h3>문제</h3>
 
 ```
-
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
