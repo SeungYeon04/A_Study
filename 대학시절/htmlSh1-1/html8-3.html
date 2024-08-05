@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>innerHTML 활용</title>
+    <script>
+        function change()
+        {
+            let p = document.getElementById("Jac"); 
+            p.innerHTML = "내가 좋아하는 <img src='왕관앵.jpg' width='300' height='200'> 동물"; 
+        }
+    </script>
+</head>
+<body>
+    <h3>innerHTML 활용 : 아래 빨간 글자를 클릭하면 예쁜 앵무새가 보입니다.</h3>
+    <hr>
+    <p id="Jac" style="color: palevioletred;" onclick="change()">
+        이것은 HTML 공부입니다. 
+        <span style="color: red;">
+            흑흑 나는 개미
+        </span>
+    </p>
+    <style>
+    @font-face {
+        font-family: 'Ownglyph_meetme-Rg';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_1@1.0/Ownglyph_meetme-Rg.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+    }
+    body {
+        font-family: 'Ownglyph_meetme-Rg';
+    }
+    </style>
+</body>
+</html>

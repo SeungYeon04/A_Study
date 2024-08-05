@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+<link type="text/css" rel="stylesheet" href="../fonts.css">
+<script src="../indexh.js"> </script> 
+    <title>C-2</title>
+</head>
+<body>
+    <h1><a href="../index.html">부러의 다락방</a></h1> 
+    <br>
+    <li>(test20)</li>
+    <pre>
+#include &lt;stdio.h&gt; 
+
+int main()
+{
+    int input;
+    scanf("%d", &input);
+    
+    switch(input%2) //홀짝  
+    {
+        case 0: 
+        printf("짝수입니다"); break; 	
+        case 1: 
+        printf("홀수입니다"); 
+    } 
+    
+    return 0; 
+}
+    </pre>
+    <br>
+    <li>(test21)</li>
+    <pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt; 
+#include &lt;windows.h&gt;
+
+
+int main()
+{
+    //19번쨰  
+    char c; 
+    //scanf("%c", &c); 
+    c = getch(); //엔터 없이 바로 나옴 //함수(); 벼수 = 함수(); 
+    printf("응애\n");
+    system("cls"); //위에 글 창에서 지움  
+    printf("아이고 응애");
+    
+    switch(c)
+    {
+        case 'a': 
+        printf("a구나");
+        break; 
+        case 'b':  
+        printf("b구나");
+        break; 
+        case 'c': 
+        printf("c구나");
+        break; 
+        default: 
+        printf("그 외"); 
+    }
+    
+    return 0;
+}
+    </pre>
+    <br>
+    <li>(test22)</li>
+    <pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt; 
+#include &lt;windows.h&gt;
+
+
+int main()
+{
+    // asdw 로 움직이는 별  
+    int i, j, rp =3, cp= 3; //별 위치 50 중 가운데  
+    char c; 
+    
+    while(1)
+    {			
+        for(i=1; i&lt;=5; i++)
+        {
+            for(j=1; j&lt;=5; j++)
+            {
+                if(i == rp && j == cp) //rp y좌표 cp x좌표  
+                {
+                    printf("*"); 
+                }
+                else
+                {
+                    printf("0");
+                }			
+            }
+            printf("\n");
+        }
+        
+        
+        c = getch(); 
+        
+        if(c == 'a' && cp &gt; 1)
+        {
+            cp=cp-1; 
+        }
+        else if(c == 'd' && cp &lt; 5) 
+        {
+            cp=cp+1; 
+        }
+        else if(c == 'w' && rp &gt; 1)
+        {
+            rp=rp-1; 
+        }
+        else if(c == 's' && rp &lt; 5)
+        {
+            rp=rp+1; 
+        }
+        system("cls");
+    }   
+    return 0;
+}
+    </pre>
+    <br>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>리스트로 메뉴 만들기</title>
+    <style>
+        #me{
+            background: blue;
+            color: white;
+        }
+        #me ul{
+            margin: 0;
+            padding: 0;
+            width: 567px;
+        }
+        #me ul li{
+            display: inline-block;
+            list-style-type: none;
+            padding: 0px 15px;
+        }
+        #me ul li a{
+            color: white;
+            text-decoration: none;
+        }
+        #me ul li:hover{
+            background-color: yellowgreen;
+        }
+
+        #me ul li a:hover{
+            color: blueviolet;
+        }
+        #oo {
+        background: pink;
+        color: blue;
+        }
+
+        #oo li{
+            color: black;
+        }
+
+        #oo ul li a{
+            text-decoration: none;
+        }
+
+        #oo ul li:hover{
+            background: green;
+        }
+
+        #fixed{
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            width: 100px;
+            padding: 5px;
+            background: yellow;
+            color: black;
+        }
+
+        #IT li:hover{
+            background: green;
+        }
+    </style>
+</head>
+<body>
+    <nav id="me">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="http://www.jvision.ac.kr">비전대학교</a></li>
+            <li><a href="http://lms.jvision.ac.kr/">e-class</a></li>
+            <li><a href="survey.html">설문조사</a></li>
+            <li><a href="gugudan.html">구구단</a></li>
+        </ul>
+    </nav>
+    <br>
+    <h2>컴퓨터 정보과</h2>
+        <nav id="oo">
+        <ul>
+            <li><a href="#AA">교육목표</a>
+            <li><a href="#BB">교육과정</a>
+            <li><a href="#CC">졸업 후 진로</a>
+            <li><a href="#DD">취득가능한 자격증</a>
+            <li><a href="#EE">강의 현황</a>
+        </ul>
+    </nav>
+    <br>
+    <br>
+<h2 id="AA">1. 교육목표</h2>
+컴퓨터정보과는 4차산업혁명시대를 맞아 정보화 사회가 요구하는 컴퓨터 및 정보기술(IT)분야의 실무 능력을 갖춘 <br>전문가 양성에 그 목적을 두고 교육하고 있다. 특히 역량기반 교육과정 운영을 위한 전공코스제는 같은 학과내에서도 최근 기술 동향과 학생의 관심분야에 따라 전공을 나누어 집중적으로 학습할 수 있는 방식으로 4차산업혁명시대의 정보보호 활용과 정보보호 산업을 연결하여 보안기술의 요소를 개별산업에 적용하기 위한 정보보호 분야 문제해결가를 양성하기 위한 '해킹 및 정보보안 전문가 직무역량'과 4차산업혁명시대의 스마트 정보시스템 개발과 운영 및 활용을 수행할 수 있는 소프트웨어 및 콘텐츠개발 전문인재를 양성하기 위한 'S/W 개발 및 콘텐츠 제작 전문가 역량' 으로 운영하고 있다.<br>
+<br>
+<h2 id="BB">2. 교과과정</h2>
+안드로이드(영어: Android)는 휴대 전화를 비롯한 휴대용 장치를 위한 운영 체제와 미들웨어, 
+<br>사용자 인터페이스 그리고 표준 응용 프로그램(웹 브라우저, 이메일 클라이언트, 단문 메시지 서비스(SMS),<br> 멀티미디어 메시지 서비스(MMS)등)을 포함하고 있는 소프트웨어 스택이자 모바일 운영 체제이다.<br>
+<br>
+<h2 id="CC">3. 졸업 후 진로</h2>
+<li>IT 관련 산업체(대기업ᐧ중견ᐧ중소)<br>
+- SW 개발사(빅데이터, AI, 웹&앱, IoT, 게임 등)<br>
+- SW 운영사(정보보안, 시스템 유지보수, ERP 등)<br>
+- SW 검증사(자율주행차 테스터, 시뮬레이터 개발)<br>
+- 콘텐츠 기획 및 제작사(2D 출판, 3D 콘텐츠(VRᐧARᐧMR), 디지털트윈 등)<br>
+<li>IT 관련 정부출연연구소 및 기업부설연구소<br>
+- 한국전자기술연구원(판교, 시흥)<br>
+- ㈜ 부린(대전)<br>
+- ㈜ IMCT(전주)<br>
+- ㈜ 헤드아이티(전주)<br>
+<br>
+<li>IT 관련 공공기관
+- 지역인재 9급 공무원(전산직)<br>
+<br>
+<h2 id="DD">4. 취득 가능한 자격증</h2>
+<ul id="IT">
+<li>네트워크 관련(CCNA, CCNP, SCNA등)
+​<li>JAVA관련(SCJP, SCWCD, SCBCD, SCMA 등)
+<li>오피스관련(MOS)
+<li>보안관련(CISA, CISSP)
+<li>정보처리기사, 산업기사
+<li>정보보안기사, 산업기사
+<li>사무자동화산업기사
+<li>컴퓨터활용능력
+<li>디지털포렌식 전문가
+<li>정보기술산업기사 등
+</ul>
+<br>
+
+    <a id="EE"></a>
+    <hr>
+    <table border="1">
+        <caption>강의현황</caption>
+        <tr style="background: gray; color: yellow;"><th>과목명</th><th>강의실</th><th>학점</th></tr>
+        <tr><td>C언어</td><td>2411</td><td>3</td></tr>
+        <tr><td>HTML</td><td>2410</td><td>3</td></tr>
+        <tr><td>리눅스</td><td>2411</td><td>3</td></tr>
+        <tr><td>네트워크</td><td>2410</td><td>3</td></tr>
+        <tr style="background: gray; color: yellow;"><td>계</td><td>4</td><td>12</td></tr>
+    </table>
+    <hr>
+    <a style="margin: 34%; text-align: center;">Copyright 2023 by 202318021 이승연</a>
+    <a href="https://lms.jvision.ac.kr/"><div id="fixed">중간고사 제출하러 가기.</div></a>
+</body>
+</html>

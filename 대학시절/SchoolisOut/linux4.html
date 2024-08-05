@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    교수님 사이트 http://woosuk.izerone.co.kr/CI/index.php/Tech/linuxmaster
+
+lsblk
+NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda           8:0    0   20G  0 disk 
+├─sda1        8:1    0    1G  0 part /boot
+└─sda2        8:2    0   19G  0 part 
+  ├─rl-root 253:0    0   17G  0 lvm  /
+  └─rl-swap 253:1    0    2G  0 lvm  [SWAP]
+sr0          11:0    1 1024M  0 rom  
+
+달린 게 보임 
+
+lvm raid0 등 나와야 함. 
+
+*** 
+
+shell 스크립트 
+파이썬 비슷한 거 파이썬으로 짜도 되지만 
+그거 태어나기 전 쉘 스크립트 탑재한 거 함 
+리눅스 시스템 자동화 가능한 
+엔지니어가 게임하고 놀기만 하는데 문제 없고 
+사건 안 터지면 일 진짜 잘 하는 거임 
+
+수동 백업 = tar 백업 했었음 
+
+이제 자동 백업 할 거임! 
+
+home]# ls -al 
+합계 4
+drwxr-xr-x.  3 root   root     20  6월 26 14:02 .
+dr-xr-xr-x. 17 root   root    224  6월 26 13:55 ..
+drwx------. 15 master master 4096  6월 26 17:56 master
+
+*** 
+
+4일차 (이성원 교수님 겸임교수 소속은X) 
+
+drwx------. 15 master(이승연) master(컴정과) 4096  6월 26 17:56 master 
+이 파일이 어떤 권한 있는지 
+root (사용자) root(그룹) 
+
+rwx: 소유자 (read읽기, write쓰기, execute실행 | 4, 2, 1(7)) 
+rwx: 그룹 
+rwx: 타인 
+
+chmod 777 master 
+
+*** 
+
+vi backup.sh (vi sh스크립트 한 번에) 
+
+i키 해서 입력모드 (INSERT) 
+#! /bin/sh 
+echo "사용자이름:" $USER
+echo "홈디렉토리는: " $HOME 
+~ (존나많고)                                                                                        
+-- INSERT --
+
+이게 환경변수 자동으로 만들어진 내장변수. (USER HOME) 
+
+나가기 :wq  (쉬프트 누른 채로 콜론 :) 
+
+w 저장 q 끝내라 
+
+cat backup.sh
+<pre>
+#! /bin/sh 
+echo "사용자이름:" $USER
+echo "홈디렉토리는: " $HOME
+
+ls -al | grep backup.sh
+-rw-r--r--.  1 root root       76  6월 26 18:26 backup.sh (백업은 루트고 루트에 속한다 실행권한은x) 
+</pre> 
+
+chmod 777 backup.sh
+
+./backup.sh
+<pre> 
+사용자이름: master
+홈디렉토리는:  /root
+</pre> 
+
+printenv (안에 환경변수들)(외우면 좋다지만 외우긴 에바임 대충 이해하기) 
+
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.m4a=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.oga=01;36:*.opus=01;36:*.spx=01;36:*.xspf=01;36:
+SSH_CONNECTION=10.0.2.2 55256 10.0.2.15 22 (어디서 접속했냐) 
+LANG=ko_KR.UTF-8
+HISTCONTROL=ignoredups
+DISPLAY=localhost:11.0
+HOSTNAME=computer.jvision.kr
+which_declare=declare -f
+XDG_SESSION_ID=6
+USER=master
+SELINUX_ROLE_REQUESTED=
+PWD=/root
+SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
+HOME=/root
+SSH_CLIENT=10.0.2.2 55256 22
+SELINUX_LEVEL_REQUESTED=
+XDG_DATA_DIRS=/root/.local/share/flatpak/exports/share:/home/master/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share
+SSH_TTY=/dev/pts/2
+MAIL=/var/spool/mail/master
+SHELL=/bin/bash
+TERM=xterm
+SELINUX_USE_CURRENT_RANGE=
+SHLVL=2
+GDK_BACKEND=x11
+LOGNAME=master
+DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-XTpxgoa88a,guid=ac15145ef60cb806b52b2f3b667bd6d7
+XDG_RUNTIME_DIR=/run/user/1000
+XAUTHORITY=/root/.xauthzeoH4x
+PATH=/home/master/.local/bin:/home/master/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+DEBUGINFOD_URLS=https://debuginfod.centos.org/ 
+HISTSIZE=1000
+LESSOPEN=||/usr/bin/lesspipe.sh %s
+BASH_FUNC_which%%=() {  ( alias;
+ eval ${which_declare} ) | /usr/bin/which --tty-only --read-alias --read-functions --show-tilde --show-dot $@
+}
+_=/usr/bin/printenv
+OLDPWD=/home
+
+
+SSH_CONNECTION= 210.125.197.110 50102 192.168.219.101 22 
+(210.125.197.110가 192.168.219.101로 접속. 딴 놈이면 보고 막음 됨.  접속정보 남음 60102까지 있던가? 50102서버번호인가? 합당한 번호라캄 ) 
+
+
+리눅스 공부한 후에 보안 공부 하면 됨. 
+지금 알려주는 시스템 잘 공부하기 
+그러면 보안 공부 할 거 줄어듬 
+네트워크 길 열어야 하고 연결이 되어야 공격을 하지.  
+
+
+
+누군가 ssh 접속 시 알람 같은 거 profile 
+
+printenv | grep PS1 
+
+history (지금까지 쓴 거 보기) 
+
+
+백업의 이름으로 홈 디렉터리에 묶인다. 
+fname 함수 선언해서 씀 원리 이해만 
+
+#! /bin/sh 
+echo "백업시작"; 
+set $(date)
+fname="backup-$2.$3.tar.xz"
+tar cfJ /backup/$fname /home/master
+echo "백업종료" 
+
+
+vi 는 
+i 
+esc 
+:wq
+
+
+cat backup.sh
+#! /bin/sh
+echo "백업시작";
+set $(date)
+fname="backup-$2.$3.tar.xz"
+tar cfJ /backup/$fname /home/master
+echo "백업종료" 
+
+
+
+./backup.sh (./ 현재 위치에서 돌려다) 
+백업시작
+tar: 구성 요소 이름 앞에 붙은 `/' 제거 중
+tar (child): /backup/backup-06..26..tar.xz: open할 수 없습니다: 그런 파일이나 디렉터리가 없습니다
+tar (child): Error is not recoverable: exiting now
+tar: /backup/backup-06..26..tar.xz: write할 수 없습니다: 파이프가 깨어짐
+tar: Child returned status 2
+tar: Error is not recoverable: exiting now
+백업종료
+
+mkdir /backup (왜 만들었는데 경로 안 보임?ㅋㅋ) 
+./backup.sh 
+백업시작 
+tar: 구성 요소 이름 앞에 붙은 `/' 제거 중
+백업종료
+
+chmod 777 backup.sh 
+
+cd /backup/ (안에 이렇게 백업 될 거임) 
+ls 하면 
+backup-06..26..tar.xz 뜸 
+
+(생각해보니 노트정리 때 shell 열려있는 서버 들어가는 건 버츄얼박스 없어도 도메인&아이피 포트번호만 알면 됐던 거 같음) 
+
+
+자동화를 위해 = 프로그램 
+backup.sh 만든 이유 
+
+cat /etc/crontab (이것도 그런 너낌 자동화 업뎃 시간 그거임) 
+SHELL=/bin/bash
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+MAILTO=root
+
+# For details see man 4 crontabs
+
+# Example of job definition:
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+# |  |  |  |  |
+# *  *  *  *  * user-name  command to be executed
+
+
+vi /etc/crontab (nano대신) 
+
+
+# Example of job definition:
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+# |  |  |  |  |
+# *  *  *  *  * user-name  command to be executed
+00 13 * * * root /root/backup.sh(정각 13시 되면 루트야 루트의백업을 실행시켜) 
+
+
+
+[root@computer master]# cat /etc/crontab
+SHELL=/bin/bash
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+MAILTO=root
+
+# For details see man 4 crontabs
+
+# Example of job definition:
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+# |  |  |  |  |
+# *  *  *  *  * user-name  command to be executed
+00 13 * * * root /root/backup.sh
+
+
+backup-06..26..tar.xz
+왜 이렇게 되어있냐 
+backup-07.01.tar.xz이어야 하는 거 아니냐 ㅋㅋ 
+
+*** 
+
+오후에는 프로세스와 백그라운드 
+
+useradd lsw 
+
+home]# ls
+lsw  master 이렇게 뜰 거임 계정명 
+
+sdb1 > /home 
+useradd lsw > passwd 
+
+cat /etc/passwd (사용자계정정보파일 셸 등..) 
+master:x:1000:1000:master:/home/master:/bin/bash
+apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
+lsw:x:1001:1001::/home/lsw:/bin/bash
+((순서애매) 계졍명.주민등록번호같은.위치.내가 쓸 수 있는 shell (/bin/bash))
+
+cat /etc/shadow (사용자계정 암호화한 파일) 
+master:$6$nyG/Flq/vG.EQ1cQ$0pSOAidEGKNxCtNynE25DNfYjeWY7n/00IXoZqnku7qCmdDk5xq3kcwODEaY29uLafWrH.OZ.nnEWeXc
+lsw:!!:19900:0:99999:7::: (!!암호설정 안 되어있다.) 
+
+cat /etc/group 
+master:x:1000:
+apache:x:48:
+lsw:x:1001:
+
+
+cd /etc/default 
+ls
+grub  useradd 이거 있는 디렉터리 
+ls -al
+합계 20
+drwxr-xr-x.   2 root root   33  6월 26 14:02 .
+drwxr-xr-x. 143 root root 8192  6월 26 20:35 ..
+-rw-r--r--.   1 root root  322  6월 26 14:02 grub
+-rw-r--r--.   1 root root  119 11월 21  2023 useradd
+
+
+cd ~ (backup.sh 있음) ./backup.sh 
+./ 쓴 이유 이 경로에 파일 없어서 거기서 하려고 
+
+cat /etc/profile (셸이 명령어를 찾을 수 있도록 지정하는 파일명) 
+# /etc/profile
+
+# System wide environment and startup programs, for login setup
+# Functions and aliases go in /etc/bashrc
+
+# It's NOT a good idea to change this file unless you know what you
+# are doing. It's much better to create a custom.sh shell script in
+# /etc/profile.d/ to make custom changes to your environment, as this
+# will prevent the need for merging in future updates.
+
+
+
+groupadd linuxA (명령) 
+groupadd linuxB 
+
+(man useradd 보기) (1급 1차 man으로 옵션 보면서 해도 됨 실기시험 쉬워짐) 
+사용자 만들고 그룹 지정해줌 됨 
+옵션 개 많아서 문제 풀면서 외우기 
+
+groupdel linuxA
+(지워짐) 
+groupdel linuxA
+groupdel: 'linuxA' 
+그룹이 없습니다
+
+/etc/group = 관리자는 몰루 
+mipal:x:500:test 
+그룹명:x:그룹ID:그룹속한사용자 
+
+
+브로도캐스트 이용해 모든 접속자 사용자에게 메세지 보내기 = wall 
+5분 후 껐다 킬 거니 파일 저장해두세요 할 때 많이 씀. 
+
+그룹만들기: groupadd
+그룹지우기: groupdel 
+
+이 shell을 알려는 이유 백업 매주 못하니까 자동화 
+스크립트 필요 /root에 backup.sh 스크립트 만듦 
+printenv 안 환경변수 값 알아야 backup.sh에 적은 내용 이해 가능 
+PATH=/에 root가 없기 때문에 root 위치를 모르니 
+./backup.sh 이렇게 쳐서 찾는 것이다. 
+export PATH=$PATH:/root 를 만들면 (테스트용) 
+cd / 
+backup.sh 해도 실행 됨. 하지만 일시적인 것. 껐다 키면 초기화. 마운트 마냥. 
+그게 /etc/profile 이게 쉘 환경을 제어해서 계속 가능 
+
+변수 (모든 사용자도 적용 됨) 
+/etc/profile: 모든 사용자의 쉘 환경을 제어 
+/etc/bashrc : 별칭 (alias) (리눅스의 별명)
+
+일시적인 것(지역변수) 
+.bash_pofile 
+.bash_logout 
+.bash_history 
+.bashrc 
+
+printenv로 알아서 환경변수 확인 
+
+nano /etc/profile (이 수정은 메일서버 있어야 돌아감) 
+IP="$(echo $SSH_CONNECTION | cut -d " " -f 1)"
+HOSTNAME=$(hostname)
+NOW=$(date +"%e %b %Y, %a %r")
+echo 'Someone from '$IP' logged into Intro_155 '$HOSTNAME' on '$NOW'.' | mail -s 'SSH Login Notification' log@linux.izerone.co.kr>
+
+Intro_155는 서버이름이니 이것만 수정하면 됨.  
+
+!!하면 전 명령어 
+history -c 명령어 지우기(굳이) 
+!151 특정위치 명령어 
+
+export HISTSIZE=2000 (명령 히스토리 저장 범위 2000으로 키움) 
+echo $HISTSIZE (명령결과:2000)
+export HISTTIMEFORMAT="%Y.%m.%d%T" (히스토리타임포맷?) 
+
+history (히스토리 타임라인 출력) 
+    1  2024.06.2619:24:47clear
+    2  2024.06.2619:24:47ls blk
+    3  2024.06.2619:24:47lsblk
+    4  2024.06.2619:24:47ㅔㅈㅇ
+    5  2024.06.2619:24:47pwd
+
+
+
+cd ~ 
+ls -al
+합계 13760
+dr-xr-x---.  5 root root     4096  6월 26 19:55 .
+dr-xr-xr-x. 18 root root      238  6월 26 19:03 ..
+-rw-------.  1 root root     2313  6월 26 19:55 .bash_history
+-rw-r--r--.  1 root root       18  3월 15  2021 .bash_logout
+-rw-r--r--.  1 root root      176  3월 15  2021 .bash_profile
+-rw-r--r--.  1 root root      176  3월 15  2021 .bashrc
+***
+그 cd ~  위치에서 
+cat .bash_history
+<pre>
+clear
+ls blk
+lsblk
+ㅔㅈㅇ
+pwd
+</pre>
+
+cat .bash_logout (로그아웃) 
+<pre>
+# ~/.bash_logout
+</pre>
+
+cat .bash_profile
+<pre>
+# .bash_profile
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+	. ~/.bashrc
+fi
+
+# User specific environment and startup programs
+
+PATH=$PATH:$HOME/bin
+
+export PATH
+</pre> 
+
+*** 
+
+프로세스 관리시작 
+
+top : 명령어 작업관리자 (작업관리자 켜도 같게 보임) 
+
+PID (프로세스 아이디) 
+메모리에 올라와있는 프로그램 보여줌 
+
+*** 
+
+
+
+systemctl tstart vsftpd 
+httpd 
+d 는 데몬 
+
+netstat -antp | grep 21
+tcp        0      0 10.0.2.15:22            10.0.2.2:62107          ESTABLISHED 57358/sshd: master  
+tcp6       0      0 :::21                   :::*                    LISTEN      41651/vsftpd        
+[root@computer /]# 
+
+41651/vsftpd (PID 프로세스 번호) 
+
+systemctl stop firewalld (방화벽 스톱?) 
+
+
+백그라운드 포어그라운드 
+눈에 보이는 거 vi 등 포어그라운드 
+
+vi test.pi
+vi test.py
+[root@computer /]# cat test.py 
+print "helo python"
+
+(vi 같은 앞에서 뜨는 건 포어그라운드류) 
+./test.py 
+(: line 1: print: command not found ) 
+
+백그라운드가 뒤에서 뜨는 것. 
+
+*** 
+
+이제 각종 명령어 
+ps:  현재 실행 중인 프로세스의 상태를 출력하는 명령어. 
+
+ps aux | grep httpd
+root       57747  0.0  0.0 222016  1096 pts/3    R+   22:25   0:00 grep --color=auto httpd
+ps aux | grep vsftpd 
+root       41651  0.0  0.0  27196   420 ?        Ss   15:03   0:00 /usr/sbin/vsftpd /etc/vsftpd/vsftp.conf
+root       57749  0.0  0.0 222016  1092 pts/3    R+   22:25   0:00 grep --color=auto vsftpd
+
+
+ps의 aux 중 
+옵션 u : 특정 사용자의 프로세스를 확인할 때 사용 
+
+ps 볼 때 나올 것들 확인 (top)
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND                                       
+    954 root      20   0  618376  27820  11612 S   0.3   1.0   0:44.59 tuned                                         
+   7387 master    20   0 6406636 332608 161768 S   0.3  12.0   1:02.49 WebKitWebProces                               
+      1 root      20   0  241944  14652   8904 S   0.0   0.5   0:03.00 systemd                                       
+      2 root      20   0       0      0      0 S   0.0   0.0   0:00.00 kthreadd                                      
+      3 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_gp                                        
+      4 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_par_gp                                    
+      5 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 slub_flushwq                                  
+      7 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/0:0H-events_highpri                   
+     10 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 mm_percpu_wq                                  
+     11 root      20   0       0      0      0 S   0.0   0.0   0:00.00 rcu_tasks_rude_                               
+     12 root      20   0       0      0      0 S   0.0   0.0   0:00.00 rcu_tasks_trace                               
+     13 root      20   0       0      0      0 S   0.0   0.0   0:00.37 ksoftirqd/0                                   
+     14 root      20   0       0      0      0 R   0.0   0.0   0:00.24 rcu_sched                                     
+     15 root      rt   0       0      0      0 S   0.0   0.0   0:00.00 migration/0        
+
+
+pstree (부모가 누구냐)       
+pstree -p (하면 번호도 뜸) 
+
+pstree
+systemd─┬─ModemManager───2*[{ModemManager}]
+        ├─NetworkManager───2*[{NetworkManager}]
+        ├─accounts-daemon───2*[{accounts-daemon}]
+        ├─alsactl
+        ├─atd
+        ├─auditd─┬─sedispatch
+        │        └─2*[{auditd}]
+        ├─avahi-daemon───avahi-daemon
+        ├─chronyd
+        ├─colord───2*[{colord}]
+        ├─crond
+        ├─cupsd
+등등. .
+서비스 시작하면 이거 찍어두고 
+해킹 당하면 여기서 찾아보면 됨. 
+
+윈도우에선 작업관리자 정지 하면 됐음 
+pstree -p로 번호를 보고 
+
+├─vsftpd(41651)
+           └─wpa_supplicant(6371)
+
+kill -9 41651 (하면 vsftpd가 사라짐.) 
+</body>
+</html>

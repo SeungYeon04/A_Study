@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+<link type="text/css" rel="stylesheet" href="../fonts.css"> 
+<script src="../indexh.js"> </script>
+    <title>C-10</title>
+</head>
+<body>
+    <h1><a href="../index.html">부러의 다락방</a></h1> 
+    <br>
+<li>포인터 적응하기(연습)</li>
+<pre>
+#include &lt;stdio.h&gt;
+
+//주소를 갖고 빨리 처리하기 위함.  
+
+int main()
+{
+    int a=2, b=4, c=6; 
+    int *bb[] = {&a, &b, &c}; 
+    
+    int cc[][3] = {{1,2,3},{1,2,3},{1,2,3}}; //[행][열]  주소1= {1,2,3} 주소2 = {1,2,3} 
+    
+    printf("bb[0] : %p\n", bb[0]);
+    printf("bb[1] : %p\n", bb[1]);
+    printf("bb[2] : %p\n", bb[2]);
+    
+    printf("bb[0] : %d\n", *bb[0]);
+    printf("bb[1] : %d\n", *bb[1]);
+    printf("bb[2] : %d\n", *bb[2]);
+    
+        printf("***\n");
+    
+    printf("cc[0] : %p\n", cc[0]);
+    printf("cc[1] : %p\n", cc[1]);
+    printf("cc[2] : %p\n", cc[2]);
+    
+    printf("cc[0] : %d\n", cc[0]); //cc[행]  
+    printf("cc[1] : %d\n", cc[1]);
+    printf("cc[2] : %d\n", cc[2]);
+}
+
+/*
+bb[0] : 000000000062FE1C
+bb[1] : 000000000062FE18
+bb[2] : 000000000062FE14
+bb[0] : 2
+bb[1] : 4
+bb[2] : 6
+***
+cc[0] : 000000000062FDC0
+cc[1] : 000000000062FDCC
+cc[2] : 000000000062FDD8
+cc[0] : 6487488
+cc[1] : 6487500
+cc[2] : 6487512
+*/
+</pre>
+<br>
+<li>정렬알고리즘 - 오름차순 내림차순</li>
+<pre>
+#include &lt;stdio.h&gt;
+
+void N(int *data, int size)
+{
+    for(int i = 0; i &lt; size; i++)
+    {
+        printf("%3d ", data[i]);
+    }
+    printf("\n");
+}
+
+int main()
+{
+    int data[] = {52, 45, 99, 12, 88}; //4바이트5개 = 20 
+    int size = sizeof(data)/sizeof(int); // 20/4  
+    
+    //selection sort(선택정렬) - ascSort (오름차순 정렬) 
+
+    printf("\n기본 : "); 
+    N(data, size); 
+        
+    for(int i = 0; i &lt; size; i++)
+    {
+        for(int j = i+1; j &lt; size; j++)
+        {
+            if(data[i]>data[j]) { //오름차  
+                int tmp = data[i]; 
+                data[i] = data[j]; 
+                data[j] = tmp; 
+            }
+        }
+    }
+        
+    printf("\n오름차순 : "); 
+    N(data, size); 
+        
+    for(int i = 0; i &lt; size; i++)
+    {
+        for(int j = i+1; j &lt; size; j++)
+        {
+            if(data[i] &lt; data[j]) { //내림차  
+                int tmp = data[i]; 
+                data[i] = data[j]; 
+                data[j] = tmp; 
+            }
+        }
+    }
+    
+    printf("\n내림차순 : "); 
+    N(data, size); 
+}
+</pre>
+<br>
+기본 :  52  45  99  12  88<br>
+오름차순 :  12  45  52  88  99<br>
+내림차순 :  99  88  52  45  12<br>
+<br>
+<li>정렬알고리즘 - 오름차내림차2</li>
+<pre>
+#include &lt;stdio.h>
+
+void N(int *data, int size)
+{
+    for(int i = 0; i &lt; size; i++)
+    {
+        printf("%3d ", data[i]);
+    }
+    printf("\n");
+}
+
+void Or(int *data, int size)
+{
+    for(int i = 0; i &lt; size; i++)
+    {
+        for(int j = i+1; j &lt; size; j++)
+        {
+            if(data[i]>data[j]) { //오름차  
+                int tmp = data[i]; 
+                data[i] = data[j]; 
+                data[j] = tmp; 
+            }
+        }
+    }
+}
+
+void Nr(int *data, int size)
+{
+    for(int i = 0; i &lt; size; i++)
+    {
+        for(int j = i+1; j &lt; size; j++)
+        {
+            if(data[i] &lt; data[j]) { //내림차  
+                int tmp = data[i]; 
+                data[i] = data[j]; 
+                data[j] = tmp; 
+            }
+        }
+    }
+    
+}
+
+int main()
+{
+    int data[5] = {0}; //4바이트5개 = 20 
+    int size = sizeof(data)/sizeof(int); // 20/4 = 5
+    
+    printf("5개의 수를 입력하세요: \n");
+    
+    for(int i = 0; i &lt; size; i++)
+    {
+        scanf("%d", &data[i]); 
+    } 
+
+    printf("\n\n기본 : "); 
+    N(data, size); 
+        
+        
+    printf("\n오름차순 : "); 
+    Or(data, size);
+    N(data, size); 
+        
+    printf("\n내림차순 : "); 
+    Nr(data, size);
+    N(data, size); 
+}
+</pre>
+<br>
+5개의 수를 입력하세요:<br>
+88<br>
+78<br>
+66<br>
+55<br>
+44<br>
+<br>
+<br>
+기본 :  88  78  66  55  44<br>
+<br>
+오름차순 :  44  55  66  78  88<br>
+<br>
+내림차순 :  88  78  66  55  44<br>
+<br>
+<li>정렬알고리즘 - 오름차내림차3</li>
+<pre>
+#include &lt;stdio.h>
+
+//순위구하기 알고리즘 = Rank()  
+//숫자 낮으면 1등 높으면 1등 중에서 == 
+// 디폴트값: 1 1 1 1 (0등은 없음) 
+//숫자를 자기 자신보다 비교하면서 자기보다 크면 1점씩 올림 = 등수  
+//45점인데 95점 있으면 1등 > 2등 비교했는데 55점 있으면 2등 > 3등  
+
+void N(int *data, int size)
+{
+    printf("\n점수: "); 
+    for(int i = 0; i &lt; size; i++)
+    {
+        printf("%2d ", data[i]);
+    }
+    printf("\n");
+}
+
+void RankP(int *data, int size, int *Rank)
+{
+    for(int i = 0; i &lt; size; i++)
+    {
+        printf("%2d등 ", Rank[i]);
+    }
+    printf("\n");
+}
+
+void RankAL(int *data, int size, int *Rank)
+{
+    for(int i = 0; i &lt; size; i++)
+    {
+        for(int j = 0; j &lt; size; j++)
+        {
+            if(data[i] &lt; data[j]) { // 내꺼가 작다면?  
+            
+                Rank[i]++; //수를 더함  
+            }
+        }
+    } 
+    printf("\n");
+}
+
+int main()
+{
+    int data[] = {66, 45, 88, 100, 12}; //4바이트5개 = 20 
+    int Rank[] = {1, 1, 1, 1, 1}; 
+    int size = sizeof(data)/sizeof(int); // 20/4  
+
+    N(data, size); 
+        
+    RankAL(data, size, Rank); 	
+    
+    RankP(data, size, Rank); 
+}
+</pre>
+<br>
+<li>정렬알고리즘 - 점수당 1 2 3 4 5등 매기기</li>
+<pre>
+#include &lt;stdio.h>
+
+int search(int input, int *score, int size)
+{
+    printf("겁색 Key 값: ");
+    scanf("%d", &input);
+    
+    for(int i = 0; i &lt; size; i++)
+    {
+        if(score[i] == input)
+        {
+            return i; //값 있으면 위치 리턴  
+        }
+    }
+    
+    return -1; //없으면 -1 리턴  
+}
+
+int main()
+{
+    int input; 
+
+    int score[5]= {12, 33, 44, 55, 99}; 
+    int size = sizeof(score)/sizeof(int); // 20/4  
+    
+    int r = search(input, score, size); 
+    
+    printf("%d", r+1);
+
+}
+</pre>
+<br>
+</body>
+</html>

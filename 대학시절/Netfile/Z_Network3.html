@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>네트워크3</title>
+    <link type="text/css" rel="stylesheet" href="../fonts.css"> 
+    <script src="../indexh.js"> </script>
+</head>
+<body>
+    <h1><a href="../index.html">부러의 다락방</a></h1> 
+    <br>
+    <li>한 번 묶어보기</li><br>
+    L7 응용 L6 표현 L5 세션 &gt; 응용<br>
+    L4 전송 (TCP UDP) &gt; 전송<br>
+    L3 네트워크 IP ICMP &gt; 인터넷<br>
+    L2 데이터링크 MAC 프로토콜 L1 물리 &gt; 네트워크 접근, 접근<br>
+    <br>
+    TCP 신뢰성 높지만 UDP의 비신뢰성 부분은 ICMP가 도와줌<br>
+    <br>
+    네트워크 주소가 호스트로 치고 들어감 = 서브넷마스크<br>
+    더더 아래에서는 L2 L3 L4 스위치와, 스위치 라우터 차이 설명할 것임.<br>
+    <br>
+    <hr>
+    <br>
+    load balancer(은행에서 비번 적금서버 ~서버 등으로 가는 식 먼데서 갖고옴)<br>
+    LAN 리피터 (대충 700미터 늘리는 거) = 1계층 허브에 존재 = hub 택배허브처럼 퍼져나갈 중심이란 뜻<br>
+    <br>
+    L6응용 / L7스위치<br>
+    L5 load balancer<br>
+    L4 전송 / L4 스위치<br>
+    L3 넷워크 / 라우터 스위치 L3<br> 
+    L2 데이터링크 / L2 스위치, 브릿지<br>
+    L1 물리 / 리피터 허브<br>
+    <br>
+    (확신x)음.. 스위치 개당 대충 10개 정도 연결 가능할 듯..?<br>
+    <br>
+    <a>이미지</a><br>
+    Port1 = 00:06:C4:00:01:A1<br>
+    Port2 = 00:08:32:00:12:21<br>
+    <br>
+    <li>포트 데이터 전달 방식</li><br>
+    러닝(Learning): 이거 컴퓨터의 MAC주소를 Learning이라는 과정을 습득함.<br>
+    한 마디로 배우고(학습)전달하는 걸 러닝이라고 함.<br>
+    <br>
+    플러딩(Flooding): MAC정보가 없어서 여러 포트로 보내는 걸 플러딩이라 함.<br>
+    한 마디로 MAC 주소 모르니까 연결된 모든 포트에게 다 보냄.<br>
+    <br>
+    포워딩(Forwarding): 해당 MAC주소가 있으면 원하는(해당) 위치 포트로만 전송함.<br>
+    <br>
+    필터링(Filtering): 러닝 정보에 따라 브로도캐스트 도메인을 나눈다.<br>
+    <br>
+    Age &gt; 일정시간 동안 통신이 없으면 포트번호 저장 안 되게 새로고침 시킴.<br>
+    (예시: ping찍어서 패킷 보내고 응답 안 나오면 일정 시간 후 돌아다니는 패킷 삭제<br>
+    이 카운트를 안 했다면 한 번마다 MAC주소에 평생 남고 Age 계속 돌면 네트워크 쓰레기 됨<br>
+    자동세팅 은행 비번입력 제한시간 트래픽 닫기 같은 개념 교수님이 TTL예시 주심)<br>
+    <br>
+    허브는 포워딩하고, 스위치는 러닝을 거쳐서 포워딩을 함.<br>
+    <br>
+    스위치 L2 경로배정 안 되지만<br>
+    스위치 L3 경로배정 가능<br>
+</body>
+</html>

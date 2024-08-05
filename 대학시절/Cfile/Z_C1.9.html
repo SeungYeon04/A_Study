@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+<link type="text/css" rel="stylesheet" href="../fonts.css"> 
+<script src="../indexh.js"> </script>
+    <title>C-9</title>
+</head>
+<body>
+    <h1><a href="../index.html">부러의 다락방</a></h1> 
+    <br>
+<pre>
+#include &lt;stdio.h&gt;
+#define SIZE 10
+
+void clear() {
+    printf("\033[H\033[J"); // ANSI 이스케이프 시퀀스로 화면 지우기
+}
+
+int main()
+{
+    int map[SIZE][SIZE] = {0}; 
+    int snakeX = SIZE / 2; // 뱀의 초기 X 위치
+    int snakeY = SIZE / 2; // 뱀의 초기 Y 위치
+
+    char input;
+
+    // 초기 맵 출력
+    for(int i = 0; i &lt; SIZE; i++)
+    {
+        for(int j = 0; j &lt; SIZE; j++)
+        {
+            if(i == snakeY && j == snakeX) // 뱀의 위치에는 'Q' 출력
+            {
+                printf("■");
+            }
+            else if(i == SIZE-1 && j == SIZE-1)
+            {
+                printf("▣");
+            }
+            else 
+            {
+                printf("□");
+            }
+        }
+        
+        printf("\n");
+    }
+    
+    for(;;)
+    {
+        scanf(" %c", &input);
+        clear(); // 이전 맵 지우기
+        
+        switch(input) {
+            case 'w': // 위로 이동
+                snakeY--;
+                break;
+            case 'a': // 왼쪽으로 이동
+                snakeX--;
+                break;
+            case 's': // 아래로 이동
+                snakeY++;
+                break;
+            case 'd': // 오른쪽으로 이동
+                snakeX++;
+                break;
+            default:
+                printf("올바른 입력이 아닙니다.\n");
+                break;
+        }
+
+        // 맵 재출력 (뱀의 위치 변경을 반영하여 출력)
+        for(int i = 0; i &lt; SIZE; i++)
+        {
+            for(int j = 0; j &lt; SIZE; j++)
+            {
+                if(i == snakeY && j == snakeX) // 뱀의 위치에는 'Q' 출력
+                {
+                    printf("■");
+                }
+                else if(i == SIZE-1 && j == SIZE-1)
+                {
+                    printf("▣");
+                }
+                else 
+                {
+                    printf("□");
+                }
+                
+                if(i == snakeY && j == snakeX && i == SIZE-1 && j == SIZE-1)
+                {
+                    printf("\n탈출"); 
+                    return 0; 
+                }
+            }
+            
+            printf("\n");
+        }
+    }
+    return 0;
+}
+</pre>
+</body>
+</html>

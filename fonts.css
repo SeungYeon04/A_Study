@@ -1,0 +1,54 @@
+    body {
+        font-family: 'Ownglyph_meetme-Rg';
+        background-color: rgb(255, 255, 255); 
+
+        width: 50%; /* 네모네모길이 */
+        margin: 0 auto; 
+    }
+    
+    .WebNameTag {
+        border: 1px solid gray; background-color: lavenderblush; border-radius: 50px; width: 80%; margin: 0 auto;  
+    }
+    
+    .dark-mode {
+        background-color: rgb(75, 75, 75);
+        color: rgb(210, 210, 210);
+        .WebNameTag {
+            background-color: rgb(162, 147, 58);
+        }
+        :visited {
+            color: rgba(179, 170, 0, 0.856);
+        }
+    }
+
+    .while-mode {
+        background-color: white;
+        color: black;
+    }
+        
+    :link {
+        color: yellowgreen;
+    }
+
+    :visited { 
+        color: rgba(153, 0, 138, 0.856);
+    }
+
+    a {
+        text-decoration-line: none; 
+    }
+
+    pre {
+
+        text-align: left; 
+        margin: 10 auto;
+    }
+
+    @font-face {
+        font-family: 'Ownglyph_meetme-Rg';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_1@1.0/Ownglyph_meetme-Rg.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+

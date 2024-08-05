@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Linux5</title>
+    <link type="text/css" rel="stylesheet" href="../fonts.css"> 
+    <script src="../indexh.js"> </script>
+</head>
+<body>
+    <h1><a href="../index.html">부러의 다락방</a></h1> 
+    <br>
+    #20240410<br> 
+    http://210.125.198.35/~master/profile.html<br>
+    http://jvision.ac.kr/profile.html <br>
+    <br>
+    forbidden > chmod 644 변경 <br>
+    도메인명 바꾸자 <br>
+    <br>
+    DNS설치<br> 
+    <br>
+    1. 윈도우 10의 DNS의 ip를 확인한다. <br>
+    <br>
+    210.125.198.35(본인에게 물어봄) <br>
+    203.249.35.14 (학교에서 운영 DNS) <br>
+    <br>
+    (cmd명령) ipconfig /all <br>
+    <br>
+    <pre> 
+    이더넷 어댑터 이더넷:
+    
+       연결별 DNS 접미사. . . . :
+       설명. . . . . . . . . . . . : Intel(R) Ethernet Connection (2) I219-V
+       물리적 주소 . . . . . . . . : 30-9C-23-89-11-EB
+       DHCP 사용 . . . . . . . . . : 아니요
+       자동 구성 사용. . . . . . . : 예
+       링크-로컬 IPv6 주소 . . . . : fe80::d999:9b8a:503:7d97%14(기본 설정)
+       IPv4 주소 . . . . . . . . . : 210.125.198.35(기본 설정)
+       서브넷 마스크 . . . . . . . : 255.255.255.0
+       기본 게이트웨이 . . . . . . : 210.125.198.1
+       DHCPv6 IAID . . . . . . . . : 53517347
+       DHCPv6 클라이언트 DUID. . . : 00-01-00-01-2C-7E-FB-32-30-9C-23-89-11-EB
+       DNS 서버. . . . . . . . . . : 210.125.198.35
+                                     203.249.35.14
+       Tcpip를 통한 NetBIOS. . . . : 사용
+    </pre>
+    2. 네트워크관리 > 프로토콜4+ > 속성 이더넷2(다른 거 바꾸지말고) > 속성 IP 아래랑 추가 <br>
+    이걸로 DNS 서버꺼 바꾸는 것임. <br>
+    <br>
+    dns 53 ftp 21 http 80 https 443 ssh 22 외우기 <br>
+    <br>
+    3. cmd에다가<br> 
+    nslookup jvision.ac.kr<br>
+    ipconfig /flushdns <br>
+    <br>
+    그리고 ipconfig /all하면 <br>
+    <pre>
+       DNS 서버. . . . . . . . . . : ~~~.~~~
+                                     ~~.~~ 막 뜸 잘 확인 
+    이렇게 바뀐다. 
+    </pre>
+    4. cmd에다가<br> 
+    <br>
+    nslookup virtual.izerone.co.kr<br> 
+    <br>
+    <pre>
+    서버:    ns.jtc.ac.kr
+    Address:  203.249.35.14
+    
+    권한 없는 응답:
+    이름:    virtual.izerone.co.kr
+    Address:  125.240.93.27
+    </pre>
+    root가기는 su 기본<br>
+    <br>
+    //resolv이부분 오타나도 알아보자<br> 
+    //cat 내용을 보다. <br>
+    cat /etc/resolv.conf (아까 이더넷 설정한 ip)<br> 
+    <br>
+    nano /etc/resolv.conf<br>
+    <br>
+    ip 이렇게 바꿔주자 <br>
+    nameserver 10.0.2.15 <br>
+    options edns0 trust-ad<br>
+    search .<br>
+    <br>
+    ctrl X + shift Y<br> 
+    ctrl X <br>
+    <br>
+    clear<br>
+    <br>
+    sudo apt -y install bind bind-utils<br> 
+    <br>
+    -<br>
+    우리가 설치한 과정 <br>
+    sudo apt -y install apache2<br> 
+    sudo apt -y install vsftpd <br>
+    sudo apt -y install bind9 bind9utils (이제 이거 설치) <br>
+    <br>
+    ***<br>
+    쭉 외우며 쓰기 <br>
+    <br>
+    nano /etc/bind/named.conf.options<br> 
+    <br>
+    dnssec-validation no;;<br> 
+    recursion yes;<br>
+    allow-query{any;};<br> 
+    <br>
+    //listen-on-v6 { any; };<br>
+    주석처리 <br>
+    <br>
+    nano /etc/bind/named.conf.default-zones<br> 
+    <br>
+    대충 뭐 적을지 구조만 보자면
+    <pre> 
+    zone "" IN {
+    
+    }; 
+    로컬호스트라 된 거 아래에다가 적기 
+    </pre>
+    우리가 적을 거
+    <pre>
+    zone "jvsion.ac.kr" IN {
+        type master; 
+        file "/etc/bind/jvision.ac.kr.zone";
+    };
+    </pre>
+    named-checkconf //설정파일 잘 됐는지 확인 <br>
+    cd /etc/bind <br>
+    cp db.local jvision.ac.kr.zone //복사 <br>
+    //ls 로 잘 추가됐나 확인 가능 <br>
+    nano jvision.ac.kr.zone //파일열어서 쓰세요 <br>
+    <br>
+    뭐 이것저것 자동으로 생겼다면? 아래 적자<br> 
+    <br>
+    대충 열어서 뭐 적을지 구조만 보자. 
+    <pre>
+    WWW     IN	    A	   ? 
+    ftp	    IN	    A	   ? 
+    main	IN      A	   ? 
+    
+    ?: 210.125.198.35 
+    </pre>
+    우리가 적어야 할 것 <br>
+    위 작업 어느정도 되면 백지가 아닌 글자 좀 있을 것임<br>
+    <pre>
+    마지막으로 변경 
+    ;
+    @       IN      NS      ns.jvision.ac.kr.
+    @       IN      A       210.125.198.35
+    ns      IN      A       210.125.198.35
+    WWW     IN      A       210.125.198.35
+    ftp     IN      A       210.125.198.35
+    main    IN      A       210.125.198.35
+    </pre>
+    nano /etc/resolv.conf <br> 
+    <br>
+    그리고 이거 입력<br>
+    nameserver 10.0.2.15<br>
+    options edns0 trust-ad<br>
+    search <br>
+    <br>
+    //설정이랑 이상 없나 확인<br> 
+    named-checkzone jvision.ac.kr jvision.ac.kr.zone<br>
+    <br>
+    (OK 떠야함 )<br>
+    <br>
+    systemctl restart bind9 //그러면 리스탈트<br> 
+    <br>
+    sudo apt -y install elinks (뭐 없이 안 돌아가게..?)<br> 
+    <br>
+    nslookup jvision.ac.kr //이걸로 서버에서 나 찾으면 성공 싶ㄹ<br> 
+    이렇게 뜬다. <br>
+    <pre>
+    ** server can't find jision.ac.kr: NXDOMAIN
+    
+    root@master:/etc/bind# nslookup jvision.ac.kr
+    Server:		10.0.2.15
+    Address:	10.0.2.15#53
+    
+    Non-authoritative answer:
+    Name:	jvision.ac.kr
+    Address: 210.125.198.35(외부IP) 
+    </pre>
+    버츄얼박스에서 DNS 만 UDP로 바꾸기 <br>
+    <br>
+    tpc udp<br> 
+    tcp는 체크해야캄<br> 
+    dns는 꼭 그래야하는 건 아니다 udp?<br> 
+    <br>
+    named-checkconf 이건 잘 됐나 체크 <br>
+    <br>
+    !!!!!!!!!!!!서버구축해서 도메인 만들어서 보내면 100점<br>
+    <br>
+</body>
+</html>

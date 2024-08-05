@@ -1,0 +1,128 @@
+.body {
+    font-family: 'Ownglyph_meetme-Rg'; 
+    background-color: rgb(255, 255, 255);    
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+} 
+    
+:link {
+    color: yellowgreen;
+}
+
+:visited {
+    color: rgba(153, 0, 138, 0.856);
+}
+
+a {
+    text-decoration-line: none; 
+}
+
+@font-face {
+    font-family: 'Ownglyph_meetme-Rg';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_1@1.0/Ownglyph_meetme-Rg.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.header {
+    background-color: rgb(255, 230, 234);
+    padding: 2%;
+    width: 100%;
+    height: 10px;
+    text-align: center;
+    padding-left: 10%;
+}
+
+.header2 {
+    background-color: rgb(230, 248, 255);
+    padding: 3%;
+    width: 100%;
+    text-align: center;
+    padding-left: 10%;
+}
+
+.Box1 {
+    background-color: pink;
+    text-align: center; 
+    width: 250px;
+    height: 100%;
+    position: fixed;  /*고정 위치 */
+}
+
+.Box2 {
+    background-color: rgb(255, 205, 214);
+    text-align: center; 
+}
+
+.Box3 {
+    background-color: rgb(255, 244, 246);
+    height: 100%; /* 전체 화면 높이 */
+    text-align: center;
+    padding-left: 20%;
+    padding-top: 2%;
+}
+
+.BottomBox {
+    background-color: blueviolet;
+    text-align: center;
+    padding-left: 20%; 
+    padding-bottom: 5%;
+    bottom: 0; /* 페이지의 아래쪽에 배치 */
+    margin-top: 10%;
+}
+
+
+/* 다크모드 화이트모드 스킨 */
+.dark-mode {
+    color: rgb(255, 255, 255);
+    :visited {
+        color: rgba(255, 255, 255, 0.856); 
+    }
+
+    background-color: rgb(75, 75, 75); 
+    .body {
+        background-color: rgb(75, 75, 75); 
+    }
+    .Box1, .Box2 {
+        background-color: rgb(122, 122, 122); 
+    }
+    .Box3 {
+        background-color: rgb(101, 101, 101); 
+    }
+    .header {
+        background-color: rgb(101, 101, 101); 
+    }
+    .header2 {
+        background-color: rgb(143, 143, 143); 
+    }
+    .BottomBox {
+        background-color: rgb(149, 149, 149); 
+    }
+}
+
+.while-mode {
+    background-color: white;
+    color: black;
+
+    
+    :visited {
+        color: rgba(49, 49, 49, 0.856); 
+    }
+    .Box1, .Box2 {
+        background-color: rgb(225, 225, 225); 
+    }
+    .Box3 {
+        background-color: rgb(224, 224, 224); 
+    }
+    .header {
+        background-color: rgb(215, 215, 215); 
+    }
+    .header2 {
+        background-color: rgb(226, 226, 226); 
+    }
+    .BottomBox {
+        background-color: rgb(212, 212, 212); 
+    }
+}
