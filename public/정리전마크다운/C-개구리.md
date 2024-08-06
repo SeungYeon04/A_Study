@@ -9,6 +9,7 @@
 current 가 어떤 용도의 함수인지 몰라 보았다.  
 
 <h3>어려웠던 것 정리</h3> 
+
 current < stones_len 은 
 current 보다 stones_len 가 많아지면 끝냄.  
 current는 개구리 위치  
