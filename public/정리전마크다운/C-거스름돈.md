@@ -12,7 +12,8 @@
 지불한 금액 money가 매개변수로 주어질 때, 거슬러 줘야 하는 금액을 return 하도록 solution 함수를 완성해주세요.  
   
 매개변수 설명  
-고객이 구매한 물품의 가격이 들어있는 배열 price와 price의 길이 price_len, 지불한 금액 money가 solution 함수의 매개변수로 주어집니다.  
+고객이 구매한 물품의 가격이 들어있는 배열 price와 price의 길이 price_len,  
+지불한 금액 money가 solution 함수의 매개변수로 주어집니다.  
   
 price의 길이 price_len은 1 이상 50 이하의 자연수입니다.  
 price의 요소는 고객이 구매한 물품의 가격이며, 10 이상 100,000 이하의 자연수입니다.  
