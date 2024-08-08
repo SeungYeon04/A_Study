@@ -1,6 +1,5 @@
 .body {
     font-family: 'Ownglyph_meetme-Rg'; 
-    background-color: rgb(255, 255, 255);    
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -12,7 +11,7 @@
 }
 
 :visited {
-    color: rgba(153, 0, 138, 0.856);
+    color: rgba(255, 255, 255, 0.856);
 }
 
 a {
@@ -27,7 +26,7 @@ a {
 }
 
 .header {
-    background-color: rgb(255, 230, 234);
+    background-color: rgb(101, 101, 101); 
     padding: 2%;
     width: 100%;
     height: 10px;
@@ -36,7 +35,7 @@ a {
 }
 
 .header2 {
-    background-color: rgb(230, 248, 255);
+    background-color: rgb(143, 143, 143); 
     padding: 3%;
     width: 100%;
     text-align: center;
@@ -44,7 +43,7 @@ a {
 }
 
 .Box1 {
-    background-color: pink;
+    background-color: rgb(122, 122, 122); 
     text-align: center; 
     width: 250px;
     height: 100%;
@@ -52,12 +51,12 @@ a {
 }
 
 .Box2 {
-    background-color: rgb(255, 205, 214);
+    background-color: rgb(122, 122, 122); 
     text-align: center; 
 }
 
 .Box3 {
-    background-color: rgb(255, 244, 246);
+    background-color: rgb(101, 101, 101); 
     height: 100%; /* 전체 화면 높이 */
     text-align: center;
     padding-left: 20%;
@@ -65,7 +64,7 @@ a {
 }
 
 .BottomBox {
-    background-color: blueviolet;
+    background-color: rgb(149, 149, 149); 
     text-align: center;
     padding-left: 20%; 
     padding-bottom: 5%;
