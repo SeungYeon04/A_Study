@@ -9,12 +9,12 @@ const Read = () => {
 
   useEffect(() => {
     const markdownPath = `/markdown/${categoryName}/${fileName}.md`; 
-    fetch(markdownPath)
-      .then((res) => res.text())
+    fetch(markdownPath) 
+      .then((res) => res.text()) 
       .then((text) => {
         setMarkdown(text); 
-      });
-  }, [fileName, categoryName]);
+      }); 
+  }, [fileName, categoryName]); 
 
   return (
     <div className="py-4 px-4 text-center">
