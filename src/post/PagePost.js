@@ -10,7 +10,8 @@ const markdownFiles = [
       { id: 2, name: "C-개구리", type: "file" }, 
       { id: 3, name: "C-거스름돈", type: "file" }, 
       { id: 4, name: "C-공항방문객", type: "file" }, 
-      { id: 5, name: "C-k번째로작은수", type: "file" } 
+      { id: 5, name: "C-k번째로작은수", type: "file" }, 
+      { id: 6, name: "test", type: "file" } 
     ]   
   },  
   {  
