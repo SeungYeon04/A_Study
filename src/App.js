@@ -13,11 +13,12 @@ function App() {
   return (
     <div className="App"> 
       <Routes>
-        <Route path="/" element={<Home setSelectedCategory={setSelectedCategory} />} />
+      <Route path="/" element={<Home setSelectedCategory={setSelectedCategory} />} />
+      <Route path="/A_Study/" element={<Home setSelectedCategory={setSelectedCategory} />} />
         
-        <Route path="/:categoryName" element={<Post selectedCategory={selectedCategory} />} />
+        <Route path="/A_Study/markdown/:categoryName" element={<Post selectedCategory={selectedCategory} />} />
         
-        <Route path="/:categoryName/:fileName" element={<Read/>} />
+        <Route path="/A_Study/markdown/:categoryName/:fileName" element={<Read/>} />
       </Routes>
     </div>
   );

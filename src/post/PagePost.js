@@ -35,7 +35,7 @@ const Post = ({ selectedCategory }) => {
           <h2>{selectedCategoryObj.name} 포스트 목록</h2>
           {selectedCategoryObj.posts.map(post => (
             <div key={post.id}> 
-              <Link to={`/${selectedCategoryObj.name}/${post.name}`}>
+              <Link to={`/A_Study/markdown/${selectedCategoryObj.name}/${post.name}`}>
                 <h4>{post.name}</h4> 
               </Link>
             </div>

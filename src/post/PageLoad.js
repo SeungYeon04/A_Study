@@ -8,19 +8,19 @@ const Read = () => {
   const [markdown, setMarkdown] = useState("");
 
   useEffect(() => {
-    const markdownPath = `/markdown/${categoryName}/${fileName}.md`; 
-    fetch(markdownPath) 
-      .then((res) => res.text()) 
+    const markdownPath = `/A_Study/markdown/${categoryName}/${fileName}.md`;
+    fetch(markdownPath)
+      .then((res) => res.text())
       .then((text) => {
-        setMarkdown(text); 
-      }); 
-  }, [fileName, categoryName]); 
+        setMarkdown(text);
+      });
+  }, [fileName, categoryName]);
 
   return (
     <div className="py-4 px-4 text-center">
-      <ReactMarkdown remarkPlugins={[remarkGfm]}>{markdown}</ReactMarkdown> 
+      <ReactMarkdown remarkPlugins={[remarkGfm]}>{markdown}</ReactMarkdown>
     </div>
   );
-}
+};
 
 export default Read;

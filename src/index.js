@@ -11,9 +11,11 @@ const rootContainer = document.getElementById('root');
 if (rootContainer) {
   const root = createRoot(rootContainer);
   root.render(
+    <React.StrictMode>
       <BrowserRouter>
         <App/>
       </BrowserRouter>
+    </React.StrictMode>
   );
 } 
 
@@ -21,9 +23,12 @@ const categoryContainer = document.getElementById('Box2');
 if (categoryContainer) {
   const categoryRoot = createRoot(categoryContainer);
   categoryRoot.render(
+    <React.StrictMode>
       <BrowserRouter>
         <Category setSelectedCategory={() => {}}/>
       </BrowserRouter>
+      </React.StrictMode>
+
   );
 } 
 
@@ -32,7 +37,10 @@ const profileContainer = document.getElementById('profile');
 if (profileContainer) {
   const profileRoot = createRoot(profileContainer);
   profileRoot.render(
+    <BrowserRouter>
     <Profile />
+
+    </BrowserRouter>
   );
 } 
 
