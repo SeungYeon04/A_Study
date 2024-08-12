@@ -12,7 +12,7 @@
 따라는 쳐도 복붙은 안 하기로 했어요  
 https://velog.io/@yujeongkwon/posts  
 
-Lv1. 가장 많이 받은 선물  
+### Lv1. 가장 많이 받은 선물  
 ``` 
 using System;
 
