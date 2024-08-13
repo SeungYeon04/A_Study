@@ -4,10 +4,11 @@ Github url: https://seungyeon04.github.io/A_Study/
 ## 🖥 프로젝트 소개 
 
 언어 HTML CSS JAVASCRIPT REACT 사용  
-public > markdown > 안에 카테고리와 파일 존재  
-이건 리액트 연습 겸 GPT 사용하면서 만든 스터디 블로그입니다.  
-나중에 github.io로 검색 올리고  
-광고배너도 달 예정입니다. 비싼 위주로.. 
+리액트지만 정적 브런치 만들어서  
+해쉬함수 써서 깃허브페이지 띄웠어요  
+공부 정리랑 틸 전용으로 쓸 예정이고  
+나중에는 구글 검색엔진 등록 할 예정입니다  
+
 
 ## ⚙️ 개발환경  
 
