@@ -1,6 +1,6 @@
 // src/profile/FrofileImage.js
 import React from 'react';
-import profileImage from '../프로필/앵무새.jpg';
+import profileImage from './Image/bird.jpg';
 
 const Profile = () => {
   return (

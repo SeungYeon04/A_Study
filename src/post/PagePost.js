@@ -6,7 +6,7 @@ const markdownFiles = [
   {
     name: "CosProC", type: "folder", 
     posts: [
-      { id: 1, name: "Giftlv1", type: "file" }, 
+      { id: 1, name: "가장많이받은선물-lv1", type: "file" }, 
       { id: 2, name: "C-개구리", type: "file" }, 
       { id: 3, name: "C-거스름돈", type: "file" }, 
       { id: 4, name: "C-공항방문객", type: "file" }, 
@@ -35,7 +35,7 @@ const Post = ({ selectedCategory }) => {
           <h2>{selectedCategoryObj.name} 포스트 목록</h2>
           {selectedCategoryObj.posts.map(post => (
             <div key={post.id}> 
-              <Link to={`/A_Study/markdown/${selectedCategoryObj.name}/${post.name}`}>
+              <Link to={`/${selectedCategoryObj.name}/${post.name}`}>
                 <h4>{post.name}</h4> 
               </Link>
             </div>

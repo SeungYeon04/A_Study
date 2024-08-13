@@ -41,23 +41,4 @@
     <footer class="BottomBox">깃허브</footer>
 </div>
 </body> 
-<script>
-    let files = [
-    "프로필/앵무새.jpg",
-    "프로필/앵무새1.jpg",
-    "프로필/앵무새2.jpg",
-    "프로필/앵무새3.jpg" ];
-    let imgs = new Array(); 
-    for(let i = 0; i<files.length; i++)
-    {
-        imgs[i] = new Image(); 
-        imgs[i].src = files[i]; 
-    }
-    let next = 1; 
-    function change(img) {
-        img.src = imgs[next].src; 
-        next++;
-        next %= imgs.length; 
-    }
-</script>
 </html>
