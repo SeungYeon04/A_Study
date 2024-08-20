@@ -17,7 +17,8 @@ const markdownFiles = [
   { 
     name: "리눅스", type: "folder", 
     posts: [
-      { id: 0, name: "리눅스핵심정리1", type: "file" }, 
+      { id: 0, name: "리눅스핵심정리1", type: "file" },
+      { id: 0, name: "2024년12월11일", type: "file" }, 
       { id: 0, name: "2020년12월12일", type: "file" },
       { id: 0, name: "2022년09월03일", type: "file" }
     ]
