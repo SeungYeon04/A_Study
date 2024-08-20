@@ -1,0 +1,16 @@
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 20px; /* 리스트 항목에 왼쪽 패딩 추가 */
+  margin-left: 20px;  /* 리스트의 왼쪽 마진 추가 */
+}
+.markdown-body li {
+    margin-bottom: 8px; /* 리스트 항목 간의 간격 추가 */
+    list-style-position: inside; /* 리스트 스타일을 안쪽으로 이동 */
+}
+
+.markdown-body {
+max-width: 600px; /* 컨테이너의 최대 너비를 제한 */
+margin: 0 auto;   /* 가운데 정렬 */
+text-align: left; /* 텍스트를 왼쪽 정렬 */
+line-height: 1.6; /* 읽기 편한 줄 간격 */
+}
