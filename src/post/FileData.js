@@ -1,7 +1,7 @@
 // src/FileData.js
 export const markdownFiles = [
     {
-      name: "CosProC", type: "folder",
+      name: "C언어", type: "folder",
       posts: [
         { id: 1, name: "가장많이받은선물-lv1", type: "file" },
         { id: 2, name: "C-개구리", type: "file" },
@@ -21,6 +21,11 @@ export const markdownFiles = [
         { id: 0, name: "2016년06월11일", type: "file" },
         { id: 0, name: "2016년03월12일", type: "file" }
       ]
+    },
+    {
+        name: "TIL", type: "folder",
+        posts: [
+        ]
     }
   ];
   
