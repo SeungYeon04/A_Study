@@ -1,4 +1,8 @@
 GPT 가 아닌 직접 찾은 핵심  
+
+강의 추천:  
+vim: https://youtu.be/cY0JxzENBJg?si=JF0nsHO5DenAt86R  
+
   
 make 설치  
 configure > make > make install  
