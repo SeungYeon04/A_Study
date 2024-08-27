@@ -1,5 +1,4 @@
-GPT 가 아닌 제가 강의 보면서 느낀  
-핵심들이나 중요한 것들 모음집  
+GPT 가 아닌 직접 찾은 핵심  
   
 make 설치  
 configure > make > make install  
