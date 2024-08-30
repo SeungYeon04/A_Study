@@ -35,6 +35,6 @@ export const markdownFiles = [
         posts: [
           { id: 0, name: "자바수업1-2일차", type: "file" }
         ]
-    }, 
+    } 
   ];
   
