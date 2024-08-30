@@ -26,7 +26,15 @@ export const markdownFiles = [
     {
         name: "TIL", type: "folder",
         posts: [
+          { id: 0, name: "TIL-20240829", type: "file" },
+          { id: 0, name: "TIL-20240830", type: "file" }
         ]
-    }
+    },
+    {
+        name: "Java수업", type: "folder",
+        posts: [
+          { id: 0, name: "자바수업1-2일차", type: "file" }
+        ]
+    }, 
   ];
   
