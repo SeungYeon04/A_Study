@@ -16,11 +16,11 @@ const Category = ({ setSelectedCategory }) => {
       {markdownFiles.map((category, index) => (
         category.type === 'folder' && (
           <div key={index}>
-            <h3>
+            <p>
               <Link to={`/${category.name}`} onClick={() => handleCategoryClick(category.name)}>
                 {category.name}
               </Link>
-            </h3>
+            </p>
           </div>
         )
       ))}

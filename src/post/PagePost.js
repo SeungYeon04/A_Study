@@ -14,16 +14,23 @@ const Post = ({ selectedCategory }) => {
         <div>
           <h2>{selectedCategoryObj.name} 포스트 목록</h2>
           {selectedCategoryObj.posts.map(post => (
-            <div key={post.id}>
+            post.type === "title" ? (
+              <h3 key={post.id}>{post.name}</h3>
+           ) : (
+           <div key={post.id}>
               <Link to={`/${selectedCategoryObj.name}/${post.name}`}>
-                <h4>{post.name}</h4>
+                <a>{post.name}</a>
+                <br></br><br></br>
+                
               </Link>
             </div>
+          )
           ))}
         </div>
       ) : (
         <div>카테고리를 선택하세요.</div>
-      )}
+      )
+      }
     </div>
   );
 };
