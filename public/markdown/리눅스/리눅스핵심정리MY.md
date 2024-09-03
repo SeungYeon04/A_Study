@@ -1,8 +1,11 @@
 GPT 가 아닌 직접 찾은 핵심이나 강의 내용  
+아 물론 시험용 정보 모음집이다.  
 
-강의 추천:  
+참고자료 & 참고하기 좋은 자료:  
 vim: https://youtu.be/cY0JxzENBJg?si=JF0nsHO5DenAt86R  
-
+CBT: https://www.comcbt.com/  
+  
+표준 유닉스 시스템 콜 == OSS  
   
 make 설치  
 configure > make > make install  
@@ -62,4 +65,29 @@ ctrl d 아래로 스크롤링
 일반적으로 셸을 부여하지 않으면 로그인 막는 효과에  
 사용자로부터 명령 받아 해석하고 실행  
 유닉스 버전7의 기본 셸은 스티븐 본이 개발한 본셸이다.  
+
+### RAID 
+
+스트라이핑: RAID0에서 사용. 여러개의 디스크를 합쳐서 하나의 디스크처럼 사용. 하나의 데이터를 여러 디스크에 나눠서 쓰기 때문에 이론상 디스크 수만큼 읽기 쓰기 속도가 빨라짐.  
+미러링: RAID1에서 사용. 말 그대로 디스크 이중화.  
+패리티: RAID5,6에서 사용. 데이터 복구.  
+ECC: RAID3. 유명무실..  
+  
+### LVM 순서 
+PV-VG-LV  
+
+### 프린트 명령어 
+lpq, lpstat: 프린트 큐 확인  
+lp : /dev/lp 사용  
+프린터 디바이스 path를 사용하여 직접 인쇄  
+EX) cat test.txt > /dev/lp  
+lpr : 인쇄 작업을 수행  
+lprm : 프린터 큐의 작업을 삭제할 때 사용  
+
+###  vsftpd 패키지 제거 
+remove: 패키지 제거 = apt-get remove vsftpd  
+purge: 환경설정까지 삭제 = apt-get purge vsftpd  
+
+
+
 
