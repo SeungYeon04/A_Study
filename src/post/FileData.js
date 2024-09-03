@@ -42,13 +42,13 @@ export const markdownFiles = [
       name: "Python", type: "folder",
       posts: [
         { id: 0, name: "대학 Python수업", type: "title" },
-        { id: 0, name: "", type: "file" }
+        { id: 0, name: "파이썬수업1-2일차", type: "file" }
       ]
   }, 
   {
     name: "통신과네트워크", type: "folder",
     posts: [
-      { id: 0, name: "", type: "file" }
+      { id: 0, name: "통신과네트워크1-3일차", type: "file" }
     ]
 } 
   ];
