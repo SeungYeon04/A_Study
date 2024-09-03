@@ -115,6 +115,10 @@ f : 파일 이름 및 디렉토리 지정
 remove: 패키지 제거 = apt-get remove vsftpd  
 purge: 환경설정까지 삭제 = apt-get purge vsftpd  
   
+#### make  
+configure → make → make install  
 
-
+#### cmake 
+cmake → make → make install  
+cmake → make install  
 
