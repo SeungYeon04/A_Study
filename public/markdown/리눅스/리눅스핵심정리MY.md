@@ -12,7 +12,8 @@ make 설치
 configure > make > make install  
   
 cmake 설치  
-cmake > make install  
+cmake > make install(시험은 보통 이게 답)  
+cmake → make → make install  
   
 |패키지|온라인|오프라인|
 |------|---|---|
@@ -168,14 +169,7 @@ f : 파일 이름 및 디렉토리 지정
   
 ###  vsftpd 패키지 제거 
 remove: 패키지 제거 = apt-get remove vsftpd  
-purge: 환경설정까지 삭제 = apt-get purge vsftpd  
-  
-#### make  
-configure → make → make install  
-
-#### cmake 
-cmake → make → make install  
-cmake → make install  
+purge: 환경설정까지 삭제 = apt-get purge vsftpd   
 
 ### 프로세스 종료 명령 
 
