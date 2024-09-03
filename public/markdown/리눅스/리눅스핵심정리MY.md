@@ -84,10 +84,37 @@ EX) cat test.txt > /dev/lp
 lpr : 인쇄 작업을 수행  
 lprm : 프린터 큐의 작업을 삭제할 때 사용  
 
+*** 
+
+### 여러 명령어들 
+epel-release == 저장소의 구성 파일, 공개 키 포함 패키지  
+make clean == 빌드 결과물과 중간 파일을 삭제  
+작업을 새로 시작하기 전에 환경을 초기화하는 데 유용  
+  
+### 압축률 순서
+xz>bz2>gz>compress  
+
+### tar 명령의 압축 파일 명령어
+.xz = Jxvf  
+.bz2 = jxvf  
+.gz = zxvf  
+compress = Zxvf  
+  
+.xz = J  
+.bz2 = j  
+.gz = z  
+compress = Z  
+  
+c : 압축파일 생성  
+x : 압축파일 해제  
+t : 아카이브 내의 파일 목록 보기  
+v : 자세한 정보 출력  
+f : 파일 이름 및 디렉토리 지정  
+  
 ###  vsftpd 패키지 제거 
 remove: 패키지 제거 = apt-get remove vsftpd  
 purge: 환경설정까지 삭제 = apt-get purge vsftpd  
-
+  
 
 
 
