@@ -5,6 +5,20 @@ GPT 가 아닌 찾아보고 정리한 것이에요
 참고자료 & 참고하기 좋은 자료:  
 vim: https://youtu.be/cY0JxzENBJg?si=JF0nsHO5DenAt86R  
 CBT: https://www.comcbt.com/  
+폰 진화 과정: https://www.youtube.com/watch?v=xnobktms0TM&t=2s  
+  
+폴더는 기본 권한을 777  
+파일의 기본 권한 666  
+  
+umask 기본값은 0022  
+umask가 0022면  
+폴더 755 파일 644  
+  
+S옵션이 umask값을 문자로 표기하는 것  
+u=rwx,g=rx,o=rx 식으로  
+  
+du : 디렉터리나 사용자별 디스크 사용량  
+df : 파티션 단위 디스크 사용량  
   
 표준 유닉스 시스템 콜 == OSS  
   
