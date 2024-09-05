@@ -22,6 +22,9 @@ df : 파티션 단위 디스크 사용량
   
 표준 유닉스 시스템 콜 == OSS  
   
+BSD 계열 - lpr, lpq, lpc, lprm  
+System V 계열 - lp, lpstat, cancel  
+  
 make 설치  
 configure > make > make install  
   
