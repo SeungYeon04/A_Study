@@ -26,6 +26,9 @@ BSD 계열 - lpr, lpq, lpc, lprm
 System V 계열 - lp, lpstat, cancel  
 (그냥 System V는 두 글자 여섯 글자)  
   
+1) xhost명령: X 서버에 접속할 수 있는 클라이언트를 지정, 해제  
+2) xauth명령: .Xauthority 파일의 쿠키 내용을 추가, 삭제, 리스트 출력  
+  
 make 설치  
 configure > make > make install  
   
