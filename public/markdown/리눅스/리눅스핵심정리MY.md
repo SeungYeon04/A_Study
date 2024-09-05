@@ -193,7 +193,7 @@ make clean == 빌드 결과물과 중간 파일을 삭제
 작업을 새로 시작하기 전에 환경을 초기화하는 데 유용  
   
 ### 압축률 순서
-xz>bz2>gz>compress  
+(작다) xz>bz2>gz>compress (크다)  
 
 ### tar 명령의 압축 파일 명령어
 .xz = Jxvf  
