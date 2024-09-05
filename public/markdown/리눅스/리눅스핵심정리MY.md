@@ -24,6 +24,7 @@ df : 파티션 단위 디스크 사용량
   
 BSD 계열 - lpr, lpq, lpc, lprm  
 System V 계열 - lp, lpstat, cancel  
+(그냥 System V는 두 글자 여섯 글자)  
   
 make 설치  
 configure > make > make install  
