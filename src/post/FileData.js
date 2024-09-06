@@ -32,10 +32,10 @@ export const markdownFiles = [
         ]
     },
     {
-        name: "Java", type: "folder",
+        name: "대학2학기", type: "folder",
         posts: [
           { id: 0, name: "대학 JAVA수업", type: "title" }, 
-          { id: 0, name: "자바수업1-2일차", type: "file" }
+          { id: 0, name: "Java/자바수업1-2일차", type: "file" }
         ]
     },
     {
