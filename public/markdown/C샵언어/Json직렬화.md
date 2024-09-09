@@ -1,10 +1,12 @@
-C#에서 "직렬화(Serialization)"는 객체를  
-데이터 형식으로 변환하여 저장하거나 전송할 수 있게 해주는 과정입니다.  
+### 직렬화(Serialization) 
+
+C#에서 직렬화(Serialization)는 객체를  
+데이터 형식으로 변환하여, 저장하거나 전송할 수 있게 해주는 과정  
 주로 JSON, XML, 바이너리 형식으로 직렬화할 수 있습니다.  
+
 ```
 using System;
 using System.Text.Json; 
-
 
 public class P 
 {
@@ -35,7 +37,8 @@ class Program
     }
 }
 ```
-위에꺼 정리하자면  
+
+#### Json 다시 정리 
 
 1) 이런 객체가 존재 
 ```
@@ -62,3 +65,18 @@ string jsonString = JsonSerializer.Serialize(person);
 
 역직렬화는 직렬화된 데이터를 원래의 객체로 변환하는 과정  
 문자열을 다시 객체로 변환하려면 역직렬화  
+
+#### 타입 설명 
+
+```
+public 타입 속성명 { get; set; }
+```
+get은 속성 값을 읽을 수 있게 하고,  
+set은 속성 값을 설정할 수 있게 함  
+  
+get set은 데이터접근제어 캡슐화로 데이터 무결성 검사 유용하다고 함  
+대량의 데이터나 복잡한 구조는 데이터베이스, 컬렉션, 메서드 등 쓰는 게 좋을 수도  
+
+Json이던 뭘 써서 데이터 관리하던  
+중요한 데이터는 하드코딩 금지에 암호화 필수인 듯  
+  
