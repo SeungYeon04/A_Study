@@ -12,9 +12,23 @@ export const markdownFiles = [
       ]
     },
     {
+      name: "C샵언어", type: "folder",
+      posts: [
+        { id: 1, name: "C# 공부기록", type: "title" },
+        { id: 1, name: "CSharp-공부계획", type: "file" },
+      ]
+    },
+    {
+      name: "C++언어", type: "folder",
+      posts: [
+      ]
+    },
+    {
       name: "리눅스", type: "folder",
       posts: [
-        { id: 0, name: "리눅스핵심정리MY", type: "file" },
+        { id: 0, name: "리눅스2급 핵심정리", type: "title" },
+        { id: 0, name: "리눅스핵심정리MY1", type: "file" },
+        { id: 0, name: "리눅스핵심정리MY2", type: "file" },
         { id: 0, name: "리눅스핵심정리GPT", type: "file" },
         { id: 0, name: "리눅스 CBT 문제풀이", type: "title" },
         { id: 0, name: "2024년12월11일", type: "file" },
@@ -25,8 +39,9 @@ export const markdownFiles = [
       ]
     },
     {
-        name: "TIL", type: "folder",
+        name: "유니티", type: "folder",
         posts: [
+          { id: 0, name: "유니티 TIL", type: "title" },
           { id: 0, name: "TIL-20240829", type: "file" },
           { id: 0, name: "TIL-20240830", type: "file" }
         ]
@@ -37,13 +52,18 @@ export const markdownFiles = [
         { id: 0, name: "Java 수업", type: "title" },
         { id: 0, name: "자바수업1주차", type: "file" },
         { id: 0, name: "자바수업2주차", type: "file" },
+
         { id: 0, name: "인공지능수학", type: "title" },
         { id: 0, name: "인수수업1주차", type: "file" },
+
         { id: 0, name: "통신과 네트워크", type: "title" },
         { id: 0, name: "통신과네트워크1주차", type: "file" },
+
         { id: 0, name: "Python 수업", type: "title" },
         { id: 0, name: "파이썬수업1주차", type: "file" },
         
+        { id: 0, name: "자료구조", type: "title" },
+        { id: 0, name: "자료구조1주차", type: "file" },
       ]
   },
   

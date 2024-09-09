@@ -12,7 +12,7 @@ const Post = ({ selectedCategory }) => {
     <div>
       {selectedCategoryObj ? (
         <div>
-          <h2>{selectedCategoryObj.name} 포스트 목록</h2>
+          <h2>{selectedCategoryObj.name}🩷</h2>
           {selectedCategoryObj.posts.map(post => (
             post.type === "title" ? (
               <h3 key={post.id}>{post.name}</h3>
