@@ -66,7 +66,7 @@ string jsonString = JsonSerializer.Serialize(person);
 역직렬화는 직렬화된 데이터를 원래의 객체로 변환하는 과정  
 문자열을 다시 객체로 변환하려면 역직렬화  
 
-#### 타입 설명 
+#### 간단한 타입 설명 
 
 ```
 public 타입 속성명 { get; set; }
