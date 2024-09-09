@@ -26,7 +26,7 @@ function App() {
 function Home({ setSelectedCategory }) {
   return (
     <div>
-      <h1>블로그의 홈 - 나를 소개합니다.</h1>
+      <h2>카테고리를 선택하세요</h2>
       <Category setSelectedCategory={setSelectedCategory} />
     </div>
   );
