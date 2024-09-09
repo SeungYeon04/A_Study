@@ -12,7 +12,7 @@ Github url: https://seungyeon04.github.io/A_Study/
 
 ## ⚙️ 개발환경  
 
-• 언어: HTML CSS JavaScript  
+• 언어: HTML CSS JavaScript React  
 • IDE: Visual Studio Code  
 • VCS: Github desktop   
 
