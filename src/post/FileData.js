@@ -15,7 +15,10 @@ export const markdownFiles = [
       name: "C샵언어", type: "folder",
       posts: [
         { id: 1, name: "C# 공부기록", type: "title" },
-        { id: 1, name: "CSharp-공부계획", type: "file" },
+        { id: 1, name: "공부계획", type: "file" },
+        { id: 1, name: "직렬화-Json", type: "file" },
+        { id: 1, name: "배열", type: "file" },
+        { id: 1, name: "리스트", type: "file" },
       ]
     },
     {
