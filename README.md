@@ -8,11 +8,13 @@ Github url: https://seungyeon04.github.io/A_Study/
 해쉬함수 써서 깃허브페이지 띄웠어요  
 공부 정리랑 틸 전용으로 쓸 예정이고  
 나중에는 구글 검색엔진 등록 할 예정입니다  
+왼쪽 저거 분리한다고 대칭 알아서 맞추면 좋겠자만..  
+부족하지만 발전 하겠습니다.  
 
 
 ## ⚙️ 개발환경  
 
-• 언어: HTML CSS JavaScript  
+• 언어: HTML CSS JavaScript React  
 • IDE: Visual Studio Code  
 • VCS: Github desktop   
 
