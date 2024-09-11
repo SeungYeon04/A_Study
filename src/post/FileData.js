@@ -27,8 +27,8 @@ export const markdownFiles = [
       name: "리눅스", type: "folder",
       posts: [
         { id: 0, name: "리눅스2급 핵심정리", type: "title" },
-        { id: 0, name: "리눅스핵심정리MY1", type: "file" },
-        { id: 0, name: "리눅스핵심정리MY2", type: "file" },
+        { id: 0, name: "리눅스핵심정리1", type: "file" },
+        { id: 0, name: "리눅스핵심정리2", type: "file" },
         { id: 0, name: "리눅스핵심정리GPT", type: "file" },
         { id: 0, name: "리눅스 CBT 문제풀이", type: "title" },
         { id: 0, name: "2024년12월11일", type: "file" },
