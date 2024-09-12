@@ -50,7 +50,12 @@ export const markdownFiles = [
         ]
     },
     {
-      name: "대학2학기", type: "folder",
+      name: "대학1-1학기", type: "folder",
+      posts: [
+      ]
+  },
+    {
+      name: "대학1-2학기", type: "folder",
       posts: [
         { id: 0, name: "Java 수업", type: "title" },
         { id: 0, name: "자바수업1주차", type: "file" },
@@ -69,7 +74,6 @@ export const markdownFiles = [
         { id: 0, name: "자료구조1주차", type: "file" },
       ]
   },
-  
   ];
   
   
