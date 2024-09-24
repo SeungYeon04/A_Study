@@ -57,23 +57,26 @@ export const markdownFiles = [
     {
       name: "대학1-2학기", type: "folder",
       posts: [
-        { id: 0, name: "계획메모", type: "title" },
-        { id: 0, name: "메모장", type: "file" },
-
         { id: 0, name: "Java 수업", type: "title" },
         { id: 0, name: "자바수업1주차", type: "file" },
         { id: 0, name: "자바수업2주차", type: "file" },
+        { id: 0, name: "자바수업3주차", type: "file" },
 
         { id: 0, name: "인공지능수학", type: "title" },
         { id: 0, name: "인수수업1주차", type: "file" },
+        { id: 0, name: "인수수업2주차", type: "file" },
+        { id: 0, name: "인수수업3주차", type: "file" },
 
         { id: 0, name: "통신과 네트워크", type: "title" },
         { id: 0, name: "통신과네트워크1주차", type: "file" },
         { id: 0, name: "통신과네트워크2주차", type: "file" },
         { id: 0, name: "통신과네트워크3주차", type: "file" },
+        { id: 0, name: "통신과네트워크4주차", type: "file" },
 
         { id: 0, name: "Python 수업", type: "title" },
         { id: 0, name: "파이썬수업1주차", type: "file" },
+        { id: 0, name: "파이썬수업2주차", type: "file" },
+        { id: 0, name: "파이썬수업3주차", type: "file" },
         
         { id: 0, name: "자료구조", type: "title" },
         { id: 0, name: "자료구조1주차", type: "file" },
