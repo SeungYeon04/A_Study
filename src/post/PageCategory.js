@@ -14,15 +14,19 @@ const Category = ({ setSelectedCategory }) => {
   return (
     <div>
       {markdownFiles.map((category, index) => (
-        category.type === 'folder' && (
-          <div key={index}>
-            <p>
-              <Link to={`/${category.name}`} onClick={() => handleCategoryClick(category.name)}>
+        <div key={index}>
+          {index === 0 && <h3>공부기술</h3>} 
+          {index === 4 && <h3>매일기록</h3>} 
+          {index === 5 && <h3>대학기록</h3>} 
+          
+          {category.type === 'folder' && (
+              <Link to={`/${category.name}`} 
+              onClick={() => handleCategoryClick(category.name)}
+              style={{  display: 'block',marginBottom: '10px' }}>
                 {category.name}
               </Link>
-            </p>
-          </div>
-        )
+          )}
+        </div>
       ))}
     </div>
   );

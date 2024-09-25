@@ -42,9 +42,9 @@ export const markdownFiles = [
       ]
     },
     {
-        name: "유니티", type: "folder",
+        name: "승연의TIL", type: "folder",
         posts: [
-          { id: 0, name: "유니티 TIL", type: "title" },
+          { id: 0, name: "승연의 TIL", type: "title" },
           { id: 0, name: "TIL-20240829", type: "file" },
           { id: 0, name: "TIL-20240830", type: "file" }
         ]
