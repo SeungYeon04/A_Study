@@ -1,7 +1,7 @@
 ### 1주차 
 
 #### Vrew 를 사용하여 AI 활용 영상 만들기 
-![캡처](https://github.com/user-attachments/assets/23728916-1903-4d54-9414-0bfe574fd92b)
+![](https://velog.velcdn.com/images/seungyeon04/post/42d6a87e-0f9a-46bb-941a-83c919b8441f/image.PNG)
 AI음성에 내 목소리도 넣을 수 있고  
 자막도 AI로 다라락 해서 오타만 수정 가능  
 
