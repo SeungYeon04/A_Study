@@ -5,5 +5,7 @@
 AI음성에 내 목소리도 넣을 수 있고  
 자막도 AI로 다라락 해서 오타만 수정 가능  
 
-👉🏻[승연의 벨로그 관련글](https://velog.io/@seungyeon04/AI-BGM-%EB%AF%B8%EB%94%94%EB%A5%BC-%EC%9C%84%ED%95%9C-GPT%EA%B0%80-%EC%A4%80-%EC%A0%95%EB%B3%B4)
-👉🏻[Vrew 음성과 이미지 이용 영상](https://drive.google.com/file/d/1zbhkC5-jhRShoQoOWuxIE3jKKJlt9H0V/view?usp=drive_link) 
+👉🏻[승연의 벨로그 관련글](https://velog.io/@seungyeon04/AI-BGM-%EB%AF%B8%EB%94%94%EB%A5%BC-%EC%9C%84%ED%95%9C-GPT%EA%B0%80-%EC%A4%80-%EC%A0%95%EB%B3%B4)  
+👉🏻[Vrew 음성과 이미지 이용 영상](https://drive.google.com/file/d/1zbhkC5-jhRShoQoOWuxIE3jKKJlt9H0V/view?usp=drive_link)  
+
+### 
