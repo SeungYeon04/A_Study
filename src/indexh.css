@@ -10,10 +10,6 @@
     color: pink;
 }
 
-:visited {
-    color: rgba(255, 255, 255, 0.856);
-}
-
 a {
     text-decoration-line: none; 
 }
@@ -26,24 +22,22 @@ a {
 }
 
 .header {
-    background-color: rgb(101, 101, 101); 
     padding: 2%;
-    width: 100%;
+    padding-bottom: 4%;
     height: 10px;
     text-align: center;
-    padding-left: 10%;
+    padding-left: 250px;
+
 }
 
 .header2 {
-    background-color: rgb(143, 143, 143); 
-    padding: 3%;
-    width: 100%;
+
     text-align: center;
-    padding-left: 10%;
+    margin-left: 250px; /*왼쪽 고정 크기만큼 비우기*/
+    padding: 1%;
 }
 
 .Box1 {
-    background-color: rgb(122, 122, 122); 
     text-align: center; 
     width: 250px;
     height: 100%;
@@ -51,22 +45,20 @@ a {
 }
 
 .Box2 {
-    background-color: rgb(122, 122, 122); 
     text-align: center; 
 }
 
 .Box3 {
-    background-color: rgb(101, 101, 101); 
     height: 100%; /* 전체 화면 높이 */
     text-align: center;
-    padding-left: 20%;
-    padding-top: 2%;
+    padding-top: 2%; 
+    margin-left: 250px; /*왼쪽 고정 크기만큼 비우기*/
 }
 
 .BottomBox {
-    background-color: rgb(149, 149, 149); 
     text-align: center;
-    padding-left: 20%; 
+    margin-left: 250px; /*왼쪽 고정 크기만큼 비우기*/
+
     padding-bottom: 5%;
     bottom: 0; /* 페이지의 아래쪽에 배치 */
     margin-top: 10%;
@@ -124,4 +116,25 @@ a {
     .BottomBox {
         background-color: rgb(212, 212, 212); 
     }
+}
+
+
+
+:visited {
+    color: rgba(49, 49, 49, 0.856); 
+}
+.Box1, .Box2 {
+    background-color: rgb(225, 225, 225); 
+}
+.Box3 {
+    background-color: rgb(224, 224, 224); 
+}
+.header {
+    background-color: rgb(215, 215, 215); 
+}
+.header2 {
+    background-color: rgb(226, 226, 226); 
+}
+.BottomBox {
+    background-color: rgb(212, 212, 212); 
 }

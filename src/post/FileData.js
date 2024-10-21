@@ -61,6 +61,9 @@ export const markdownFiles = [
         { id: 0, name: "자바수업1주차", type: "file" },
         { id: 0, name: "자바수업2주차", type: "file" },
         { id: 0, name: "자바수업3주차", type: "file" },
+        { id: 0, name: "자바수업4주차", type: "file" },
+        { id: 0, name: "자바수업5주차", type: "file" },
+        { id: 0, name: "자바수업6주차", type: "file" },
 
         { id: 0, name: "인공지능수학", type: "title" },
         { id: 0, name: "인수수업1주차", type: "file" },
@@ -72,11 +75,16 @@ export const markdownFiles = [
         { id: 0, name: "통신과네트워크2주차", type: "file" },
         { id: 0, name: "통신과네트워크3주차", type: "file" },
         { id: 0, name: "통신과네트워크4주차", type: "file" },
+        { id: 0, name: "통신과네트워크5주차", type: "file" },
+        { id: 0, name: "통신과네트워크6주차", type: "file" },
 
         { id: 0, name: "Python 수업", type: "title" },
         { id: 0, name: "파이썬수업1주차", type: "file" },
         { id: 0, name: "파이썬수업2주차", type: "file" },
         { id: 0, name: "파이썬수업3주차", type: "file" },
+        { id: 0, name: "파이썬수업4주차", type: "file" },
+        { id: 0, name: "파이썬수업5주차", type: "file" },
+        { id: 0, name: "파이썬수업6주차", type: "file" },
         
         { id: 0, name: "자료구조", type: "title" },
         { id: 0, name: "자료구조1주차", type: "file" },
