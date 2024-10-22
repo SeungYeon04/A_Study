@@ -101,7 +101,8 @@ export const markdownFiles = [
         { id: 0, name: "자료구조1주차", type: "file" },
 
         { id: 0, name: "추가수업", type: "title" },
-        { id: 0, name: "AI영상콘텐츠", type: "file" },
+        { id: 0, name: "AI영상콘텐츠1주차", type: "file" },
+        { id: 0, name: "AI영상콘텐츠2주차", type: "file" },
       ]
   },
   ];
