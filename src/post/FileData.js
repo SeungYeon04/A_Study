@@ -14,11 +14,11 @@ export const markdownFiles = [
     {
       name: "C샵언어", type: "folder",
       posts: [
-        { id: 1, name: "C# 공부기록", type: "title" },
-        { id: 1, name: "공부계획", type: "file" },
-        { id: 1, name: "직렬화-Json", type: "file" },
-        { id: 1, name: "배열", type: "file" },
-        { id: 1, name: "리스트", type: "file" },
+        { id: 0, name: "C# 공부기록", type: "title" },
+        { id: 0, name: "공부계획", type: "file" },
+        { id: 0, name: "직렬화-Json", type: "file" },
+        { id: 0, name: "배열", type: "file" },
+        { id: 0, name: "리스트", type: "file" },
       ]
     },
     {
@@ -50,6 +50,14 @@ export const markdownFiles = [
         ]
     },
     {
+      name: "대학교재정리", type: "folder",
+      posts: [
+        { id: 0, name: "(수업만으로 힘든 것만 읽어보기 위함)\n", type: "title" },
+        { id: 0, name: "인공지능수학기초", type: "title" },
+        { id: 0, name: " ", type: "file" },
+      ]
+    },
+    {
       name: "대학1-1학기", type: "folder",
       posts: [
       ]
@@ -78,6 +86,9 @@ export const markdownFiles = [
         { id: 0, name: "통신과네트워크5주차", type: "file" },
         { id: 0, name: "통신과네트워크6주차", type: "file" },
 
+        { id: 0, name: "소프트웨어공학", type: "title" },
+        { id: 0, name: "소프트웨어공학7주차", type: "file" },
+
         { id: 0, name: "Python 수업", type: "title" },
         { id: 0, name: "파이썬수업1주차", type: "file" },
         { id: 0, name: "파이썬수업2주차", type: "file" },
@@ -88,6 +99,9 @@ export const markdownFiles = [
         
         { id: 0, name: "자료구조", type: "title" },
         { id: 0, name: "자료구조1주차", type: "file" },
+
+        { id: 0, name: "추가수업", type: "title" },
+        { id: 0, name: "AI영상콘텐츠", type: "file" },
       ]
   },
   ];
