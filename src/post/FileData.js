@@ -50,18 +50,10 @@ export const markdownFiles = [
         ]
     },
     {
-      name: "대학교재정리", type: "folder",
-      posts: [
-        { id: 0, name: "(수업만으로 힘든 것만 읽어보기 위함)\n", type: "title" },
-        { id: 0, name: "인공지능수학기초", type: "title" },
-        { id: 0, name: " ", type: "file" },
-      ]
-    },
-    {
       name: "대학1-1학기", type: "folder",
       posts: [
       ]
-  },
+    },
     {
       name: "대학1-2학기", type: "folder",
       posts: [
