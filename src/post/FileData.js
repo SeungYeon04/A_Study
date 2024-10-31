@@ -42,6 +42,14 @@ export const markdownFiles = [
       ]
     },
     {
+      name: "게임개발", type: "folder",
+      posts: [
+        { id: 0, name: "캡스톤디자인(언리얼)", type: "title" },
+        { id: 0, name: "", type: "file" },
+        { id: 0, name: "", type: "file" }
+      ]
+    },
+    {
         name: "승연의TIL", type: "folder",
         posts: [
           { id: 0, name: "승연의 TIL", type: "title" },
