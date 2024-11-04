@@ -67,34 +67,7 @@ a {
 
 /* 다크모드 화이트모드 스킨 */
 .dark-mode {
-    color: rgb(255, 255, 255);
-    :visited {
-        color: rgba(255, 255, 255, 0.856); 
-    }
-
-    background-color: rgb(75, 75, 75); 
-    .body {
-        background-color: rgb(75, 75, 75); 
-    }
-    .Box1, .Box2 {
-        background-color: rgb(122, 122, 122); 
-    }
-    .Box3 {
-        background-color: rgb(101, 101, 101); 
-    }
-    .header {
-        background-color: rgb(101, 101, 101); 
-    }
-    .header2 {
-        background-color: rgb(143, 143, 143); 
-    }
-    .BottomBox {
-        background-color: rgb(149, 149, 149); 
-    }
-}
-
-.while-mode {
-    background-color: white;
+    background-color: rgb(225, 225, 225); 
     color: black;
 
     
@@ -105,16 +78,41 @@ a {
         background-color: rgb(225, 225, 225); 
     }
     .Box3 {
-        background-color: rgb(224, 224, 224); 
+        background-color: rgb(225, 225, 225); 
     }
     .header {
-        background-color: rgb(215, 215, 215); 
+        background-color: rgb(225, 225, 225); 
     }
     .header2 {
-        background-color: rgb(226, 226, 226); 
+        background-color: rgb(225, 225, 225); 
     }
     .BottomBox {
-        background-color: rgb(212, 212, 212); 
+        background-color: rgb(225, 225, 225); 
+    }
+}
+
+.while-mode {
+    background-color: rgb(250, 250, 250); 
+    color: black;
+
+    
+    :visited {
+        color: rgba(49, 49, 49, 0.856); 
+    }
+    .Box1, .Box2 {
+        background-color: rgb(250, 250, 250); 
+    }
+    .Box3 {
+        background-color:rgb(250, 250, 250); 
+    }
+    .header {
+        background-color: rgb(250, 250, 250); 
+    }
+    .header2 {
+        background-color: rgb(250, 250, 250); 
+    }
+    .BottomBox {
+        background-color: rgb(250, 250, 250); 
     }
 }
 
