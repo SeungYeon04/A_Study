@@ -88,6 +88,8 @@ export const markdownFiles = [
 
         { id: 0, name: "소프트웨어공학", type: "title" },
         { id: 0, name: "소프트웨어공학7주차", type: "file" },
+        { id: 0, name: "소프트웨어공학8주차", type: "file" },
+        { id: 0, name: "소프트웨어공학9주차", type: "file" },
 
         { id: 0, name: "Python 수업", type: "title" },
         { id: 0, name: "파이썬수업1주차", type: "file" },
@@ -96,16 +98,25 @@ export const markdownFiles = [
         { id: 0, name: "파이썬수업4주차", type: "file" },
         { id: 0, name: "파이썬수업5주차", type: "file" },
         { id: 0, name: "파이썬수업6주차", type: "file" },
+        { id: 0, name: "파이썬수업7주차", type: "file" },
         
         { id: 0, name: "자료구조", type: "title" },
         { id: 0, name: "자료구조1주차", type: "file" },
+        { id: 0, name: "자료구조9주차", type: "file" },
 
         { id: 0, name: "UIUX", type: "title" },
         { id: 0, name: "UIUX중간고사", type: "file" },
 
         { id: 0, name: "추가수업", type: "title" },
+        
+        { id: 0, name: "React핵심정리", type: "file" },
+
         { id: 0, name: "AI영상콘텐츠1주차", type: "file" },
         { id: 0, name: "AI영상콘텐츠2주차", type: "file" },
+
+        { id: 0, name: "글로벌토익스피킹1주차", type: "file" },
+        { id: 0, name: "글로벌토익스피킹2주차", type: "file" },
+        
       ]
   },
   ];
