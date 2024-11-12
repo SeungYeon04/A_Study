@@ -1,5 +1,5 @@
     body {
-        font-family: 'Ownglyph_meetme-Rg';
+        font-family: 'GowunDodum-Regular';
         background-color: rgb(255, 255, 255); 
 
         width: 50%; /* 네모네모길이 */
@@ -45,10 +45,9 @@
     }
 
     @font-face {
-        font-family: 'Ownglyph_meetme-Rg';
-        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_1@1.0/Ownglyph_meetme-Rg.woff2') format('woff2');
+        font-family: 'GowunDodum-Regular';
+        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
         font-weight: normal;
         font-style: normal;
     }
-
 
