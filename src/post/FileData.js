@@ -29,7 +29,7 @@ export const markdownFiles = [
     {
       name: "리눅스", type: "folder",
       posts: [
-        { id: 0, name: "리눅스2급 핵심정리", type: "title" },
+        { id: 0, name: "리눅스2급2차 핵심정리", type: "title" },
         { id: 0, name: "리눅스핵심정리1", type: "file" },
         { id: 0, name: "리눅스핵심정리2", type: "file" },
         { id: 0, name: "리눅스핵심정리GPT", type: "file" },
