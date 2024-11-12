@@ -72,6 +72,8 @@ export const markdownFiles = [
         { id: 0, name: "자바수업4주차", type: "file" },
         { id: 0, name: "자바수업5주차", type: "file" },
         { id: 0, name: "자바수업6주차", type: "file" },
+        { id: 0, name: "자바객체7주차", type: "file" },
+        { id: 0, name: "자바객체8주차", type: "file" },
 
         { id: 0, name: "인공지능수학", type: "title" },
         { id: 0, name: "인수수업1주차", type: "file" },
@@ -98,7 +100,7 @@ export const markdownFiles = [
         { id: 0, name: "파이썬수업4주차", type: "file" },
         { id: 0, name: "파이썬수업5주차", type: "file" },
         { id: 0, name: "파이썬수업6주차", type: "file" },
-        { id: 0, name: "파이썬수업7주차", type: "file" },
+        { id: 0, name: "파이썬수업8주차", type: "file" },
         
         { id: 0, name: "자료구조", type: "title" },
         { id: 0, name: "자료구조1주차", type: "file" },
