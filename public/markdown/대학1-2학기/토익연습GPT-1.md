@@ -22,7 +22,20 @@ it is an animation by a man.
 2. A song by BTS  
 (BTS가 부른 노래)
 3. An animation by a main
-(어떤 남자가 만든 애니메이션)  
+(어떤 남자가 만든 애니메이션)
+
+### 너의 영어 멋지다 
+```
+I like the language of America.  American English is so cool.
+
+나는 미국의 그(the) 언어를 좋아해.  
+미국의 영어는 멋지다.  
+```
   
+#### 설명: 전치사 of 역할 
 of는 ~의로 많이 쓰이는 듯.  
+특히 사물 설명, 어떤 거의 어떤 것  
+
+
+
 
