@@ -40,6 +40,17 @@ of 랑 the 써보겠다고 특정성 추가한 거임
 of는 ~의로 많이 쓰이는 듯.  
 특히 사물 설명, 어떤 거의 어떤 것  
 
+### 누가 누구 앞에 서 있다 
+```
+I stand in front of peopel  
+나는 사람들 앞에 서 있다.  
+They stand in front of a car
+그들은 차 앞에 서 있다.  
+```
+주어가 대상 앞에 서 있다:  
+주어 + stand in fronr of + 대상  
+
+
 
 
 
