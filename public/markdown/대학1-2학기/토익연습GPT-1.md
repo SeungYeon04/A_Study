@@ -9,8 +9,13 @@ it is an animation by a man.
 헬루바보스 애니메이션을 봐.  
 어떤 남자가 만든 애니메이션이야.  
 ```
-
-#### 전치사 by 역할 
+  
+1. it is about a man in the animation  
+애니메이션 남자에 관한 이야기  
+2. it is an animation by a man
+애니메이션 작가 남자라는 뜻  
+  
+#### 설명: 전치사 by 역할 
 누가 만듬, 누가 창작함, 누가 제작함.  
 1. A book by J.K Rowling  
 (J.K 롤링이 쓴 책)  
