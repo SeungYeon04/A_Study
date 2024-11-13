@@ -26,7 +26,8 @@ it is an animation by a man.
 
 ### 너의 영어 멋지다 
 ```
-I like the language of America.  American English is so cool.
+I like the language of America.
+American English is so cool.
 
 나는 미국의 그(the) 언어를 좋아해.  
 미국의 영어는 멋지다.  
