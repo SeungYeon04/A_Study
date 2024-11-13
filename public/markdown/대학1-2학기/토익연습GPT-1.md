@@ -32,6 +32,9 @@ American English is so cool.
 나는 미국의 그(the) 언어를 좋아해.  
 미국의 영어는 멋지다.  
 ```
+사실 the languge of 말고  
+걍 American English 좋다는 게 자연스럽지만  
+of 랑 the 써보겠다고 특정성 추가한 거임  
   
 #### 설명: 전치사 of 역할 
 of는 ~의로 많이 쓰이는 듯.  
