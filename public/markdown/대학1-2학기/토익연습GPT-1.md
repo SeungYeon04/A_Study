@@ -45,10 +45,19 @@ of는 ~의로 많이 쓰이는 듯.
 I stand in front of peopel  
 나는 사람들 앞에 서 있다.  
 They stand in front of a car
-그들은 차 앞에 서 있다.  
+그들은 차 앞에 서 있다.
+
+I am standing in front of peopel  
+나는 현재 사람들 앞에 서 있다.  
+They are standing in front of a car
+그들은 현재 차 앞에 서 있다. 
 ```
 주어가 대상 앞에 서 있다:  
 주어 + stand in fronr of + 대상  
+
+지금 서있다고 말하고 싶으면  
+-ing를 쓰면 된다.  
+  
 
 
 
