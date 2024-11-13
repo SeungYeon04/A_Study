@@ -61,6 +61,8 @@ They are standing in front of a car
 #### 수영하는 것 
 동명사는 주어 목적어 보어 자리에서 다 써먹기 가능  
 동사는 변덕이 심해서 잘 변한다  
+교수님께 물어보니 현재진행은 be+ing,  
+동명사는 전치+ing라고 하셨다  
   
 (1) 동명사: 동사를 강조, 행위 등  
 Swimming is fun  
