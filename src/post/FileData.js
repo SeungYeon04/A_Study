@@ -123,6 +123,7 @@ export const markdownFiles = [
 
         { id: 0, name: "글로벌토익스피킹1주차", type: "file" },
         { id: 0, name: "글로벌토익스피킹2주차", type: "file" },
+        { id: 0, name: "글로벌토익스피킹3주차", type: "file" },
         
       ]
   },
