@@ -32,7 +32,8 @@ export const markdownFiles = [
         { id: 0, name: "리눅스2급2차 핵심정리", type: "title" },
         { id: 0, name: "리눅스핵심정리1", type: "file" },
         { id: 0, name: "리눅스핵심정리2", type: "file" },
-        { id: 0, name: "리눅스핵심정리GPT", type: "file" },
+        { id: 0, name: "리눅스핵심정리3", type: "file" },
+        { id: 0, name: "리눅스핵심정리4", type: "file" },
         { id: 0, name: "리눅스 CBT 문제풀이", type: "title" },
         { id: 0, name: "2024년12월11일", type: "file" },
         { id: 0, name: "2020년12월12일", type: "file" },
@@ -74,6 +75,9 @@ export const markdownFiles = [
         { id: 0, name: "자바수업6주차", type: "file" },
         { id: 0, name: "자바객체7주차", type: "file" },
         { id: 0, name: "자바객체8주차", type: "file" },
+        { id: 0, name: "자바시험준비1", type: "file" },
+        { id: 0, name: "자바객체9주차", type: "file" },
+        { id: 0, name: "자바객체10주차", type: "file" },
 
         { id: 0, name: "인공지능수학", type: "title" },
         { id: 0, name: "인수수업1주차", type: "file" },
@@ -100,14 +104,22 @@ export const markdownFiles = [
         { id: 0, name: "파이썬수업4주차", type: "file" },
         { id: 0, name: "파이썬수업5주차", type: "file" },
         { id: 0, name: "파이썬수업6주차", type: "file" },
+        { id: 0, name: "파이썬수업7주차", type: "file" },
         { id: 0, name: "파이썬수업8주차", type: "file" },
+        { id: 0, name: "파이썬수업9주차", type: "file" },
+        { id: 0, name: "파이썬수업10주차", type: "file" },
         
+
         { id: 0, name: "자료구조", type: "title" },
         { id: 0, name: "자료구조1주차", type: "file" },
         { id: 0, name: "자료구조9주차", type: "file" },
+        { id: 0, name: "자료구조10주차", type: "file" },
+        { id: 0, name: "자료구조11주차", type: "file" },
 
         { id: 0, name: "UIUX", type: "title" },
         { id: 0, name: "UIUX중간고사", type: "file" },
+        { id: 0, name: "UIUX수업8주차", type: "file" },
+        { id: 0, name: "UIUX수업10주차", type: "file" },
 
         { id: 0, name: "토익", type: "title" },
         { id: 0, name: "토익1주차", type: "file" },
@@ -118,12 +130,18 @@ export const markdownFiles = [
         
         { id: 0, name: "React핵심정리", type: "file" },
 
+        { id: 0, name: "유니티당일특강", type: "file" },
+        { id: 0, name: "창동아두이노코드", type: "file" },
+
         { id: 0, name: "AI영상콘텐츠1주차", type: "file" },
         { id: 0, name: "AI영상콘텐츠2주차", type: "file" },
 
         { id: 0, name: "글로벌토익스피킹1주차", type: "file" },
         { id: 0, name: "글로벌토익스피킹2주차", type: "file" },
         { id: 0, name: "글로벌토익스피킹3주차", type: "file" },
+        { id: 0, name: "글로벌토익스피킹4주차", type: "file" },
+
+        { id: 0, name: "토익연습GPT-1", type: "file" },
         
       ]
   },
