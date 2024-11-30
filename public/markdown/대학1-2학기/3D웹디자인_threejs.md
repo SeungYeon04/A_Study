@@ -33,7 +33,7 @@ Private하면 안 가는데 나중에 돈 내야 함.
   
 #### node 설치 
 [node설치링크](https://nodejs.org/en)  
-명령: npm  
+cmd 명령: npm  
 결과:  
 ```
 npm <command>
