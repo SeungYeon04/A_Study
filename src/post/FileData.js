@@ -45,8 +45,8 @@ export const markdownFiles = [
     {
       name: "게임개발", type: "folder",
       posts: [
-        { id: 0, name: "캡스톤디자인(언리얼)", type: "title" },
-        { id: 0, name: "", type: "file" },
+        { id: 0, name: "비전대학교 졸업작품(언리얼)", type: "title" },
+        { id: 0, name: "언리얼스팀서브시스템", type: "file" },
         { id: 0, name: "", type: "file" }
       ]
     },
@@ -75,9 +75,14 @@ export const markdownFiles = [
         { id: 0, name: "자바수업6주차", type: "file" },
         { id: 0, name: "자바객체7주차", type: "file" },
         { id: 0, name: "자바객체8주차", type: "file" },
-        { id: 0, name: "자바시험준비1", type: "file" },
+        { id: 0, name: "자바중간준비", type: "file" },
         { id: 0, name: "자바객체9주차", type: "file" },
         { id: 0, name: "자바객체10주차", type: "file" },
+        { id: 0, name: "자바객체11주차", type: "file" },
+        { id: 0, name: "자바객체12주차", type: "file" },
+        { id: 0, name: "자바객체13주차", type: "file" },
+        { id: 0, name: "자바객체14주차", type: "file" },
+        { id: 0, name: "자바기말준비", type: "file" },
 
         { id: 0, name: "인공지능수학", type: "title" },
         { id: 0, name: "인수수업1주차", type: "file" },
@@ -108,8 +113,9 @@ export const markdownFiles = [
         { id: 0, name: "파이썬수업8주차", type: "file" },
         { id: 0, name: "파이썬수업9주차", type: "file" },
         { id: 0, name: "파이썬수업10주차", type: "file" },
+        { id: 0, name: "파이썬수업11주차", type: "file" },
+        { id: 0, name: "파이썬수업12주차", type: "file" },
         
-
         { id: 0, name: "자료구조", type: "title" },
         { id: 0, name: "자료구조1주차", type: "file" },
         { id: 0, name: "자료구조9주차", type: "file" },
@@ -142,6 +148,8 @@ export const markdownFiles = [
         { id: 0, name: "글로벌토익스피킹4주차", type: "file" },
 
         { id: 0, name: "토익연습GPT-1", type: "file" },
+
+        { id: 0, name: "포스기앱설치알바", type: "file" },
         
       ]
   },
