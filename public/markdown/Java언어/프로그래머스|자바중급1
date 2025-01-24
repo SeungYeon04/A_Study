@@ -1,0 +1,436 @@
+[공부거리 출처 - 프로그래머스 자바 중급]( https://school.programmers.co.kr/learn/courses/9/9-%EC%9E%90%EB%B0%94-%EC%A4%91%EA%B8%89)  
+  
+*** 
+
+### 프로그래밍 강의 > 자바 중급 > Object와 오버라이딩  
+  
+모든 최상위의 클래스: Object 클래스  
+  
+### 그 아래 많이 사용되는 메소드 <- 오버라이딩 필수 
+equals 객체가 가진 값을 비교할 때 사용  
+  
+toString 객체가 가진 값을 문자열로 반환  
+  
+hashCode 객체의 해시코드 값 반환  
+  
+#### 강의 코드 
+```
+package pack;
+
+import java.util.Objects;
+
+public class Programmers_MidllTest_1 {
+	String name; 
+	String number; 
+	int birthYear; 
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(birthYear, name, number);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Programmers_MidllTest_1 other = (Programmers_MidllTest_1) obj;
+		return birthYear == other.birthYear && Objects.equals(name, other.name) && Objects.equals(number, other.number);
+	}
+
+	@Override 
+	public String toString(){
+		return "Strudent [name=" + name + ", number=" + number + ", birthYear=" +  birthYear + "]"; 
+	}
+
+	public static void main(String[] args) {
+		Programmers_MidllTest_1 a1 = new Programmers_MidllTest_1(); 
+		a1.name = "홍길동"; 
+		a1.number = "1234"; 
+		a1.birthYear = 1995; 
+
+		Programmers_MidllTest_1 a2 = new Programmers_MidllTest_1(); 
+		a2.name = "홍길동"; 
+		a2.number = "1234"; 
+		a2.birthYear = 1995; 
+
+		if(a1.equals(a2))
+			System.out.println("a1 == a2");
+		else
+			System.out.println("a1 != a2");
+		System.out.println(a1.hashCode());
+		System.out.println(a2.hashCode());
+	
+		System.out.println(a1); //스투던트 객체를 출력하려면 속성 알고 싶은 경우일 것임 얘도 오버라이딩 필수 
+	}
+}
+```
+결과: a1 == a2  
+1682108350  
+1682108350  
+Strudent [name=홍길동, number=1234, birthYear=1995]  
+  
+***
+
+### 프로그래밍 강의 > 자바 중급 > Object와 오버라이딩 실습  
+  
+Car클래스는 name과 number라는 필드를 가집니다.  
+Car클래스를 문자열로 바꾸면 다음과 같은 형식이 되도록  
+toString메소드를 오버라이드 해 보세요.  
+name: [이름], number: [번호]  
+  
+예를들어 name의 값이 "Car"이고, number가 1234이라면,  
+해당 오브젝트의 문자열 값은  
+"name: Car, number: 1234"와 같이 되어야 합니다.  
+  
+```
+public class Car{
+    String name;
+    int number;
+    
+    //toString을 오버라이드 해 보세요.
+    //return 형식은 아래줄을 참고하세요: 
+    //"name: " + name + ", number: " + number;
+    
+    public String toString(){
+        return "name: " + name + ", number: " + number; 
+    }
+}
+```
+  
+*** 
+  
+### 프로그래밍 강의 > 자바 중급 > java.lang 패키지/오토박싱 
+
+int i = 5; *기본형타입  
+  
+Integer i2 = new Integer(5); *실제 int를 객체(참조형)로 바꾸는 래퍼클래스 중 하나  
+  
+Integer i3 = 5; *오토박싱: 자동형변환 new Integer(5);로 알아서 바꿔 쓴다  
+
+int i4 = i3.inVlaue(); *오토언박싱: 객체인 걸 벗겨서 int로 쓰기  
+  
+int i5 = i3; *자바5부터는 바로 벗기기 가능  
+  
+*** 
+  
+### 프로그래밍 강의 > 자바 중급 > Wrapper class - 실습
+  
+Integer는 int의 wrapper class입니다.  
+class이기 때문에 속성과 메소드를 가지는데요.  
+다음 코드를 실행해 보면 Integer 타입인 경우 필드와  
+method를 사용할 수 있지만, 기본형 타입인 int의 경우  
+필드와 method를 사용할 수 없는걸 확인할 수 있습니다.  
+(코드의 7~9번째 줄을 지워야 정상동작 합니다.)  
+  
+```
+public class IntegerExam{
+    public static void main(String[] args){
+        Integer i1 = 5;
+        int max_int = i1.MAX_VALUE;
+        long i1_long = i1.longValue();
+        
+        //int i2 = 5; //int를 int로 형변환은 X 
+        //int min_int = i2.MIN_VALUE;
+        //long i2_long = i2.longValue();
+    }
+}
+```
+  
+*** 
+  
+### 
+프로그래밍 강의 > 자바 중급 > 스트링버퍼
+  
+String: 자기 자신이 변하지 않는 클래스  
+StringBuffer: 자기 자신이 변하는 클래스  
+  
+```
+package pack;
+
+import java.util.Objects;
+
+public class Programmers_MidllTest_3 {
+	public static void main(String[] args) {
+		StringBuffer sb = new StringBuffer(); 
+		sb.append("hi");
+		sb.append(" ");
+		sb.append("앵무새"); 
+		
+		String str = sb.toString(); 
+		
+		System.out.println(str);
+		
+		/** 메소드체이닝: 자신을 반환하여 계속 자기 메소드 호출 : StringBuffer 방식 */
+		
+		StringBuffer sb2 = new StringBuffer(); //자기 자신을 반환 
+		
+		StringBuffer sb3 = sb2.append("hi"); //또 호출하며 자기자신을 바꿔나갈 수 있다. 
+		if(sb2 == sb3)
+				System.out.println("sb2 == sb3");
+		
+		//이렇게 str2 만들면서 StringBuffer()의 메소드로 바로 집어넣기 가능 
+		String str2 = new StringBuffer().append("응애").append(" ").append("아기앵무새").toString();
+		System.out.println(str2);
+	}
+}
+```
+결과: hi 앵무새  
+sb2 == sb3  
+응애 아기앵무새  
+  
+
+*** 
+  
+### 프로그래밍 강의 > 자바 중급 > 스트링버퍼 - 실습 
+  
+StringBufferExam의 randomName메소드는  
+임의의 이름과 성을 고른 다음, 이들을 조합해서  
+임의의 이름을 만들어냅니다.  
+22번째 줄에서 메소드체이닝을 이용해  
+sb에 firstName, 공백(" "), lastName을 붙이고,  
+마지막에 toString()을 붙여서  
+String type의 return을 하도록 만들고 제출해 보세요.  
+  
+StringBuffer의 메소드체이닝에 대해 알아보고 문제를 해결해 봅시다.  
+  
+StringBuffer가 가지고 있는 메소드 들은  
+대부분 자기 자신, this를 반환합니다.  
+때문에 자기 자신의 메소드를 호출하여 자기 자신의 값을  
+바꿔나갈 수 있습니다.  
+이러한 방법을 메소드체이닝 이라고 합니다.  
+  
+```
+import java.util.Random;
+
+public class StringBufferExam{
+    public String randomName(){
+        StringBuffer sb = new StringBuffer();
+        String[] firstNames = {"Tod", "John", "Michael"};
+        String[] lastNames = {"Smith", "Brown", "Davis"};
+        
+        // 0~2 사이의 임의의 숫자를 골라서
+        int random1 = new Random().nextInt(3);
+        // 랜덤하게 이름을 뽑는다.
+        String firstName = firstNames[random1];
+        
+        
+        // 0~2 사이의 임의의 숫자를 골라서
+        int random2 = new Random().nextInt(3);
+        // 랜덤하게 성을 뽑는다.
+        String lastName = lastNames[random2];
+        
+        // sb에 이름(fistName) 공백(" ") 성(lastname) 순으로 append해 보세요.
+        // 단 메소드 체이닝을 이용해야 합니다.
+        return sb.append(firstName).append(" ").append(lastName).toString();
+    }
+    public static void main(String[]args) {}
+}
+``` 
+  
+*** 
+  
+### 프로그래밍 강의 > 자바 중급 > 스트링 클래스의 문제점 
+```
+package pack;
+
+import java.util.Objects;
+
+public class Programmers_MidllTest_4 {
+	public static void main(String[] args) {
+		String str1 = "hello w"; 
+		String str2 = str1.substring(5);
+		System.out.println(str1);
+		System.out.println(str2); 
+		
+		String str3 = str1 + str2; 
+		
+		//위에 코드는 이게 실행되는 것 
+		String str4 = new StringBuffer().append(str1).append(str2).toString();
+		System.out.println(str4);
+		
+		//문자열을 + 하면 StringBuffer가 되는 것임 
+		
+		
+		String str5 = ""; 
+		for(int i = 0; i < 100; i++) {
+			str5 = str5 + "*";
+		}
+		
+		System.out.println(str5); 
+		
+		/** 위 코드는 한 번 돌 때마다 100번 동안 내부적으로 스트링 객체를 100번 만듦 
+		StringBuffer도 한 번 돌 때마다 한 번씩 계속 만듬 
+		new 연산자가 많을 수록 느린 코드 (반복 + 연산) 
+		문자열을 반복문 안에서 사용하는 것은 성능문제 위험 
+		*/ 
+		
+		StringBuffer sb = new StringBuffer(); 
+		
+		for(int i = 0; i < 100; i++) {
+			sb.append("*"); 
+		}
+		String str6 = sb.toString();
+		System.out.println(str6);
+		
+		/** StringBuffer의 append라는 메서드를 사용해서 
+		수행하도록 하는 것이 효율적 */
+	}
+}
+
+```
+  
+*** 
+  
+### 프로그래밍 강의 > 자바 중급 > 스트링 클래스의 문제점 - 실습 
+다음 클래스의 main 메소드에서는 별모양 문자(*)가  
+10,000개 이어진 문자열을 만들기 위해 두가지 방법을 사용합니다.  
+하나는 String에 +연산을 이용하고, 다른 하나는   StringBuffer의 append()를 이용하는데요.  
+똑같은 문자열을 만들어 내는데 걸리는 시간을 측정해서 마지막 줄에서 출력하고 있습니다.  
+제출을 눌러 실행 결과를 비교해 보세요.  
+똑같은 작업을 수행하는데 성능에서  
+수십배의 차이가 나는걸 확인할 수 있나요?  
+  
+String 클래스의 +연산을 하게 될 때에는  
+내부적으로 다음과 같은 코드가 실행됩니다.  
+  
+```
+public class StringBufferPerformanceTest{
+    public static void main(String[] args){
+        // (1) String의 +연산을 이용해서 10,000개의 *를 이어붙입니다.
+        //시작시간을 기록합니다.(millisecond단위)
+        long startTime1 = System.currentTimeMillis();
+        String str="";
+        for(int i=0;i<10000;i++){
+            str=str+"*";
+        }
+        //종료시간을 기록합니다.(millisecond단위)
+        long endTime1 = System.currentTimeMillis();
+        
+        // (2) StringBuffer를 이용해서 10,000개의 *를 이어붙입니다.
+        //시작시간을 기록합니다.(millisecond단위)                
+        long startTime2 = System.currentTimeMillis();
+        StringBuffer sb = new StringBuffer();
+        for(int i=0;i<10000;i++){
+            sb.append("*");
+        }
+        //종료시간을 기록합니다.(millisecond단위)
+        long endTime2 = System.currentTimeMillis();
+        
+        // 방법(1)과 방법(2)가 걸린 시간을 비교합니다.
+        long duration1 = endTime1-startTime1;
+        long duration2 = endTime2-startTime2;
+        
+        System.out.println("String의 +연산을 이용한 경우 : "+ duration1);
+        System.out.println("StringBuffer의 append()을 이용한 경우 : "+ duration2);
+    }
+}
+``` 
+결과: String의 +연산을 이용한 경우 : 24  
+StringBuffer의 append()을 이용한 경우 : 2  
+  
+*** 
+  
+### 프로그래밍 강의 > 자바 중급 > Math  
+```
+package pack;
+
+import java.util.Objects;
+
+public class Programmers_MidllTest_5 {
+	public static void main(String[] args) {
+		int value1 = Math.max(5, 30); //두 값 중에 큰 걸 비교 
+		System.out.println(value1); 
+		int value2 = Math.min(5, 30); 
+		System.out.println(value2); 
+		
+		System.out.println(Math.abs(-10)); //절댓값 - 10
+		System.out.println(Math.random()); //0~1.0 사이 랜덤 - 0.17365907994099083 
+		System.out.println(Math.sqrt(25)); //제곱근 구하기 25의 제곱근 - 5.0 	
+	}
+}
+
+```
+결과: 30  
+5  
+10  
+0.17365907994099083  
+5.0  
+  
+Math 클래스는 말 그대로  
+수학계산을 위한 클래스이다.  
+  
+*** 
+  
+다음 코드에서는 Math의 다양한 메소드를 사용하고 있습니다. https://docs.oracle.com/javase/7/docs/api/java/lang/Math.html 를 참고해서 Math의 다양한 기능을 사용해 보세요.
+
+Math 클래스는 이름 그대로 수학계산을 위한 클래스입니다. 객체를 생성할 수 없지만 모든 메소드와 속성이 static으로 정의되어 있기 때문에 객체를 생성하지 않고도 사용할 수 있어요.
+다음의 예를 참고하여 문제를 해결해 봅시다.  
+  
+```
+import java.util.Random;
+
+public class MathExam{
+    public static void main(String[] args){
+        System.out.println("2의 10승 = " + Math.pow(2, 10));
+        System.out.println("16의 1/2승 = : " + Math.pow(16, 0.5));
+        System.out.println("log200 = " + Math.log10(200));
+    }
+}
+```
+2의 10승 = 1024.0  
+16의 1/2승 = : 4.0  
+log200 = 2.3010299956639813  
+  
+*** 
+  
+### 프로그래밍 강의 > 자바 중급 > java.util 패키지
+자료구조: 자료를 저장할 수 있는 구조  
+자료구조 컬렉션 프레임워크: 다양한 자료들을 다양한 방식으로 관리하기 위한 방법 제공하는 것  
+  
+컬렉션 인터페이스: 컬렉션 프레임워크의 근본 인터페이스  
+여기 자료가 있다라고 표현하고 중복도 허용하고  
+자료 저장 순서 기억 못함  
+  
+대표적인 컬렉션 인터페이스의 메소드는 ->  
+  
+add: 컬렉션에 자료추가용  
+size: 저장된 자료의 수 반환  
+iterator: 자료를 하나씩 꺼내기 위한  
+이터레이터 인터페이스를 반환하는 메소드  
+자료 저장 순서 기억 못하니 이거에 의존  
+  
+iterator의 메소드 ->  
+  
+hashNext: 꺼낼 게 있는지 없는지 살펴보는 메소드  
+next: 하나씩 꺼내 쓰는 메소드  
+  
+iterator의 자료구조 ->  
+  
+Set 자료구조:  
+중복을 허용하지 않는 자료구조  
+그 안의 add메소드가 같은 자료가 있으면  
+false를 내놓고 중복 없으면 ture를 반환    
+컬렉션 인터페이스를 상속 받고 있다.  
+  
+List 자료구조:  
+중복을 허용하고 순서를 기억함  
+얘도 컬렉션 인터페이스 상속 받고  
+0번째 1번째 2번째 같이 순차적으로 꺼낼 수 있음  
+get(int)메소드로 인덱스 번호를 갖고 있음  
+  
+Map 자료구조:  
+키와 value를 가지는 자료다  
+저장할 때 put()메소드를 사용하여  
+키와 value를 저장하고  
+꺼낼 때 get()메소드를 사용하여  
+키를 매개변수로 받아 꺼낸다.  
+모든 키는 중복된 값을 가지면 안된다.  
+키의 정보를 읽을 때는 ketSet()을 사용한다.  
+  
+그 외에도 많다  
+구현으로 ArrayList, HashSet, HashMap 같은 것들..  
+  
