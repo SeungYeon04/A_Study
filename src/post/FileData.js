@@ -139,6 +139,7 @@ export const markdownFiles = [
         { id: 0, name: "UIUX중간고사", type: "file" },
         { id: 0, name: "UIUX수업8주차", type: "file" },
         { id: 0, name: "UIUX수업10주차", type: "file" },
+        { id: 0, name: "UIUX기말고사", type: "file" },
 
         { id: 0, name: "토익", type: "title" },
         { id: 0, name: "토익1주차", type: "file" },
