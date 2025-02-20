@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>기말고사 01번</title>
+    <link type="stylesheet" url="index.css"> 
+</head>
+<style>
+    th, td {
+    width: 150px;
+    height: 100px;
+}
+    input {
+        margin-left: 20px;
+        align-items: center;
+    }
+
+</style>
+<body>
+    <script> //시간출력용 Date 
+        let current = new Date(); 
+
+        document.write("<h1>현재시간: "); 
+        document.write(current.getHours(), "시,"); 
+        document.write(current.getMinutes() ,"분,"); 
+        document.write(current.getSeconds() ,"초 </h1><br>"); 
+    </script>
+    <h3>물건을 선택하면 이미지가 보이고 과일을 선택하면 금액이 계산되어 집니다.</h3>
+
+
+
+    <script>
+        function drawImage()
+        {
+            let sel = document.getElementById("fruits"); 
+            let img = document.getElementById("f-iamge"); 
+            img.src = sel.options[sel.selectedIndex].value; 
+        }
+    </script>
+
+    <table border="1px" style="color: black;">
+        <tr><th>
+            <select id="fruits" onchange="drawImage()">
+            <option value="media/strawberry.png" >딸기</option>
+            <option value="media/banana.png" selected>바나나</option>
+            <option value="media/apple.png">사과</option>
+            <option value="media/mango.png">망고</option>
+        </select>
+        </th>
+
+        <th>
+        <img src="media/banana.png" alt="" id="f-iamge" width="140px" height="100px">
+        </th></tr> 
+
+        <script> //계산용 
+            let sum = 0; 
+            function calc(cBox) {
+                if(cBox.checked)
+                    sum += parseInt(cBox.value); 
+                else 
+                    sum -= parseInt(cBox.value)
+                    document.getElementById("sumtext").value = sum;
+    
+            }
+        </script>
+
+        <tr><td>
+            <input type="checkbox" named="strawberry" value="2000" onclick="calc(this)">딸기(2,000)<br>
+            <input type="checkbox" named="banana" value="1000" onclick="calc(this)">바나나(1,000)<br>
+            <input type="checkbox" named="apple" value="3000" onclick="calc(this)">사과(3,000)<br>
+            <input type="checkbox" named="manggo" value="1000" onclick="calc(this)">망고(1,000)<br>
+        </td>
+            
+        <td>지불하실 금액: <input type="text" id="sumtext" value="0"></td></tr>
+    </table>
+</body>
+</html>

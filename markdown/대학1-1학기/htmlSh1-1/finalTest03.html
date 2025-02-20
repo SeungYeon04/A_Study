@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기말고사 3번</title>
+    <script>
+        function viewPlace()
+        {
+            let tagArray = document.getElementsByClassName("place"); 
+            for(let i = 0; i < tagArray.length; i++)
+            {
+                let tag = tagArray[i]; 
+                tag.style.color = "orchid"; 
+                tag.style.fontSize = "20px";
+                tag.style.textDecoration = "underline";  
+            }
+        }
+        function viewfood()
+        {
+            let tagArray = 
+            document.getElementsByClassName("food"); 
+            for(let i = 0; i < tagArray.length; i++)
+            {
+                var tag = tagArray[i]; 
+                tag.style.color = "darkcyan"; 
+                tag.style.fontSize = "20px";
+                tag.style.textDecoration = "underline";  //밑줄 
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>기말고사 3번</h1>
+    <input type="button" onclick="viewPlace()" value="가고 싶은 곳"> 
+    <input type="button" onclick="viewfood()" value="먹고 싶은 것"> 
+    <hr>
+    <p>올해에는 <span class="place">제주도</span>에 가서 <span class="food">흑돼지</span>를 먹고 싶고요. 또한 대한민국 영토인 
+    <span class="place">독도</span>에 가서 구경도 하고 독도 새우도 먹고 싶어요. 제일 가고 싶은 곳은 
+    <span class="place">부안 위도</span>에서 <span class="food">바지락 칼국수</span>를 먹고 싶어요. </p>
+</body>
+</html>

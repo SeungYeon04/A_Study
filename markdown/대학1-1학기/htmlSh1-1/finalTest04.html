@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기말고사 04번</title>
+</head>
+<body onload="init()">
+    <h3>마우스를 누른 채 드래깅하여 그림을 그려 보세요</h3>
+    <hr>
+
+    <canvas id="myCanvas" style="background-color: aliceblue; width: 400; height: 300;">
+    </canvas>
+
+    <script>
+        let canvas, context; 
+        function init(){ 
+            canvas = document.getElementById("myCanvas"); 
+            context = canvas.getContext("2d"); 
+
+            context.lineWidth = 2; 
+            context.strokeStyle = "#FF80FF"; 
+
+            canvas.addEventListener("mousemove", function (e) { move(e) }, false);
+            canvas.addEventListener("mousedown", function (e) { down(e) }, false);
+            canvas.addEventListener("mouseup", function (e) { up(e) }, false);
+            canvas.addEventListener("mouseout", function (e) { out(e) }, false);
+        }
+
+        let startX=0, startY=0; 
+        let dragging=false; 
+        function draw(curX, curY)
+        {
+            context.beginPath(); 
+            context.moveTo(startX, startY); 
+            context.lineTo(curX, curY); 
+            context.stroke(); 
+        }
+        function down(e) {
+            startX = e.offsetX; startY = e.offsetY; dragging = true; 
+        }
+        function up(e) { dragging = false; }
+
+        function move(e) {
+            if(!dragging) return; 
+            let curX = e.offsetX, curY = e.offsetY; 
+            draw(curX, curY); 
+            startX = curX; startY = curY; 
+        }
+        function out(e) { dragging = false; }
+
+        function changeColor(e) {
+            context.strokeStyle = e.target.value; //색 업데이트 onchange색전달만 gpt 
+        }
+        function changeText(e) {
+            context.lineWidth = e.target.value; //텍스트 업데이트 
+        }
+    </script> 
+    <form>
+        <input type="color" value="#FF80FF" onchange="changeColor(event)"> 
+        <input type="text" value="2" onchange="changeText(event)"> 
+    </form>
+</body>
+</html>

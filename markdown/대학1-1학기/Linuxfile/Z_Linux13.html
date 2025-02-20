@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>리눅스시험1</title>
+    <link type="text/css" rel="stylesheet" href="../fonts.css"> 
+    <script src="../indexh.js"> </script>
+</head>
+<body>
+    <h1><a href="../index.html">부러의 다락방</a></h1> 
+    <br>
+    삼바는 - 리눅스 + 윈도우 서버 연결 <br>
+    NFS는 - 리눅스 + 리눅스 서버 연결 <br>
+    <br>
+    672쪽 <br>
+    root@smb <br>
+    <br>
+    서버 NFS(새로운거)하고 SAMVA(메일서버였던것)켜기 <br>
+    <br>
+    호스트전용어댑터 <br>
+    삼바 = 192.168.56.102 <br>
+    엔에프에스 = 192.168.56.104 <br>
+    <br>
+    <br>
+    NFS = 네트워크 붙이는 거<br> 
+    리눅스 서버 연결하는 거 <br>
+    <br>
+    스토리지 서버가 있으면 <br>
+    하드 해서 거따가 붙임 <br>
+    <br>
+    NFS의 하드를 SAMBA에 달기 <br>
+    어따 넣든 둘 중 하나는 서버 돌아가야 함 <br>
+    <br>
+    (NFS) (NAT인 상태로 설치) <br>
+    sudo apt -y install nfs-kerner-server <br>
+    <br>
+    장치 네트워크 > 네트워크설정 > 호스트전용어댑터로 변경 <br>
+    sudo addr 확인 이번엔 104<br>
+    <br>
+    sudo nano /etc/exports <br>
+    <pre>
+/nfs		192.168.56.102(rm,sync)  
+    </pre>
+    - 접근하도록 설정 (상대 머신 아이피는 알아서 확인) <br>
+    <br>
+    mkdir /nfs <br>
+    chmod 707 /nfs <br>
+    systemctl restart nfs-server <br>
+    systemctl enable nfs-server <br>
+    <br>
+    exports -v<br> 
+    > 뭐 되는지 /nfs 192.168.56.102 뜸 <br>
+    <br>
+    (이제 삼바서버수정 NAT 으로 변경 )<br>
+    <br>
+    sudo apt -y install nfs-common <br>
+    <br>
+    ( 이제 호스트 전용어댑터로 변경 )<br>
+    <br>
+    showmount -e 192.168.56.104 //붙일 수 있는 거 뭐냐? <br>
+    > /nfs 192.168.56.104 뜸 <br>
+    <br>
+    mount -f nfs 192.168.56.104:/nfs /nfs <br>
+    <br>
+    // nfs를 nfs에다가 붙여라 하지만 경로 없어서 오류남 <br>
+    <br>
+    mkdir /nfs <br>
+    <br>    
+    (/smb로 하다가 /nfs하기?) <br>
+    <br>
+    본인 아이피 할당된 거 확인해서 하기  <br>
+    <br>
+    서로 파일에 뭐 만들면 보임^^ <br>
+    그거 성공하면 끝..<br>
+    <br>
+</body>
+</html>

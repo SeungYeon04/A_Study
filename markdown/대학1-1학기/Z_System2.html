@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>공부기록2</title>
+    <link type="text/css" rel="stylesheet" href="fonts.css"> 
+    <script src="indexh.js"> </script>
+</head>
+<body>
+    <h1><a href="index.html">부러의 다락방</a></h1> 
+    <br>
+    <li>Parity Check</li><br>
+    Parity Check &gt; (에러가 있는지만 검사 가능)<br>
+    ⭐ 전체 1의 갯수가 중점이다.<br>
+    <br>
+    1011[1] 짝수 프리티비트(우수odd)<br>
+    1011[0] 홀수 프리티비트(기수even)<br>
+    <br>
+    송신 --- 수신<br>
+    10111 &gt; 10111 에러X<br>
+    10111 &gt; 10101 에러o<br>
+    <br>
+    짝수로 보낸다고 하고<br>
+    홀수가 오면 오류임을 알 수 있음.<br>
+    그런데 두 비트나 달라지면<br>
+    10001 에러로 판단을 할 수가 없음.<br>
+    <br>
+    <li>수평수직 Parity bit</li><br>
+    위 아래 다 짝수 맞추고 다 맞으면 오케이다.<br>
+    짝수 보내면 위아래 다 짝수로<br>
+    10100<br>
+    10001<br>
+    01010<br>
+    01111<br>
+    <br>
+    단점: 데이터가 많아서 느리다.(오버헤드 있다)<br>
+    괜히 데이터 더 붙이는 식이라 효과는 그닥!.<br>
+    <br>
+    교수님이 사사오임 = 반올림 같은 말인 거<br>세대 다르니까 알고만 있으라캄<br>
+    <br>
+    <li>Hamming Code(Smgle error Correecting code)</li><br>
+    단일에러 정정 코드 (수정, 교정)<br>
+    <br>
+    페리티값<br>
+    1 2 3 4 5 6 7 <br>
+    [][] 1 [] 1 0 0<br>
+    <br>
+    ⭐하밍코드 계산공식 순서<br>
+    1357: [] 110 <br>
+    2367: [] 100 <br>
+    4567: [] 100<br>
+    <br>
+    짝수로 판단하는 기준<br>
+    1357: 0 110<br>
+    2367: 1 100<br>
+    4567: 1 100<br>
+    <br>
+    1 2 3 4 5 6 7<br>
+    0 1 1 1 1 0 0 <br>
+    <br>
+    0111100모두 짝수인지 확인(맞으면 0 틀리면 1)<br>
+    1357: 0 110 &gt; 0<br>
+    2367: 1 100 &gt; 0<br>
+    4567: 1 100 &gt; 0<br>
+    <br>
+    Hamming Code의 오류버전도 보자<br>
+    1 2 3 4 5 6 7<br>
+    [0][1]1[1]000<br>
+    1357: 0100 &gt; 1<br>
+    2367: 1100 &gt; 0<br>
+    4567: 1000 &gt; 1<br>
+    <br>
+    (101)2 = (5)2 <br>
+    (5)2 부분이 오류라는 것이다.<br>
+    <br>
+    Hamming Code의 홀수버전도 보자.<br>
+    1 2 3 4 5 6 7 <br>
+    [1][0]1[1]011<br>
+    <br>
+    1357: 1101<br>
+    2367: 0111<br>
+    4567: 1011<br>
+    <br>
+    Hamming Code의 홀수 오류버전도 보자.<br>
+    1 2 3 4 5 6 7<br>
+    1 0 1 1 0 1 1<br>
+    <br>
+    1357: 1101<br>
+    2367: 0111<br>
+    4567: 1011<br>
+    (000)2 = (0)10<br>
+    <br>
+    Hamming Code 짝수 오류버전 또 다시<br> 
+    1 0 1 1 0 0 1<br>
+    1357: 1101<br>
+    2367: 0101<br>
+    4567: 1001<br>
+    (110)2 = (6)10<br> 
+    <br>
+    <hr>
+    <br> 
+    <li>GreayCode(1bit씩 변화)</li><br> 
+    상태가 변하면 1비트씩 바뀌는 것이다.<br> 
+    맨 왼쪽에 1올라가면 그대로 보존되고<br>
+    자릿수 올라갈 때 인접한 두 비트를 비교해서<br>
+    값이 다르면 0 아니면 1로 쓴다.<br>
+    <br>
+    <table border="1">
+        <caption>10진수 0~15까지 그레이코드로 변환</caption>
+        <tr><th>10진수</th><th>2진수</th><th>그레이코드</th></tr>
+        <tr><td>0</td><td>0000</td><td>0000</td></tr>
+        <tr><td>1</td><td>0001</td><td>0001</td></tr>
+        <tr><td>2</td><td>0010</td><td>0011</td></tr>
+        <tr><td>3</td><td>0011</td><td>0010</td> </tr>
+        <tr><td>4</td><td>0100</td><td>0110</td> </tr>
+        <tr><td>5</td><td>0101</td><td>0111</td></tr>
+        <tr><td>6</td><td>0110</td><td>0101</td></tr>
+        <tr><td>7</td><td>0111</td><td>0101</td></tr>
+        <tr><td>8</td><td>1000</td><td>1100</td></tr>
+        <tr><td>9</td><td>1001</td><td>1101</td></tr>
+        <tr><td>10</td><td>1010</td><td>1111</td></tr>
+        <tr><td>11</td><td>1011</td><td>1110</td></tr>
+        <tr><td>12</td><td>1100</td><td>1010</td></tr>
+        <tr><td>13</td><td>1101</td><td>1011</td></tr>
+        <tr><td>14</td><td>1110</td><td>1001</td></tr>
+        <tr><td>15</td><td>1111</td><td>1000</td></tr>
+    </table>
+    <br>
+    (그레이코드변환 사진올리기)<br>
+    <br>
+</body>
+</html>

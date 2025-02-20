@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+교수님공부사이트: http://woosuk.izerone.co.kr/CI/index.php/Tech/linuxmaster
+클러스트 https://it-life.tistory.com/161 
+교수님추천공부사이트: https://www.server-world.info/en/ (리눅스 정보 다 나옴 클라우드 등 놀고있는 컴(사무던) 클라우드 직접 만들기도 있음 Cloud Compute>1~64) 
+나중에 금남tv에 클라우드 영상 올릴 수도(기쁨) 
+
+*** 
+
+리눅스 (문제풀이만 하기) 
+
+- 2023 09 09 
+
+4번 문제 실습 
+su 
+
+groupadd project
+
+cd ~
+
+mkdir project 
+
+ls -al | grep project 
+drwxr-xr-x.  2 root root        6  6월 26 22:49 project
+
+ls -ld | grep project 
+
+umask  
+0022 (umask 기본값) 
+
+디렉토리는 보통 777 이다. 
+umake 0022면 
+777 - 0022 = 755 
+
+파일이면 보통 666 이다. 
+umake 0002면 
+666 - 0002 = 664 
+-rw-rw-w-- 
+
+파일 만들면 바로 644됨 
+ ls -al | grep test.txt
+-rw-r--r--.  1 root   root      0  6월 26 23:12 test.txt
+그러면 기본으로 
+umake 0033 
+
+find / -name passwd (네임 패스워드인 거 찾아라) 
+find: ‘/proc/6195/task/6195/net’: 부적절한 인수
+find: ‘/proc/6195/net’: 부적절한 인수
+find: ‘/run/user/1000/gvfs’: 허가 거부
+/sys/fs/selinux/class/passwd
+/sys/fs/selinux/class/passwd/perms/passwd
+/etc/passwd
+/etc/pam.d/passwd
+/usr/bin/passwd
+/usr/share/licenses/passwd
+/usr/share/doc/passwd
+/usr/share/bash-completion/completions/passwd
+
+
+다른 문제 
+
+*** 
+0755라면 
+0(SetUID(4) SetGID(2) sticky bit(1)특수권한 / (U소유자 G그룹 sticky기타) s s t ) 
+0(소유자권한(rwx) 
+0(그룹소유자(r-x)) 
+0(기타사용자권한(r-x) 
+***
+
+setUID (4000) 
+실 사용자에게 프로그램 사용자의 ID로 유효사용자(EUID)가 변경됨. 
+패스워드가 root꺼인데 master도 쓸 수 있다. 
+
+-rws-xr-~ 
+특정 명령어 실행 할 동안 master도 root가 됨. 
+
+예시: 집주인 명령어를 새입자가 씀. 자꾸 전화 오는 게 귀찮으니 
+명령어 물어보지 말고 써 
+
+chmod 4744 test.txt
+chmod u+s test.txt
+
+ls -al | grep test.txt
+-rwsr--r--.  1 root   root      0  6월 26 23:12 test.txt
+
+마스터로 돌아가도 
+passwd 
+master 사용자의 비밀 번호 변경 중
+Current password: 
+
+(setGID 는 걍 안 건듦) 
+
+Sticky bit - 주로 디렉터리에 함. 
+
+*** 
+
+스티키비트 = 공용디렉터리일 때 적용 
+파일에 적용하면 무시해버림. 
+스티키비트는 디렉터리 전용 
+tmp 가 적용 되엇슴 
+
+단 슈퍼유저 사용자가 아닌 경우 
+파일 삭제 이름 변경 못하게 막음. 삭제 불가. 
+파일과 디렉터리 생성은 자유 
+
+ls -al | grep tmp
+drwxrwxrwt.  14 root root 4096  6월 26 23:26 tmp 
+
+useradd로 만든 lsw 는 master가 못 들어감. 허가 거부. 본인이 lsw가 아님. 
+
+*** 
+
+쿼터 : 일정 용량을 나눠주는 것. (실습은X 실수 잘 남 스냅샷 필수)
+
+mount /etc/sdb1 /home 을 
+cat /etc/fstab 자동화 했었음 
+이제 쿼터로 1기가 씩 나눠주기 하는 것. 
+
+nano etc/fstab (에다가 적기) 
+
+(5기가면 master 1 등등 1기가씩 파티션 나눠지는 게 vfsv0라고 함. 이거 안 주면 다 통으로 씀) 
+/dev/sdb1 /home ext4 defaults,usrjquota=aquota.user,jqfmt=vfsv0
+
+mount --options remount /home
+mount
+/dev/sdb1 on /home type ext4 (rw,relatime,seclabel,jqfmt=vfsv0,usrjquota=aquota.user)
+cd /home
+quotaoff -avug
+quotacheck -augmn
+rm -rf aquota.*
+quotacheck -augmn
+touch aquota.user aquota.group
+chmod 600 aquota.*
+quotacheck -augmn
+quotaon -avug
+edquota -u master
+man quotacheck
+-a
+-u
+-g
+-m
+-n
+-p
+-v
+[blocks]
+[soft] : 0 (한도제한없음) > 20M(20*1024=20480KB)
+[hard] : 0 (한도제한없음) > 30M(30*1024=30720KB)
+A :편집 > Esc -> :wq
+용량확인방법
+cd /boot/vmlinuz-XXX
+cp /home/master로 복사
+quota
+repquota /home
+edquota -p master lsw
+quotaoff /home
+
+
+(edquota -u master 명령 치면 vi 편집기가 뜸) 
+
+*** 
+
+df디스크용량확인 
+
+soft 경고 이 이상 넘어가면 경고함. 
+20*1024=20480 
+20M부터 경고 
+
+hard 관리자에게 전화 옴 30*1024=30720 
+30M부터 지움 최대치 
+
+20M 봐줌 30M 전화 옴 삭제하라 
+
+웹 용량 쿼터 적용해서 5기가 관리 
+
+*** 
+
+사건 터지면 뉴스의 언론 = 
+무자격증 엔지이너가 관리하다 터졌다. 
+유자격증 고도의 해커가 뚫었다. 
+
+*** 
+
+리눅스 셸 기본: bash 
+
+*** 
+
+로그인 후 셸 목록 
+ /etc/shells 
+
+*** 
+
+첫 로그인 셸 출력 = echo $SHELL
+
+echo $SHELL
+/bin/bash
+
+chsh -s /bin/zsh (셸변경) 
+
+echo $SHELL
+/bin/bash
+
+*** 
+최근실행명령(history) 중 
+al 해당 명령 찾아줌 
+
+!?al 
+*** 
+.bash_history 
+
+cat .bash_history 
+*** 
+리눅스 alias (별명 정해주기) 
+
+
+alias lll='ls -l'
+
+lll
+합계 13728
+-rw-------.  1 root root     1255  6월 26 14:03 anaconda-ks.cfg
+-rwxrwxrwx.  1 root root      129  6월 26 19:01 backup.sh
+drwxr-xr-x. 11  501 games    4096  6월 26 17:30 httpd-2.4.16
+-rw-r--r--.  1 root root  5101005  6월 27  2024 httpd-2.4.16.tar.bz2
+-rw-r--r--.  1 root root  6899517  6월 27  2024 httpd-2.4.16.tar.gz
+-rw-r--r--.  1 root root     1545  6월 26 14:48 initial-setup-ks.cfg
+-rw-r--r--.  1 root root  2033540  4월 12  2021 mc-4.8.19-9.el8.x86_64.rpm
+drwxr-xr-x.  2 root root        6  6월 26 22:49 project
+
+
+alias (별명확인) 
+alias cp='cp -i'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias grep='grep --color=auto'
+alias l.='ls -d .* --color=auto'
+alias ll='ls -l --color=auto'
+alias lll='ls -l'
+alias ls='ls --color=auto'
+alias mv='mv -i'
+alias rm='rm -i'
+alias xzegrep='xzegrep --color=auto'
+alias xzfgrep='xzfgrep --color=auto'
+alias xzgrep='xzgrep --color=auto'
+alias zegrep='zegrep --color=auto'
+alias zfgrep='zfgrep --color=auto'
+alias zgrep='zgrep --color=auto'
+
+
+\ls (원래 ls) 
+anaconda-ks.cfg  httpd-2.4.16	       httpd-2.4.16.tar.gz   mc-4.8.19-9.el8.x86_64.rpm
+backup.sh	 httpd-2.4.16.tar.bz2  initial-setup-ks.cfg  project
+
+
+*** 
+
+bash 할당. 며ㅕㅇ 싫행 
+fork 
+
+*** 
+
+명령 백그라운드 프로세스 실행 
+
+명령 뒤 & 
+*** 
+
+상주 standalone 
+자다가 나옴 inted 
+
+*** 
+
+시그널정보 공부하기 
+
+*** 
+
+ping 한 거 
+
+컨트롤 z 멈춤 
+컨트롤 c 멈춤 
+
+jobs 
+[1]-  Stopped                 ping 168.126.63.1
+[2]+  Stopped                 ping 168.126.63.1
+백그라운드 돈 거 보기 걍 멈춘 거임 
+
+fg %1 
+포어그라운드로 다시 표시 돌기 
+
+ping 
+
+
+포어그라운드를 백그라운드로 변경 컨트롤z
+
+*** 
+
+/etc/backup.sh 자동화 백업 
+
+매월 1일 4시 2분 
+
+분 시 일 월 요일   
+2 4 1 * * 
+
+*** 
+
+killall 이름으로 죽이기 
+
+kill 아이디로 죽이기 
+
+kill 000 111 222 
+
+*** 
+
+top 
+작업관리자 
+
+*** 
+
+백그라운드 작업항 수 있도록 도와줌 
+ㅠㅎ 
+bg 
+ 
+*** 
+vi 빌조이 
+*** 
+pico nano 서로 부모임 
+
+*** 
+X윈도용 편집기 메모장 (nano처럼) 
+gedit 
+
+*** 
+
+undo 처럼 
+vi u명령이 명령모드직전삭제줄복원 
+
+vi 1.txt 
+
+linux
+linux
+linux
+linux
+~ 
+
+한 줄이 리눅스인 경우 다 바꾸기 
+
+:%s/^linux$/Linux/g 
+
+*** 
+
+:set number 주면 vi 행번호 뜸 
+
+*** 
+
+(qf ) 
+rpm -qf /bin/ls
+coreutils-8.30-15.el8.x86_64
+
+*** 
+
+tar xz명령 압축옵션 J 
+
+*** 
+
+리눅스 파일서버 구축해서 뿌리는 걸로 프린터 관련 해도 됨 
+
+PV-LG-LV 
+
+*** 
+
+LVM 
+파티션 크기 축소하면 데이터 손실 조심 
+크기 확장하면 ㄱㅊ 
+디스크2개 하나의 파티션 구성가능 
+물리디스크1개로 두 개 파티션가능 
+
+*** 
+
+9-9 48번 공부하기 
+
+*** 
+
+X윈도우 
+GUI 화면 소프트웨어 가서 
+설치 하면 됨. 
+
+LibreOffice Drow 
+그리기를 사용하여 그리기, 순서도 및 로고를 만들고 편집합니다.
+
+GNU image Manipulation Program 
+이미지를 만들고 사진을 편집합니다. 
+
+Calc 는 계산기 
+
+*** 
+
+MAC 주소 48bit 
+
+*** 
+
+광케이블 = FDDI (광섬유케이블) 
+
+*** 
+
+기관 
+IEEE 
+ISO 
+EIA 
+알아서 찾기 
+
+*** 
+
+OSI 계층 
+송신 수신 코드 문자 변역 일관되게 전송 데이터 서로 이해 
+표현계층 
+
+**** 
+
+IPv4 B클래스 
+A B C 외우기 
+4번 
+
+**** 
+
+X윈도우 설치 되지 안ㄹ은 콘솔에서 이용 블가 웹브라우저 
+lynx 
+
+*** 
+
+www 하이퍼텍스트 
+서버자원접속위해 URL 
+
+*** 
+
+텔넷서버 설치 패키지명 
+tenet_server 
+
+dnf -y instal telnet_server 
+
+*** 
+
+ssh -l master linux.izerone.co.kr -p (포트) 
+원격지 서버 접속하기 위한 ssh 옵션 -l 
+ssh -l(첫번째로) -p(포트)
+
+*** 
+
+
+dnf -y install vsftpd
+
+systemctl start vsftpd
+
+netstat -ant | grep 21
+tcp6       0      0 :::21  
+
+버추얼박스 21번 추가 
+
+systemctl stop firewalld 
+
+cmd 에서 
+ftp 210.125.197.55 
+
+C:\Users\user>ftp 210.125.197.55
+210.125.197.55에 연결되었습니다.
+220 (vsFTPd 3.0.3)
+200 Always in UTF8 mode.
+사용자(210.125.197.55:(none)): 
+
+리눅스에서 
+ftp 210.125.197.55 
+bash: ftp: 명령을 찾을 수 없습니다...
+'ftp' 명령을 제공하는 'ftp' 꾸러미를 설치하시겠습니까? [N/y] y
+다음 패키지를 설치해야 합니다:
+ ftp-0.17-78.el8.x86_64	The standard UNIX FTP (File Transfer Protocol) client
+변경 사항을 수행하시겠습니까? [N/y] y
+
+ftp 210.125.197.55 
+Connected to 210.125.197.55 (210.125.197.55).
+220 (vsFTPd 3.0.3)
+
+여기서 이렇게 사용 비교 
+ssh -l master linux.izerone.co.kr -p 22012 
+ftp linux.izerone.co.kr 21012
+
+ftp 파일을 로컬시스템으로 
+ 
+*** 
+게이트웨이 값 찾기 
+
+네 갈래로 갈릴 때 
+브로도캐스트 전이나 네트워크 다음으로 
+끝과 끝이 게이트웨이가 될 수 있음. 
+
+서브넷마스크 192로 네 갈래로 나뉠 경우 
+(IP: ~.~.~.66)
+두번째 칸일 경우: 63 , 126 이런 것 
+
+*** 
+
+게이트웨이정보확인 
+ ip route show
+default via 10.0.2.2 dev enp0s3 proto dhcp src 10.0.2.15 metric 100 
+10.0.2.0/24 dev enp0s3 proto kernel scope link src 10.0.2.15 metric 100 
+192.168.122.0/24 dev virbr0 proto kernel scope link src 192.168.122.1 linkdown 
+
+*** 
+
+/etc/sysconfig/network 게이트웨이 (오타는 모르ㅜㅁ) 
+
+윈도우 
+/etc/resolv.conf (네임서버) 
+
+*** 
+
+SYN Flooding 
+네트워크 상태 확인 
+netstat, ss 
+
+*** 
+
+메인이 꺼져고 다른 걸로 전달받아 
+어 밖에서 보면 잘 돌아감 
+고가용성 클러스터 
+
+*** 
+
+래드햇 가상화기술 KVX?M? 찍음 
+
+*** 
+
+리눅스마스터 6월 10일 직접 풀기 
+
+회사 공유 디렉터리 project 
+생성은 가능하고 삭제는 소유자만 가능하게 하는 특수권한 
+
+project 디렉터리에 Sticky-Bit를 부여 
+
+chmod 1777 test
+ls -al | grep test
+drwsrwsrwt.   2 root root    6  6월 27 03:06 test
+-rwxrwxrwx.   1 root root   20  6월 26 22:21 test.pi
+-rw-r--r--.   1 root root   21  6월 26 22:23 test.py
+
+cd test
+ls
+[root@computer test]# touch test.txt
+
+[master@computer test]$ rm test.txt
+rm: remove write-protected 일반 빈 파일 'test.txt'? y
+rm: cannot remove 'test.txt': 명령을 허용하지 않음
+ 
+*** 
+
+touch lin.txt
+
+ls -l lin.txt
+-rw-rw-r--. 1 master root 0  6월 27 03:10 lin.txt
+
+umask
+0002
+
+실행 1갯수 뺀 건 적용 안 되네 
+이거 첨 시작할 때 적용되는 마스크인가? 
+chmod 해서 바꿔도 안 사라지네 
+
+ls -l lin.txt
+-rwxrwxrwx. 1 master master 0  6월 27 03:13 lin.txt
+
+*** 
+특수권한 파일, 디렉터리 찾기 
+
+ls -ld /etc
+drwxr-xr-x. 148 root root 8192  6월 27 02:26 /etc
+
+ls -l /etc/shadow
+----------. 1 root root 1368  6월 26 20:35 /etc/shadow
+
+ls -l /etc/passwd
+-rw-r--r--. 1 root root 2595  6월 26 20:35 /etc/passwd
+
+ls -l /etc/bin/passwd
+ls: cannot access '/etc/bin/passwd': 그런 파일이나 디렉터리가 없습니다
+
+정답: /etc 
+
+*** 
+
+xfs_quota -x -c 'limit bsoft=100m bhard=100m master' /test
+xfs_quota: cannot setup path for mount /test: 그런 장치 혹은 주소가 없음
+
+master 사용자에 대한 디스크쿼터 설정 과정인데 
+왜 안됨 
+
+*** 
+
+master 사용자의 디스크 용량 확인 
+du -sh ~master
+결과: 17M	/home/master
+
+useradd로 만든 것도 
+du -sh ~lsw
+12K	/home/lsw
+
+*** 
+
+chsh -s /bin/sh (-s 셸 변경 같음, -l 가능한 거 확인) 
+Changing shell for master.
+chsh: Shell not changed.
+
+*** 
+
+/etc/profile 이거 alias 함수 별칭인가? (잘 모름) 
+
+*** 
+
+시그널 번호인가? 
+
+kill -l
+<pre>
+ 1 SIGHUP	 2 SIGINT	 3 SIGQUIT	 4 SIGILL	 5 SIGTRAP
+ 6) SIGABRT	 7) SIGBUS	 8 SIGFPE	 9 SIGKILL	10 SIGUSR1
+11 SIGSEGV	12 SIGUSR2	13 SIGPIPE	14 SIGALRM	15 SIGTERM
+16 SIGSTKFLT	17 SIGCHLD	18 SIGCONT	19 SIGSTOP	20 SIGTSTP
+21 SIGTTIN	22 SIGTTOU	23 SIGURG	24 SIGXCPU	25 SIGXFSZ
+26 SIGVTALRM	27 SIGPROF	28 SIGWINCH	29 SIGIO	30 SIGPWR
+31 SIGSYS	34 SIGRTMIN	35 SIGRTMIN+1	36 SIGRTMIN+2	37 SIGRTMIN+3
+38 SIGRTMIN+4	39 SIGRTMIN+5	40 SIGRTMIN+6	41 SIGRTMIN+7	42 SIGRTMIN+8
+43 SIGRTMIN+9	44 SIGRTMIN+10	45 SIGRTMIN+11	46 SIGRTMIN+12	47 SIGRTMIN+13
+48 SIGRTMIN+14	49 SIGRTMIN+15	50 SIGRTMAX-14	51 SIGRTMAX-13	52 SIGRTMAX-12
+53 SIGRTMAX-11	54 SIGRTMAX-10	55 SIGRTMAX-9	56 SIGRTMAX-8	57 SIGRTMAX-7
+58 SIGRTMAX-6	59 SIGRTMAX-5	60 SIGRTMAX-4	61 SIGRTMAX-3	62 SIGRTMAX-2
+63 SIGRTMAX-1	64 SIGRTMAX	
+</pre>
+<br>
+</body>
+</html>

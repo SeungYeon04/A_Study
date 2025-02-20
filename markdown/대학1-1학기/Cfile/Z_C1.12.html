@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+<link type="text/css" rel="stylesheet" href="../fonts.css"> 
+<script src="../indexh.js"> </script>
+    <title>C-10</title>
+</head>
+<body>
+    <h1><a href="../index.html">부러의 다락방</a></h1> 
+    <br>
+C언어에서 파일을 처리하는 방법  <br>
+1. 파일 스트림 생선(fopen()) <br>
+2. 파일에 데이터 출력(fprintf()) , 파일로부터 데이터 로드 (fscanf()) <br>
+3. 스트림해제 통로해제 (fclose())  <br>
+FILE 은 파일의 모든 정보를 갖고있음 = 그래서 포인터 씀 <br>
+<br>
+이렇게하면 소스파일 위치 a.txt <br>
+"c:/a.txt", "w" 이렇게 하면  w=새로생성 c:하위에<br> 
+txt파일이란 확장자가 없으면 wt로 적음 <br>
+w는 쓸 수 있는 통로 r은 읽는 통로 <br>
+<br>
+FILE *fileP = fopen("c:/a.txt", "w"); <br>
+<br>
+모니터출력X 파일출력O  <br>
+fprintf(fileP, "%s %d\n", "Hello", 200); //파일에 출력하기 위해 fprintf로 포인터이름 fileP이 앞에 붙음<br>
+<br>
+fclose(fileP); //C드라이브에 수정한날짜 눌러서 a.txt만들어진 거 들어가면 Hello 200 되어있음<br>
+윈도우에서 막혀있으면 안 만들어져서 <br>
+파일생성 실패로 Null 됨 <br>
+<br>
+<li>파일 데이터 적용하기 - 기본</li>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fileP = fopen("c:/a.txt", "w"); 
+
+    fprintf(fileP, "%s %d\n", "Hello", 200); //파일에 출력하기 위해 fprintf씀. 포인터이름 fileP이 앞에 붙음  
+        
+    fclose(fileP); //C드라이브에서 수정한날짜 눌러서 a.txt만들어진 거 들어가면 Hello 200 되어있음  
+    
+    return 0;  
+}
+</pre>
+<br>
+<li>파일 읽어오기</li>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fileP = fopen("c:/a.txt", "r"); //읽어오자  
+    
+    if(fileP == NULL) //예외처리  
+    {
+        printf("파일이 존재하지 않습니다 \n"); //a.txt가 없거나 경로 이상하면  
+        return -1; //비정상종료  
+    }
+    
+    char str[100]; 
+    int data; 
+    
+    fscanf(fileP, "%s %d", str, &data);   
+        
+    printf("%s %d\n", str, data);
+    fclose(fileP); 
+    
+    return 0;  
+}
+</pre>
+<br>
+<li>파일 생성+읽어오기</li>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *My = fopen("c:/mystory.txt", "w"); 
+    
+    fprintf(My,"%s\n%s\n%s\n","이승연","0408XX-XXXXXX","010-XXXX-XXXX");
+    fclose(My); 
+    
+    char name[20], Nber1[50], Nber2[50];  
+    
+    My = fopen("c:/mystory.txt", "r"); 
+    
+    if(My == NULL)
+    {
+        printf("파일존재X\n");
+    }	
+    
+    fscanf(My,"%s %s %s", name, Nber1, Nber2); 
+    printf("%s\n %s\n %s\n", name, Nber1, Nber2);
+    fclose(My);
+    
+    return 0;  
+}
+</pre>
+<br>
+<li>fputs fgets와 fputc fgetc</li>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp = fopen("c:/simple.txt", "w"); 
+    
+    if(fp==NULL)
+    {
+        printf("파일없음.\n");
+    }
+    
+    fputc('A', fp); //f put char (한 글자만) //printf(fp, "%c", 'A')랑 같음 
+    fputc('B', fp); //참조위치 알아서 옆으로 움직임 포인터변수 
+    
+    fputs("\nMy Name is Son", fp); 
+    fputs("\nYour Name is Park", fp); 
+
+
+    fclose(fp);
+    return 0;  
+}
+
+/*
+AB
+My Name is Son
+Your Name is Park
+*/        
+</pre>
+<br>
+<li>음식과 취미</li>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *Ch = fopen("c:/ch.txt", "w"); 
+    
+    fprintf(Ch, "%s %s\n", "마라탕", "커피");
+    fprintf(Ch, "%s %s\n", "예술", "개발"); 
+    fclose(Ch);
+    
+    char number1[10], number2[10], number3[10], number4[10]; 
+    
+    Ch = fopen("c:/ch.txt", "r"); 
+
+    if(Ch == NULL) 
+    {
+        printf("파일이 없어요\n");
+    }
+    
+    while(fscanf(Ch, "%s %s %s %s", number1, number2,number3,number4)!=EOF) { //파일끝이 아니라면 출력 EOF 
+        printf("#음식: %s %s\n#취미: %s %s\n", number1, number2,number3,number4);
+    }
+    
+    fclose(Ch);
+    
+    return 0;  
+}
+
+/* 
+    //이렇게 하면 텍스트 있을 때 출력 가능  
+    char number1[10], number2[10], number3[10], number4[10]; 
+    
+    FILE *Ch = fopen("c:/ch.txt", "r"); 
+
+    if(Ch == NULL) 
+    {
+        printf("파일이 없어요\n");
+    }
+    
+    while(fscanf(Ch, "%s %s %s %s", number1, number2,number3,number4)!=EOF) { //파일끝이 아니라면 출력 EOF 
+        printf("#음식: %s %s\n#취미: %s %s\n", number1, number2,number3,number4);
+    }
+    
+    fclose(Ch);
+    
+    return 0; 
+*/
+</pre>
+<br>
+<h3>데이터 카피파일 만들기(C언어)</h3>
+<li>연결1 - 원본데이터</li>
+<pre>
+#include &lt;stdio.h&gt;
+
+    int main()
+    {
+        FILE *fp1 = fopen("c:/src.txt", "w"); 
+        
+        //1. 파일에 데이터 먼저 출력 
+        fprintf(fp1, "%s\n", "이름:윤성우"); 
+        fprintf(fp1, "%s\n", "전화번호:010-0000-0000"); 
+        fprintf(fp1, "%s\n", "주소:전주완산구"); 
+        
+        //2. 파일 스트림 해제 
+        fclose(fp1);  
+        
+        return 0;  
+    }
+</pre>
+<br>
+<li>연결1 - 연결데이터</li>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    //전꺼 복사해옴 cpcp  
+    FILE *fp1 = fopen("c:/src.txt", "r"); 
+    
+    if(fp1 == NULL)
+    {
+        printf("파일어디감\n");
+    }
+    
+    FILE *fp2 = fopen("c:/srcCp.txt", "w"); 
+
+    char str[100] = {0,}; 
+    
+    while(fscanf(fp1, "%s", str) != EOF) 
+    {
+        printf("%s\n", str); 
+        fprintf(fp2, "%s\n", str);
+    }
+        
+    //2. 파일 스트림 해제 
+    fclose(fp1);  
+    fclose(fp2);  
+    
+    return 0;  
+}        
+</pre>
+<br>
+<li>연결2 - 원본데이터</li>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *src = fopen("c:/배고파.txt", "r"); 
+    FILE *dst = fopen("c:/배고파CP.txt", "w"); 
+    
+    char str[100]={0,}; 
+    
+    while(fgets(str, sizeof(str), src) != NULL)
+    {
+        fputs(str, dst); 
+        printf("%s", str); 
+    } 
+    
+    fclose(src); 
+    fclose(dst);
+    
+    return 0;  
+}        
+</pre>
+<br>
+<li>연결2 - 연결데이터</li>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp1 = fopen("c:/배고파.txt", "w"); 
+    
+    //1. 파일에 데이터 먼저 출력 
+    fprintf(fp1, "%s\n", "이름:국밥"); 
+    fprintf(fp1, "%s\n", "전화번호:마라탕"); 
+    fprintf(fp1, "%s\n", "주소:소고기"); 
+    
+    //2. 파일 스트림 해제 
+    fclose(fp1);  
+    
+    return 0;  
+}        
+</pre>
+<br>
+</body>
+</html>

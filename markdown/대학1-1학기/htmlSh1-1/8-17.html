@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document.getElementsByClassName()</title>
+    <script>
+        function viewPlace() {
+            let tagArray = document.getElementsByClassName("place"); 
+
+            for(let i = 0; i < tagArray.length; i++)
+            {
+                let tag = tagArray[i]; 
+                tag.style.color = "orchid"; 
+                tag.style.fontSize = "20px"; 
+                tag.style.textDecoration = "underline"; 
+            }
+        }
+        function viewFood()
+        {
+            let tagArray = document.getElementsByClassName("food"); 
+
+            for(let i = 0; i < tagArray.length; i++)
+            {
+                var tag = tagArray[i]; 
+                tag.style.color = "darkcyan"; 
+            }
+        }
+    </script>
+</head>
+<body>
+    <h3>가고 싶은 곳 먹는 싶은 것</h3>
+    <br>
+        <button onclick="viewPlace()">가고 싶은 곳</button>
+        <button onclick="viewFood()">먹고 싶은 곳</button> 
+    <hr>
+    <p>
+        <span class="place">제주도</span>에 가서 <span class="food">독도새우</span>
+        도 먹고 싶어요. 제일 가고 싶은 곳 <span class="place">부산 자갈치 시장</span>에서 
+        <span class="food">꼼장어구이</span>도 먹고 싶어요. 
+        </span>
+    </p>
+</body>
+</html>
