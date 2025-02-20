@@ -16,10 +16,10 @@ const Category = ({ setSelectedCategory }) => {
       {markdownFiles.map((category, index) => (
         <div key={index}>
           {index === 0 && <h3>개인언어공부</h3>} 
-          {index === 3 && <h3>자격증공부</h3>} 
-          {index === 4 && <h3>프로젝트</h3>} 
-          {index === 5 && <h3>매일기록</h3>} 
-          {index === 6 && <h3>대학공부</h3>} 
+          {index === 4 && <h3>자격증공부</h3>} 
+          {index === 5 && <h3>프로젝트</h3>} 
+          {index === 6 && <h3>매일기록</h3>} 
+          {index === 7 && <h3>대학공부</h3>} 
           
           {category.type === 'folder' && (
               <Link to={`/${category.name}`} 
