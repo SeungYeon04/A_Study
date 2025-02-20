@@ -29,14 +29,17 @@ export const markdownFiles = [
     {
       name: "Java언어", type: "folder",
       posts: [
-        { id: 0, name: "프로그래머스-자바중급1", type: "title" },
-        { id: 0, name: "프로그래머스-자바중급2", type: "title" },
-        { id: 0, name: "프로그래머스-자바중급3", type: "title" },
-        { id: 0, name: "프로그래머스-자바중급4", type: "title" },
-        { id: 0, name: "프로그래머스-자바중급5", type: "title" },
-        { id: 0, name: "프로그래머스-자바중급6", type: "title" },
-        { id: 0, name: "프로그래머스-자바중급7", type: "title" },
-        { id: 0, name: "프코문-도서공부1", type: "title" },
+        { id: 0, name: "프로그래머스 코딩테스트", type: "title" },
+        { id: 0, name: "프로그래머스-자바중급1", type: "file" },
+        { id: 0, name: "프로그래머스-자바중급2", type: "file" },
+        { id: 0, name: "프로그래머스-자바중급3", type: "file" },
+        { id: 0, name: "프로그래머스-자바중급4", type: "file" },
+        { id: 0, name: "프로그래머스-자바중급5", type: "file" },
+        { id: 0, name: "프로그래머스-자바중급6", type: "file" },
+        { id: 0, name: "프로그래머스-자바중급7", type: "file" },
+        
+        { id: 0, name: "도서 공부", type: "title" },
+        { id: 0, name: "프코문-도서공부1", type: "file" },
       ]
     },
     {

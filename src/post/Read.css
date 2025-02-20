@@ -4,6 +4,11 @@
     list-style-position: inside; /* 리스트 스타일을 안쪽으로 이동 */
 }
 
+.post-img {
+  max-width: 40%;
+  height: auto;
+}
+
 .markdown-body {
 max-width: 600px; /* 컨테이너의 최대 너비를 제한 */
 margin: 0 auto;   /* 가운데 정렬 */
