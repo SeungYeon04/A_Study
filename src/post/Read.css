@@ -4,17 +4,9 @@
     list-style-position: inside; /* 리스트 스타일을 안쪽으로 이동 */
 }
 
-.post-img {
-  max-width: 40%;
-  height: auto;
-}
-
-markdown img { /* 이거 태그 뭐로 해야하지>???? */
-  width: 50%; /* 이미지 크기를 부모 요소의 50%로 설정 */
-  max-width: 100%; /* 너무 커지지 않도록 조절 */
+.markdown-body img {
+  max-width: 30%;
   height: auto; /* 원본 비율 유지 */
-  display: block;
-  margin: 0 auto; /* 가운데 정렬 */
 }
 
 
