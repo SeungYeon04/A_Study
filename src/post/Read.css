@@ -17,7 +17,7 @@
 .markdown-body {
 max-width: 600px; /* 컨테이너의 최대 너비를 제한 */
 margin: 0 auto;   /* 가운데 정렬 */
-text-align: left; /* 텍스트를 왼쪽 정렬 */
+/* text-align: left;  텍스트를 왼쪽 정렬 */
 line-height: 1.6; /* 읽기 편한 줄 간격 */
 }
 
