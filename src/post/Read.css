@@ -5,7 +5,12 @@
 }
 
 .markdown-body img {
-  max-width: 30%;
+  width: 30%;
+  height: auto; /* 원본 비율 유지 */
+}
+
+.markdown-body image {
+  width: 30%;
   height: auto; /* 원본 비율 유지 */
 }
 
