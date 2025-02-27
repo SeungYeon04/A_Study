@@ -5,15 +5,14 @@
 }
 
 .markdown-body img {
-  width: 30%;
+  max-width: 70%;
   height: auto; /* 원본 비율 유지 */
 }
 
 .markdown-body image {
-  width: 30%;
+  max-width: 70%;
   height: auto; /* 원본 비율 유지 */
 }
-
 
 .markdown-body {
 max-width: 600px; /* 컨테이너의 최대 너비를 제한 */
