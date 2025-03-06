@@ -3,6 +3,8 @@ Github url: https://seungyeon04.github.io/A_Study/
 
 ## 🖥 프로젝트 소개 
 
+깃허브 마크다운 파일 작성해서 렌더링하는  
+멋진 github.io 리액트 블로그랍니다  
 언어 HTML CSS JAVASCRIPT REACT 사용  
 리액트지만 정적 브런치 만들어서  
 해쉬함수 써서 깃허브페이지 띄웠어요  
