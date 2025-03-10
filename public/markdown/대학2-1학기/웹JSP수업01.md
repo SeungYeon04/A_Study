@@ -159,6 +159,14 @@ Always use this server when running this project
 8080 8000 이런 포트오류 뜨면 전꺼 충돌이라,  
 이클립스나 톰캣 싹 지워야 함.  
 아니면 톰캣 중복설치 등 문제..  
+
+아니면 인터페이스에  
+콘솔창 마냥 서버칭 뜰 거임  
+사실 나는 안 떴지만  
+거기서 ADD 해야한다고도 함.  
+
+아래 Servers 창에 아파치 10.0...  
+우클릭해서 ADD and Remove  
   
 *** 
   
