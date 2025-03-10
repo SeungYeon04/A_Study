@@ -123,7 +123,42 @@ Sever > Rintime Environments 에서 서버등록 확인.
 ### 인코딩 상태 확인하기 
 
 Window > Prefernes > Web(업데이트 설치 되면 나옴) >  
-JSPFile 부분 UTF-8로 되어있어야 함. 
+JSPFile 부분 UTF-8로 되어있어야 함.  
+  
+### 프젝 만들기 
+
+File > New > Other... > Web 검색해서  
+Dynamic Web Project 선택 > 아래 세팅들 아파치 버전 잘 골라져 있으면 됨.  
+  
+거기서 New > JSP File > webapp에 Hello.jsp  
+  
+```
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Hello SJP!!</h1>
+	Hello! Java Server Pages.<br>
+	힝구
+</body>
+</html>
+```
+  
+*** 
+  
+### 실행 관련 
+Run 하면서 설치한 10.. 서버 선택하고, 창 아래 체크  
+Always use this server when running this project  
+그러면 자동으로 서버도 켜진다나 함.  
+  
+8080 8000 이런 포트오류 뜨면 전꺼 충돌이라,  
+이클립스나 톰캣 싹 지워야 함.  
+아니면 톰캣 중복설치 등 문제..  
   
 *** 
   
