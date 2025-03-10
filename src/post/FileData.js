@@ -174,7 +174,14 @@ export const markdownFiles = [
   {
     name: "대학2-1학기", type: "folder",
     posts: [
-         
+      { id: 0, name: "자바 수업", type: "title" },
+      { id: 0, name: "자바실무수업01", type: "file" },
+      { id: 0, name: "자바실무수업01-과제", type: "file" },
+      { id: 0, name: "자바실무수업02", type: "file" },
+      { id: 0, name: "자바실무수업02-정리", type: "file" },
+
+      { id: 0, name: "앱개발 수업", type: "title" },
+      { id: 0, name: "모바일앱수업01", type: "file" },
     ]
   },
   ];
