@@ -103,7 +103,7 @@ https://tomcat.apache.org/download-10.cgi
 64-bit Windows zip (pgp, sha512) 로 설치  
   
 apache-tomcat-10.1.39-windows-x64.zip을  
-C드라이브에 있는 apache-tomcat-10.1.39에 압축 풀어 넣기  
+C드라이브에 apache-tomcat-10.1.39파일을 압축 풀기  
   
 ### 톰캣 이클립스 연동하기 (Server) 
   
