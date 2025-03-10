@@ -99,7 +99,7 @@ https://tomcat.apache.org/download-10.cgi
 apache-tomcat-10.1.39-windows-x64.zip을  
 C드라이브에 있는 apache-tomcat-10.1.39에 압축 풀어 넣기  
   
-### Server 생성 
+### 톰캣 이클립스 연결하기 (Server) 
   
 File > New > Other... > Server 생긴 것 누르기 > Next >  
 Apache 에서 v10.1 버전 선택  
@@ -107,9 +107,9 @@ Apache 에서 v10.1 버전 선택
 tomcat 옮긴 C에 apache-tomcat-10.1.39 경로설정  
 (Tormcat installation directory: C:\apache-tomcat-10.1.39) >  
   
-이제 다음하면 Server폴더 자동생성 될 것임.  
+이제 다음하면 이클립스에 Server폴더 자동생성 될 것임.  
   
-#### Server 설치상태 확인법 
+#### Server 연결상태 확인하기 
 
 Window > Prefernes > Prefernes 창에서  
 Sever > Rintime Environments 에서 서버등록 확인.  
