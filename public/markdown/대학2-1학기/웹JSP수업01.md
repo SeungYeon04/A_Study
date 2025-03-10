@@ -84,6 +84,12 @@ getProperty, param, 자바빈즈
 (여기 양이 많아서 복잡함.)  
   
 *** 
+
+### JDK 설치하기 
+저번 자바시간에 설치해서 애매  
+이클립스 설치할 때 옆에꺼..  
+  
+cmd에서 java --version 쳤을 때 버전 나오면 됨.  
   
 ### 이클립스 업데이트부분 설치됐나 확인하기  
 Help > Install New SoftWare... >  
