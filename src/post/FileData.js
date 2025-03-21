@@ -179,12 +179,20 @@ export const markdownFiles = [
       { id: 0, name: "자바실무수업01-과제", type: "file" },
       { id: 0, name: "자바실무수업02", type: "file" },
       { id: 0, name: "자바실무수업02-정리", type: "file" },
+      { id: 0, name: "자바실무수업03", type: "file" },
+      { id: 0, name: "자바실무수업04", type: "file" },
+      { id: 0, name: "자바실무수업05", type: "file" },
 
       { id: 0, name: "앱개발 수업", type: "title" },
       { id: 0, name: "모바일앱수업01", type: "file" },
 
-      
+      { id: 0, name: "JSP 웹개발 수업", type: "title" },
+      { id: 0, name: "웹JSP수업01", type: "file" },
+      { id: 0, name: "웹JSP수업02", type: "file" },
 
+      { id: 0, name: "데이터베이스 수업", type: "title" },
+      { id: 0, name: "DB수업01", type: "file" },
+      { id: 0, name: "DB수업02", type: "file" },
     ]
   }
   ];
