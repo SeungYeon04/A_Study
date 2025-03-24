@@ -105,11 +105,13 @@ public MemberBean(){
 오른쪽에 플러스 모양 눌러서  
 Open Perpective 가 Web으로 되어있어야 함  
 그래야 JSPBook에 Java Resources가 존재함  
+
+![OpenPerpective](https://seungyeon04.github.io/A_Study/markdown/대학2-1학기/OpenPerpective.png)  
   
 *** 
   
 ### 경로사진 
-![ImageJavaBean_경로사진.png](https://seungyeon04.github.io/A_Study/markdown/대학2-1학기/ImageJavaBean_경로사진.png)  
+![ImageJavaBean_경로사진](https://seungyeon04.github.io/A_Study/markdown/대학2-1학기/ImageJavaBean_경로사진.png)  
   
 ### Calculator.java 
 ```
