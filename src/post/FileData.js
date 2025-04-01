@@ -189,10 +189,14 @@ export const markdownFiles = [
       { id: 0, name: "JSP 웹개발 수업", type: "title" },
       { id: 0, name: "웹JSP수업01", type: "file" },
       { id: 0, name: "웹JSP수업02", type: "file" },
+      
 
       { id: 0, name: "데이터베이스 수업", type: "title" },
       { id: 0, name: "DB수업01", type: "file" },
-      { id: 0, name: "DB수업02", type: "file" },
+      { id: 0, name: "DB수업03", type: "file" },
+
+      { id: 0, name: "인공지능 수업", type: "title" },
+      { id: 0, name: "인공지능수업01", type: "file" },
     ]
   }
   ];
