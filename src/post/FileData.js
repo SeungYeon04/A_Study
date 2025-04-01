@@ -182,21 +182,30 @@ export const markdownFiles = [
       { id: 0, name: "자바실무수업03", type: "file" },
       { id: 0, name: "자바실무수업04", type: "file" },
       { id: 0, name: "자바실무수업05", type: "file" },
+      { id: 0, name: "자바실무수업06", type: "file" },
+      { id: 0, name: "자바실무수업07", type: "file" },
+      { id: 0, name: "자바실무수업08-과제", type: "file" },
 
       { id: 0, name: "앱개발 수업", type: "title" },
       { id: 0, name: "모바일앱수업01", type: "file" },
+      { id: 0, name: "모바일앱수업02", type: "file" },
+      { id: 0, name: "모바일앱수업03", type: "file" },
 
       { id: 0, name: "JSP 웹개발 수업", type: "title" },
       { id: 0, name: "웹JSP수업01", type: "file" },
       { id: 0, name: "웹JSP수업02", type: "file" },
+      { id: 0, name: "웹JSP수업03", type: "file" },
+      { id: 0, name: "웹JSP수업05", type: "file" },
       
-
       { id: 0, name: "데이터베이스 수업", type: "title" },
       { id: 0, name: "DB수업01", type: "file" },
       { id: 0, name: "DB수업03", type: "file" },
+      { id: 0, name: "DB수업06", type: "file" },
 
       { id: 0, name: "인공지능 수업", type: "title" },
       { id: 0, name: "인공지능수업01", type: "file" },
+      { id: 0, name: "인공지능수업03-과제", type: "file" },
+      { id: 0, name: "인공지능수업04", type: "file" },
     ]
   }
   ];
