@@ -25,7 +25,7 @@ Github url: https://seungyeon04.github.io/A_Study/
 공부정리 사이트 
 
 ## 🖼 플레이 사진
-(이전사진) 
+(이전사진) -> 1학년 1학기 공부는 확장자 달라서 표시 안됩니다.  
 ![스크린샷 2024-05-27 230237](https://github.com/SeungYeon04/A_Study.github.io/assets/100332811/229d73a7-b0db-4757-bebb-d159c021b5cf)
 ![스크린샷 2024-05-27 230250](https://github.com/SeungYeon04/A_Study.github.io/assets/100332811/0fd10c47-741d-4586-8ff5-607ecbd98251)
 
