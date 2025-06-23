@@ -1,6 +1,7 @@
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,react
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,react
 
+
 ### react ###
 .DS_*
 *.log
@@ -9,6 +10,7 @@ logs
 **/*.back.*
 
 node_modules
+
 bower_components
 
 *.sublime*
@@ -39,3 +41,4 @@ sketch
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,react
+node_modules
