@@ -23,7 +23,6 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "copy-md": "xcopy public\\markdown build\\markdown /E /I /Y && echo. > build\\.nojekyll",
     "predeploy": "npm run build && npm run copy-md",
     "deploy": "gh-pages -d build"
   },
