@@ -19,7 +19,7 @@ const Post = ({ selectedCategory }) => {
            ) : (
            <div key={post.id}>
               <Link to={`/${selectedCategoryObj.name}/${post.name}`}>
-                <a>{post.name}</a>
+                  {post.name}
                 <br></br><br></br>
                 
               </Link>
