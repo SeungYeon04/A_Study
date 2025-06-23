@@ -9,7 +9,7 @@ const Read = () => {
   const [markdown, setMarkdown] = useState("");
 
   useEffect(() => {
-    const markdownPath = `/A_Study/markdown/${categoryName}/${fileName}.md`;
+    const markdownPath = `/markdown/${categoryName}/${fileName}.md`;
     console.log("요청 경로:", markdownPath); 
     fetch(markdownPath)
       .then((res) => res.text())
