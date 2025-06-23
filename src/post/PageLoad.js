@@ -9,9 +9,8 @@ const Read = () => {
   const [markdown, setMarkdown] = useState("");
 
   useEffect(() => {
-    const encodedCategory = encodeURIComponent(categoryName);
-    const encodedFile = encodeURIComponent(fileName);
-    const markdownPath = `${process.env.PUBLIC_URL}/markdown/${encodedCategory}/${encodedFile}.md`;
+    const markdownPath = `/A_Study/markdown/${categoryName}/${fileName}.md`;
+    console.log("요청 경로:", markdownPath); 
     fetch(markdownPath)
       .then((res) => res.text())
       .then((text) => {
