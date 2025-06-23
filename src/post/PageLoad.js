@@ -9,8 +9,7 @@ const Read = () => {
   const [markdown, setMarkdown] = useState("");
 
   useEffect(() => {
-  const markdownPath = `${process.env.PUBLIC_URL}/markdown/${categoryName}/${fileName}.md`;
-
+  const markdownPath = `markdown/${categoryName}/${fileName}.md`; // 앞에 슬래시 없이
     console.log("요청 경로:", markdownPath); 
     fetch(markdownPath)
       .then((res) => res.text())
