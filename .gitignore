@@ -9,7 +9,6 @@ logs
 **/*.backup.*
 **/*.back.*
 
-node_modules
 
 bower_components
 
@@ -19,7 +18,12 @@ psd
 thumb
 sketch
 
+
+/node_modules
 /build
+/dist
+.env
+
 
 ### VisualStudioCode ###
 .vscode/*
