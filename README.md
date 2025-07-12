@@ -6,7 +6,7 @@
 리액트 공부 정리 사이트를 제작하였습니다.  
   
 ## 🔗 페이지 URL 
-Github url: https://seungyeon04.github.io/A_Study/  
+Github url: https://a-study.vercel.app/   
   
 ## 🖥️ 프로젝트 소개
 
@@ -22,7 +22,7 @@ Github url: https://seungyeon04.github.io/A_Study/
 | 🖋 IDE          | Visual Studio Code |
 | 📁 버전 관리    | GitHub Desktop           |
 | 🧩 데이터   | MarkDownFile, Json |
-| 🌐 호스팅 | Velcel | 
+| 🌐 호스팅 | Vercel | 
   
 ## 🎮 주요 기능
 
