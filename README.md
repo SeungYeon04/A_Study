@@ -45,3 +45,5 @@ Github url: https://a-study.vercel.app/
 ![스크린샷 2024-05-27 230250](https://github.com/SeungYeon04/A_Study.github.io/assets/100332811/0fd10c47-741d-4586-8ff5-607ecbd98251)  
   
 ## 📜 라이선스
+출처 남겨주세요. 깃허브 링크도 가능  
+https://github.com/SeungYeon04  
