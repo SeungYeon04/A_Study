@@ -4,8 +4,8 @@
     display: flex;
     flex-direction: column;
     overflow-x: hidden;
-} 
-    
+}     
+
 :link { /*미확인 링크 색상*/
     color: #9d9d9d;
 }
@@ -89,6 +89,20 @@ a {
     .BottomBox {
         background-color: rgb(225, 225, 225); 
     }
+
+    /*** Box2 스크롤바 설정 ***/
+    .Box1::-webkit-scrollbar, .body::-webkit-scrollbar {
+        width: 6px;
+    }
+    /* 스크롤바 막대 설정*/
+    .Box1::-webkit-scrollbar-thumb, .body::-webkit-scrollbar-thumb {
+        background: linear-gradient(#f64435, #ffe498);
+        border-radius: 25px;
+    }
+    /* 스크롤바 뒷 배경 설정*/
+    .Box1::-webkit-scrollbar-track, .body::-webkit-scrollbar-track {
+        background-color: #575757;
+    }
 }
 
 .while-mode {
@@ -113,6 +127,20 @@ a {
     }
     .BottomBox {
         background-color: rgb(250, 250, 250); 
+    }
+
+    /*** Box2 스크롤바 설정 ***/
+    .Box1::-webkit-scrollbar, .body::-webkit-scrollbar {
+        width: 6px;
+    }
+    /* 스크롤바 막대 설정*/
+    .Box1::-webkit-scrollbar-thumb, .body::-webkit-scrollbar-thumb {
+        background: linear-gradient(#f64435, #ffe498);
+        border-radius: 25px;
+    }
+    /* 스크롤바 뒷 배경 설정*/
+    .Box1::-webkit-scrollbar-track, .body::-webkit-scrollbar-track {
+        background-color: #575757;
     }
 }
 
