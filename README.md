@@ -23,6 +23,8 @@ Github url: https://a-study.vercel.app/
 | 📁 버전 관리    | GitHub Desktop           |
 | 🧩 데이터   | MarkDownFile, Json |
 | 🌐 호스팅 | Vercel | 
+| 🌐 NPM 버전 | 노트북 확인 | 
+| 🌐 NPM 버전 | 노트북 확인 | 
   
 ## 🎮 주요 기능
 
