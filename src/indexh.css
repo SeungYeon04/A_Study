@@ -92,7 +92,6 @@ pre {
 /* 다크모드 화이트모드 스킨 */
 .dark-mode {
     .body{
-        background-color: rgb(71, 71, 71); 
         color: rgb(221, 221, 221);
     }
     
@@ -102,7 +101,7 @@ pre {
     .Box1, .Box2 {
         background-color: rgb(71, 71, 71); 
     }
-    .Box3, .header, .header2, .BottomBox {
+    .Box3, .header, .header2, .BottomBox, .body {
         background-color: rgb(71, 71, 71); 
     }
     pre {
@@ -128,7 +127,6 @@ pre {
 .while-mode {
 
     .body{
-        background-color: rgb(250, 250, 250); 
         color: black;
     }
     
@@ -138,7 +136,7 @@ pre {
     .Box1, .Box2 {
         background-color: #fffcf3; 
     }
-    .header, .header2, .BottomBox, .Box3 {
+    .header, .header2, .BottomBox, .Box3, .body {
         background-color: rgb(255, 244, 244); 
     }
 
@@ -163,7 +161,6 @@ pre {
 
 /* 테마 선택 전 기본테마 다크 css */
 .body{
-        background-color: rgb(71, 71, 71); 
         color: rgb(221, 221, 221);
     }
     
@@ -173,7 +170,7 @@ pre {
     .Box1, .Box2 {
         background-color: rgb(71, 71, 71); 
     }
-    .Box3, .header, .header2, .BottomBox {
+    .Box3, .header, .header2, .BottomBox, .body {
         background-color: rgb(71, 71, 71); 
     }
     pre {
