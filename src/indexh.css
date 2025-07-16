@@ -61,6 +61,7 @@ a {
 
 /* markdown 파일 내용 세부 위치 조정 */
 .markdown-body {
+
     img {
          display: block;
         margin-left: auto;
@@ -69,7 +70,7 @@ a {
 
     ol, li, p {
         text-align: left; 
-        margin: 0;
+        padding: 0;
     }
 }
 
