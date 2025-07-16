@@ -54,14 +54,25 @@ a {
     padding-top: 2%; 
     margin-left: 250px; /*왼쪽 고정 크기만큼 비우기*/
 
-    div, h1, h2, h3 {
+    div, h1, h2, h3 { /* markdown 파일과 카테고리와 타이틀 모두 센터 */
         text-align: center; 
+    } 
+}
+
+/* markdown 파일 내용 세부 위치 조정 */
+.markdown-body {
+    img {
+         display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    ol, li, p {
+        text-align: left; 
+        margin: 0;
     }
 }
 
-.markdown-body ol, p, li {
-    text-align: left; 
-}
 
 .BottomBox {
     text-align: center;
