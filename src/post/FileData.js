@@ -174,6 +174,9 @@ export const markdownFiles = [
   {
     name: "대학2-1학기", type: "folder",
     posts: [
+      { id: 0, name: "취업과 창업", type: "title" },
+      { id: 0, name: "취업과창업13주차", type: "file" },
+
       { id: 0, name: "자바 수업", type: "title" },
       { id: 0, name: "자바실무수업01", type: "file" },
       { id: 0, name: "자바실무수업01-과제", type: "file" },
@@ -193,18 +196,35 @@ export const markdownFiles = [
       { id: 0, name: "자바실무수업13", type: "file" },
       { id: 0, name: "자바실무수업13-과제", type: "file" },
       { id: 0, name: "자바실무수업14-리스트", type: "file" },
+      { id: 0, name: "자바실무수업15-리스트", type: "file" },
+      { id: 0, name: "자바실무수업16-SET", type: "file" },
+      { id: 0, name: "자바실무수업17-MAP", type: "file" },
+      { id: 0, name: "자바실무수업18-JDBC", type: "file" },
+      { id: 0, name: "자바실무수업19-JDBC", type: "file" },
+      { id: 0, name: "자바실무수업20-JDBC", type: "file" },
+      { id: 0, name: "자바실무수업21-JDBC", type: "file" },
+      { id: 0, name: "자바실무수업22-JDBC", type: "file" },
+      { id: 0, name: "자바실무수업23-JDBC", type: "file" },
+      { id: 0, name: "자바실무수업24-JDBC", type: "file" },
+      { id: 0, name: "자바실무기말", type: "file" },
 
       { id: 0, name: "앱개발 수업", type: "title" },
       { id: 0, name: "모바일앱수업01", type: "file" },
       { id: 0, name: "모바일앱수업02", type: "file" },
       { id: 0, name: "모바일앱수업03", type: "file" },
+      { id: 0, name: "모바일앱수업05", type: "file" },
 
       { id: 0, name: "JSP 웹개발 수업", type: "title" },
       { id: 0, name: "웹JSP수업01", type: "file" },
       { id: 0, name: "웹JSP수업02", type: "file" },
       { id: 0, name: "웹JSP수업03", type: "file" },
+      { id: 0, name: "웹JSP수업-과제03", type: "file" },
+      { id: 0, name: "웹JSP수업-과제04", type: "file" },
       { id: 0, name: "웹JSP수업05", type: "file" },
-      
+      { id: 0, name: "웹JSP수업06", type: "file" },
+      { id: 0, name: "웹JSP수업07", type: "file" },
+      { id: 0, name: "웹JSP수업08-기말안내", type: "file" },
+
       { id: 0, name: "데이터베이스 수업", type: "title" },
       { id: 0, name: "DB수업01", type: "file" },
       { id: 0, name: "DB수업03", type: "file" },
@@ -214,6 +234,21 @@ export const markdownFiles = [
       { id: 0, name: "인공지능수업01", type: "file" },
       { id: 0, name: "인공지능수업03-과제", type: "file" },
       { id: 0, name: "인공지능수업04", type: "file" },
+      { id: 0, name: "인공지능수업08", type: "file" },
+
+      { id: 0, name: "캡스톤 디자인", type: "title" },
+      { id: 0, name: "캡스톤디자인01", type: "file" },
+
+      { id: 0, name: "기타 정보", type: "title" },
+      { id: 0, name: "개발시장정보", type: "file" },
+
+      { id: 0, name: "웹앱양성과정-자바01-방학", type: "file" },
+      { id: 0, name: "웹앱양성과정-자바02-방학", type: "file" },
+      { id: 0, name: "웹앱양성과정-자바03-방학", type: "file" },
+
+      { id: 0, name: "참관_해킹대응01", type: "file" },
+      { id: 0, name: "후배들의C언어01", type: "file" },
+      
     ]
   }
   ];
