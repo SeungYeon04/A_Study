@@ -19,7 +19,7 @@ const Read = () => {
   }, [fileName, categoryName]);
 
   return (
-    <div className="py-4 px-4 text-center">
+    <div className="py-4 px-4">
       <ReactMarkdown 
         remarkPlugins={[remarkGfm]} 
         className="markdown-body"

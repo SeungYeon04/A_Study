@@ -14,6 +14,7 @@ a {
     text-decoration-line: none; 
 }
 
+
 @font-face {
     font-family: 'RixXladywatermelonR';
     src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-4@1.0/RixXladywatermelonR.woff2') format('woff2');
@@ -50,9 +51,16 @@ a {
 
 .Box3 {
     height: 100%; /* 전체 화면 높이 */
-    text-align: center;
     padding-top: 2%; 
     margin-left: 250px; /*왼쪽 고정 크기만큼 비우기*/
+
+    div, h1, h2, h3 {
+        text-align: center; 
+    }
+}
+
+.markdown-body ol, p, li {
+    text-align: left; 
 }
 
 .BottomBox {
@@ -88,6 +96,7 @@ pre {
     pre {
         background-color: #818181;
     }
+   
 
     /*** Box2 스크롤바 설정 ***/
     .Box1::-webkit-scrollbar, .body::-webkit-scrollbar {
