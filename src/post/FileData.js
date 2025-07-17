@@ -245,6 +245,7 @@ export const markdownFiles = [
       { id: 0, name: "웹앱양성과정-자바01-방학", type: "file" },
       { id: 0, name: "웹앱양성과정-자바02-방학", type: "file" },
       { id: 0, name: "웹앱양성과정-자바03-방학", type: "file" },
+      { id: 0, name: "웹앱양성과정-자바04-방학", type: "file" },
 
       { id: 0, name: "참관_해킹대응01", type: "file" },
       { id: 0, name: "후배들의C언어01", type: "file" },
