@@ -239,14 +239,14 @@ export const markdownFiles = [
       { id: 0, name: "캡스톤 디자인", type: "title" },
       { id: 0, name: "캡스톤디자인01", type: "file" },
 
-      { id: 0, name: "기타 정보", type: "title" },
-      { id: 0, name: "개발시장정보", type: "file" },
-
+      { id: 0, name: "방학활동", type: "title" },
       { id: 0, name: "웹앱양성과정-자바01-방학", type: "file" },
       { id: 0, name: "웹앱양성과정-자바02-방학", type: "file" },
       { id: 0, name: "웹앱양성과정-자바03-방학", type: "file" },
       { id: 0, name: "웹앱양성과정-자바04-방학", type: "file" },
 
+      { id: 0, name: "기타 정보", type: "title" },
+      { id: 0, name: "개발시장정보", type: "file" },
       { id: 0, name: "참관_해킹대응01", type: "file" },
       { id: 0, name: "후배들의C언어01", type: "file" },
       
