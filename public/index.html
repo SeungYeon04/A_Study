@@ -7,7 +7,40 @@
 </title> 
 </head> 
 <body style="margin: 0%;">
+    
     <div class="body">
+    <!-- ✅ 앱 로딩 전 전체 로딩 화면 -->
+    <div id="global-loader" class="fade-in">
+        <style>
+        #global-loader {
+            background-color: #2c2c2c;
+            color: #fff;
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            font-size: 1.6em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'RixXladywatermelonR';
+            opacity: 1;
+      transition: opacity 0.5s ease;
+        }
+        #global-loader.fade-out {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+        @font-face {
+            font-family: 'RixXladywatermelonR';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-4@1.0/RixXladywatermelonR.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        </style>
+        로딩 중...
+    </div>
+    
     <div class="AllBox">
         <div class="Box1" style="overflow-y:scroll;" id="Box1">
         <br>
@@ -40,7 +73,7 @@
         <div id="root"></div>
     </div>
     </div>
-    <footer class="BottomBox"><img src="/img/CoBanner.png" style="width: 45%;"></footer>
+    <footer class="BottomBox"></footer>
 </div>
 </body> 
 </html>
