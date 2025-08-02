@@ -119,7 +119,7 @@ pre {
 
 /* 다크모드 화이트모드 스킨 */
 .dark-mode {
-    .body{
+    .body, .toc {
         color: rgb(221, 221, 221);
     }
     
@@ -154,7 +154,7 @@ pre {
 
 .while-mode {
 
-    .body{
+    .body, .toc{
         color: black;
     }
     
@@ -162,10 +162,10 @@ pre {
         color: rgba(49, 49, 49, 0.856); 
     }
     .Box1, .Box2 {
-        background-color: #fffcf3; 
+        background-color: #fff4d5; 
     }
     .header, .header2, .BottomBox, .Box3, .body {
-        background-color: rgb(255, 244, 244); 
+        background-color: rgb(245, 211, 211); 
     }
 
     /*** Box2 스크롤바 설정 ***/
@@ -183,7 +183,7 @@ pre {
     }
 
     pre {
-        background-color: #fcfcfc;
+        background-color: #e5e5e5;
     }
 }
 
@@ -218,3 +218,54 @@ pre {
     .Box1::-webkit-scrollbar-track, .body::-webkit-scrollbar-track {
         background-color: #575757;
     }
+
+
+
+
+/* 목차 */
+.toc-title {
+  background: #696969;
+  color: #ccc;
+  padding: 0.5em 1em;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.toc {
+  border: 1px solid #666;
+  border-radius: 6px;
+  overflow: hidden;
+  font-size: 0.8em;
+  color: white;
+
+  margin-left: 24%;
+  margin-right: 24%;
+  margin-bottom: 10%;
+  margin: center;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .toc-level-4 {
+    padding-left: 2em;
+  }
+
+ a {
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    margin-left: 10px;
+    font-size: 0.9em;
+  }
+}
+
+.toc-item {
+  display: flex;
+  padding: 0.4em 1em;
+  border-top: 1px solid #666;
+  white-space: nowrap;
+}
+
