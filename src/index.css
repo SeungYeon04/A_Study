@@ -74,10 +74,16 @@ a {
         padding: 0;
     }
 
-    p, li, pre {
+    p, li {
         text-align: left; 
         margin-left: 14%;
         margin-right: 10%;
+    }
+
+    pre {
+        text-align: left; 
+        margin-left: 11%;
+        margin-right: 7%;
     }
 
     /* 1. 2. 3. 이 깨진다면 */
@@ -115,76 +121,6 @@ a {
 pre {
     font-size: 10px; 
     text-align: left;
-}
-
-/* 다크모드 화이트모드 스킨 */
-.dark-mode {
-    .body, .toc {
-        color: rgb(221, 221, 221);
-    }
-    
-    :visited {
-        color: rgba(196, 196, 196, 0.856); 
-    }
-    .Box1, .Box2 {
-        background-color: rgb(71, 71, 71); 
-    }
-    .Box3, .header, .header2, .BottomBox, .body {
-        background-color: rgb(71, 71, 71); 
-    }
-    pre {
-        background-color: #818181;
-    }
-   
-
-    /*** Box2 스크롤바 설정 ***/
-    .Box1::-webkit-scrollbar, .body::-webkit-scrollbar {
-        width: 6px;
-    }
-    /* 스크롤바 막대 설정*/
-    .Box1::-webkit-scrollbar-thumb, .body::-webkit-scrollbar-thumb {
-        background: linear-gradient(#f64435, #ffe498);
-        border-radius: 25px;
-    }
-    /* 스크롤바 뒷 배경 설정*/
-    .Box1::-webkit-scrollbar-track, .body::-webkit-scrollbar-track {
-        background-color: #575757;
-    }
-}
-
-.while-mode {
-
-    .body, .toc{
-        color: black;
-    }
-    
-    :visited {
-        color: rgba(49, 49, 49, 0.856); 
-    }
-    .Box1, .Box2 {
-        background-color: #fff4d5; 
-    }
-    .header, .header2, .BottomBox, .Box3, .body {
-        background-color: rgb(245, 211, 211); 
-    }
-
-    /*** Box2 스크롤바 설정 ***/
-    .Box1::-webkit-scrollbar, .body::-webkit-scrollbar {
-        width: 6px;
-    }
-    /* 스크롤바 막대 설정*/
-    .Box1::-webkit-scrollbar-thumb, .body::-webkit-scrollbar-thumb {
-        background: linear-gradient(#f64435, #ffe498);
-        border-radius: 25px;
-    }
-    /* 스크롤바 뒷 배경 설정*/
-    .Box1::-webkit-scrollbar-track, .body::-webkit-scrollbar-track {
-        background-color: #575757;
-    }
-
-    pre {
-        background-color: #e5e5e5;
-    }
 }
 
 /* 테마 선택 전 기본테마 다크 css */

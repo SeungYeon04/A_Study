@@ -4,8 +4,7 @@ import Post from './post/PagePost';  // 기존 Post.js를 PagePost.js로 변경
 import Read from './post/PageLoad';
 import Category from './post/PageCategory';
 import './App.css';
-import './indexh.css';
-import './indexh.js';
+import './index.css';
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState(null);
