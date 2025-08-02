@@ -52,7 +52,8 @@ a {
 .Box3 {
     height: 100%; /* 전체 화면 높이 */
     padding-top: 2%; 
-    margin-left: 250px; /*왼쪽 고정 크기만큼 비우기*/
+    /* margin-left: 250px; 왼쪽 고정 크기만큼 비우기*/
+    margin-left: 250px;
 
     div, h1, h2, h3 { /* markdown 파일과 카테고리와 타이틀 모두 센터 */
         text-align: center; 
@@ -68,10 +69,23 @@ a {
         margin-right: auto;
     }
 
-    ol, li, p {
+    ol, li, p  {
         text-align: left; 
         padding: 0;
+        margin-left: 7%;
+        margin-right: 5%;
+
     }
+
+    blockquote {
+    padding: 1em 1em;
+    background-color: #f9f9f9;
+    border-left: 5px solid #ccc;
+    font-style: italic;
+    color: #555;
+    border-radius: 6px;
+}
+
 }
 
 
