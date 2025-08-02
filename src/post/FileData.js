@@ -79,6 +79,7 @@ export const markdownFiles = [
     {
       name: "대학1-1학기", type: "folder",
       posts: [
+        { id: 0, name: "현재 확장자가 달라 표시되지 않습니다.", type: "title" },
       ]
     },
     {

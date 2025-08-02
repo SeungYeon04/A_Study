@@ -69,12 +69,26 @@ a {
         margin-right: auto;
     }
 
-    ol, li, p  {
+    ol {
         text-align: left; 
         padding: 0;
-        margin-left: 7%;
-        margin-right: 5%;
+    }
 
+    p, li, pre {
+        text-align: left; 
+        margin-left: 14%;
+        margin-right: 10%;
+    }
+
+    /* 1. 2. 3. 이 깨진다면 */
+    li > p {
+    display: inline;  /* <p>를 inline 처리 */
+    margin: 0;
+    padding: 0;
+    }
+
+    li > p br {
+    display: none;  /* <br> 제거 효과 */
     }
 
     blockquote {
