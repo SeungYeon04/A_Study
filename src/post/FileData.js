@@ -1,29 +1,27 @@
 // src/FileData.js
 export const markdownFiles = [
+     {
+        name: "승연도서관", type: "folder",
+        posts: [
+          { id: 0, name: "AI관련 도서", type: "title" },
+          { id: 0, name: "프롬포트엔지니어링", type: "file" }
+        ]
+    },
     {
-      name: "C언어", type: "folder",
+      name: "C계열 언어", type: "folder",
       posts: [
-        { id: 1, name: "프로그래머스 코테", type: "title" },
+        { id: 1, name: "C언어 프로그래머스 코테", type: "title" },
         { id: 1, name: "가장많이받은선물-lv1", type: "file" },
         { id: 2, name: "C-개구리", type: "file" },
         { id: 3, name: "C-거스름돈", type: "file" },
         { id: 4, name: "C-공항방문객", type: "file" },
         { id: 5, name: "C-k번째로작은수", type: "file" },
-      ]
-    },
-    {
-      name: "C샵언어", type: "folder",
-      posts: [
-        { id: 0, name: "C# 공부기록", type: "title" },
+
+        { id: 0, name: "C#언어 공부기록", type: "title" },
         { id: 0, name: "공부계획", type: "file" },
         { id: 0, name: "직렬화-Json", type: "file" },
         { id: 0, name: "배열", type: "file" },
         { id: 0, name: "리스트", type: "file" },
-      ]
-    },
-    {
-      name: "C++언어", type: "folder",
-      posts: [
       ]
     },
     {
@@ -43,7 +41,7 @@ export const markdownFiles = [
       ]
     },
     {
-      name: "리눅스", type: "folder",
+      name: "자격증공부", type: "folder",
       posts: [
         { id: 0, name: "리눅스2급2차 핵심정리", type: "title" },
         { id: 0, name: "리눅스핵심정리1", type: "file" },
@@ -61,17 +59,21 @@ export const markdownFiles = [
     {
       name: "게임개발", type: "folder",
       posts: [
-        { id: 0, name: "비전대학교 졸업작품(언리얼)", type: "title" },
+        { id: 0, name: "언리얼 프로젝트", type: "title" },
         { id: 0, name: "언리얼스팀서브시스템", type: "file" },
         { id: 0, name: "", type: "file" }
       ]
     },
+ 
     {
         name: "승연의TIL", type: "folder",
         posts: [
-          { id: 0, name: "승연의 TIL", type: "title" },
+          { id: 0, name: "스파르타 코딩클럽 유니티", type: "title" },
+          { id: 0, name: "TIL-2023모음", type: "file" },
+          { id: 0, name: "전주비전대 시절 기록", type: "title" },
           { id: 0, name: "TIL-20240829", type: "file" },
-          { id: 0, name: "TIL-20240830", type: "file" }
+          { id: 0, name: "TIL-20240830", type: "file" },
+          { id: 0, name: "TIL-20250330", type: "file" }
         ]
     },
     {
