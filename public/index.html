@@ -20,16 +20,18 @@
             z-index: 100;
             font-size: 1.6em;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             font-family: 'RixXladywatermelonR';
             opacity: 1;
-      transition: opacity 0.5s ease;
+            transition: opacity 0.5s ease;
         }
+
         #global-loader.fade-out {
-      opacity: 0;
-      pointer-events: none;
-    }
+            opacity: 0;
+            pointer-events: none;
+        }
 
         @font-face {
             font-family: 'RixXladywatermelonR';
@@ -38,6 +40,8 @@
             font-style: normal;
         }
         </style>
+        <!-- 출처: https://gifer.com/en/gifs/loading#google_vignette -->
+        <img src="img/loading01.gif" width="50px" style="margin-bottom: 2%;">
         로딩 중...
     </div>
     
