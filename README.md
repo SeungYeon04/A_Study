@@ -25,6 +25,7 @@ Github url: https://a-study.vercel.app/
 | 🌐 호스팅 | Vercel | 
 | 🌐 NPM 버전 | 노트북 확인 | 
 | 🌐 Node.js 버전 | 노트북 확인 | 
+| 🌐 로딩 소스 | https://gifer.com/en/gifs/loading |
   
 ## 🎮 주요 기능
 
